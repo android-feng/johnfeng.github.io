@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[John Feng's Blog]]></title>
-  <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Default | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/default/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
   <updated>2015-02-17T21:09:32+08:00</updated>
   <id>http://johnfeng.github.io/</id>
