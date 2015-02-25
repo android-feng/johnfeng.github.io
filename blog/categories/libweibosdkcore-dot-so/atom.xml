@@ -4,7 +4,7 @@
   <title><![CDATA[Category: libweibosdkcore.so | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/libweibosdkcore-dot-so/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-25T18:05:18+08:00</updated>
+  <updated>2015-02-25T18:08:06+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -29,24 +29,24 @@
 <h2 id="fix">Fix</h2>
 
 <p>Add the following codes into the &ldquo;build.gradle&rdquo; file, inside of  the &ldquo;android&rdquo; block:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">    //noinspection all
-    task copyNativeLibs(type: Copy) {
-        // third party lib so                
-        from(new File(projectDir, &#39;libs&#39;)) { include &#39;armeabi/*.so&#39;,&#39;armeabi-v7a/*.so&#39; }        
-        into new File(buildDir, &#39;native-libs&#39;)
-    }
-    tasks.withType(JavaCompile) {
-        compileTask -&gt;
-            //noinspection all
-            compileTask.dependsOn copyNativeLibs
-    }
+<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="c1">//noinspection all</span>
+    <span class="n">task</span> <span class="nf">copyNativeLibs</span><span class="o">(</span><span class="nl">type:</span> <span class="n">Copy</span><span class="o">)</span> <span class="o">{</span>
+        <span class="c1">// third party lib so                </span>
+        <span class="n">from</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">projectDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">))</span> <span class="o">{</span> <span class="n">include</span> <span class="err">&#39;</span><span class="n">armeabi</span><span class="o">/*.</span><span class="na">so</span><span class="sc">&#39;,&#39;</span><span class="n">armeabi</span><span class="o">-</span><span class="n">v7a</span><span class="o">/*.</span><span class="na">so</span><span class="err">&#39;</span> <span class="o">}</span>        
+        <span class="n">into</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">buildDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="kd">native</span><span class="o">-</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">)</span>
+    <span class="o">}</span>
+    <span class="n">tasks</span><span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">JavaCompile</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">compileTask</span> <span class="o">-&gt;</span>
+            <span class="c1">//noinspection all</span>
+            <span class="n">compileTask</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">copyNativeLibs</span>
+    <span class="o">}</span>
 
-    //noinspection all
-    tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
-        pkgTask -&gt;
-            pkgTask.jniFolders = new HashSet()
-            pkgTask.jniFolders.add(new File(buildDir, &#39;native-libs&#39;))
-    }
+    <span class="c1">//noinspection all</span>
+    <span class="n">tasks</span><span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">build</span><span class="o">.</span><span class="na">gradle</span><span class="o">.</span><span class="na">tasks</span><span class="o">.</span><span class="na">PackageApplication</span><span class="o">)</span> <span class="o">{</span>
+        <span class="n">pkgTask</span> <span class="o">-&gt;</span>
+            <span class="n">pkgTask</span><span class="o">.</span><span class="na">jniFolders</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HashSet</span><span class="o">()</span>
+            <span class="n">pkgTask</span><span class="o">.</span><span class="na">jniFolders</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">buildDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="kd">native</span><span class="o">-</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">))</span>
+    <span class="o">}</span>
 </code></pre></div>
 <p>Problem Solved.</p>
 
