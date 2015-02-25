@@ -74,6 +74,7 @@ github_skip_forks: true
 # Twitter
 twitter_user: "GuangweiFeng"
 twitter_tweet_button: true
+twitter_widget_id: 569365840349249536
 
 # Google +1
 google_plus_one: true
