@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Default | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/default/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-25T17:30:45+08:00</updated>
+  <updated>2015-02-25T18:05:18+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -18,7 +18,7 @@
     <link href="http://johnfeng.github.io/blog/2015/02/16/hello-world/"/>
     <updated>2015-02-16T23:22:27+08:00</updated>
     <id>http://johnfeng.github.io/blog/2015/02/16/hello-world</id>
-    <content type="html"><![CDATA[<h1>Hello World My Blog</h1>
+    <content type="html"><![CDATA[<h1 id="hello-world-my-blog">Hello World My Blog</h1>
 ]]></content>
   </entry>
   
