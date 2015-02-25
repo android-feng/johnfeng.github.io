@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android, | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-25T17:24:11+08:00</updated>
+  <updated>2015-02-25T17:30:45+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -14,7 +14,7 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Weibo Android SDK 3.0.1 Load libweibosdkcore.so.so Crash]]></title>
+    <title type="html"><![CDATA[Weibo Android SDK 3.0.1 Load libweibosdkcore.so Crash]]></title>
     <link href="http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash/"/>
     <updated>2015-02-25T16:51:47+08:00</updated>
     <id>http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash</id>
@@ -30,11 +30,10 @@
 
 <p>Add the following codes into the &ldquo;build.gradle&rdquo; file, inside of  the &ldquo;android&rdquo; block:</p>
 
-<p><code>
-//noinspection all
+<pre><code class="``">    //noinspection all
     task copyNativeLibs(type: Copy) {
-        // third party lib so        
-        from(new File(projectDir, 'libs')) { include 'armeabi/*.so','armeabi-v7a/*.so' }
+        // third party lib so                
+        from(new File(projectDir, 'libs')) { include 'armeabi/*.so','armeabi-v7a/*.so' }        
         into new File(buildDir, 'native-libs')
     }
     tasks.withType(JavaCompile) {
@@ -42,13 +41,14 @@
             //noinspection all
             compileTask.dependsOn copyNativeLibs
     }
-//noinspection all
+
+    //noinspection all
     tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
         pkgTask -&gt;
             pkgTask.jniFolders = new HashSet()
             pkgTask.jniFolders.add(new File(buildDir, 'native-libs'))
     }
-   </code></p>
+</code></pre>
 
 <p>Problem Solved.</p>
 
