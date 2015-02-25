@@ -16,7 +16,7 @@
 
 
 
-<meta name="description" content="A tech blog by Jake Zimmerman. Updates occaisonally with tips, tricks, and hacks that have helped me out.">
+<meta name="description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load .so Crash Weibo Android SDK 3.0.1 - load libweibosdkcore.so Crash Question I was trying &hellip;">
 
 <meta name="keywords" content="Jekyll theme themes responsive blog modern tech hacks ">
 
@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="/images/abstract-1.jpg"
   
   <meta name="twitter:title" content="A Tech Blog by John Feng">
-  <meta name="twitter:description" content="A tech blog by Jake Zimmerman. Updates occaisonally with tips, tricks, and hacks that have helped me out.">
+  <meta name="twitter:description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load .so Crash Weibo Android SDK 3.0.1 - load libweibosdkcore.so Crash Question I was trying &hellip;">
   <meta name="twitter:creator" content="@GuangweiFeng">
 
 
@@ -42,7 +42,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://johnfeng.github.io">
 <meta property="og:title" content="A Tech Blog by John Feng">
-<meta property="og:description" content="A tech blog by Jake Zimmerman. Updates occaisonally with tips, tricks, and hacks that have helped me out.">
+<meta property="og:description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load .so Crash Weibo Android SDK 3.0.1 - load libweibosdkcore.so Crash Question I was trying &hellip;">
 
   <meta property="og:image" content="/images/abstract-1.jpg">
 
@@ -124,6 +124,81 @@
 
   <div id="main" role="main">
     
+
+<article class="hentry">
+  
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-02-25T16:51:47+08:00">
+        <a href="/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash/">February 25, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+  </div><!-- /.entry-meta -->
+  
+    <h1 class="entry-title">
+      <a href="/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash/" rel="bookmark" title="Weibo Android SDK 3.0.1 Load .so Crash" itemprop="url">Weibo Android SDK 3.0.1 Load .so Crash</a>
+    </h1>
+  
+</header>
+
+<div class="entry-content">
+  <h1>Weibo Android SDK 3.0.1  - load <strong>libweibosdkcore.so</strong> Crash</h1>
+
+<hr />
+
+<h2>Question</h2>
+
+<p> I was trying to update my App&rsquo;s Weibo-SDK version from 2.x to 3.0.1 <em>(in order to fix the SSO crash when authorizing apps without Weibo&rsquo;s client, happens on Lollipop)</em>, building process failed with log : Couldn&rsquo;t load sdk from loader dalvik &hellip; <strong>libweibosdkcore.so</strong> file.</p>
+
+<p>After pasting the &ldquo;libweibosdkcore.so&rdquo; file into &ldquo;libs/armeabi-v7a/&rdquo; folder, gradle still could not pass the building process.</p>
+
+<h2>Fix</h2>
+
+<p>Add the following codes into the &ldquo;build.gradle&rdquo; file, inside of  the &ldquo;android&rdquo; block:</p>
+
+<p><code>build script
+//noinspection all
+    task copyNativeLibs(type: Copy) {
+        // third party lib so
+        from(new File(projectDir, 'libs')) { include 'armeabi/*.so','armeabi-v7a/*.so' }
+        into new File(buildDir, 'native-libs')
+    }
+    tasks.withType(JavaCompile) {
+        compileTask -&gt;
+            //noinspection all
+            compileTask.dependsOn copyNativeLibs
+    }
+//noinspection all
+    tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
+        pkgTask -&gt;
+            pkgTask.jniFolders = new HashSet()
+            pkgTask.jniFolders.add(new File(buildDir, 'native-libs'))
+    }
+   </code></p>
+
+<p>Problem Solved.</p>
+
+<p>From <a href="http://blog.sina.com.cn/s/blog_92814aa60102vhv1.html">镕羽&rsquo;s Blog</a></p>
+
+  
+  
+</div><!-- /.entry-content -->
+
+
+
+
+
+</article><!-- /.hentry -->
 
 <article class="hentry">
   

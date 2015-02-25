@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[John Feng's Blog]]></title>
-  <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Android, | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
   <updated>2015-02-25T17:19:39+08:00</updated>
   <id>http://johnfeng.github.io/</id>
@@ -55,15 +55,6 @@
 <p>Problem Solved.</p>
 
 <p>From <a href="http://blog.sina.com.cn/s/blog_92814aa60102vhv1.html">镕羽&rsquo;s Blog</a></p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Hello World]]></title>
-    <link href="http://johnfeng.github.io/blog/2015/02/16/hello-world/"/>
-    <updated>2015-02-16T23:22:27+08:00</updated>
-    <id>http://johnfeng.github.io/blog/2015/02/16/hello-world</id>
-    <content type="html"><![CDATA[<h1>Hello World My Blog</h1>
 ]]></content>
   </entry>
   
