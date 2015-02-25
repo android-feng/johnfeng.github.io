@@ -16,7 +16,7 @@
 
 
 
-<meta name="description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load .so Crash Weibo Android SDK 3.0.1 - load libweibosdkcore.so Crash Question I was trying &hellip;">
+<meta name="description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load libweibosdkcore.so.so Crash Question I was trying to update my App&rsquo;s Weibo-SDK &hellip;">
 
 <meta name="keywords" content="Jekyll theme themes responsive blog modern tech hacks ">
 
@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="/images/abstract-1.jpg"
   
   <meta name="twitter:title" content="A Tech Blog by John Feng">
-  <meta name="twitter:description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load .so Crash Weibo Android SDK 3.0.1 - load libweibosdkcore.so Crash Question I was trying &hellip;">
+  <meta name="twitter:description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load libweibosdkcore.so.so Crash Question I was trying to update my App&rsquo;s Weibo-SDK &hellip;">
   <meta name="twitter:creator" content="@GuangweiFeng">
 
 
@@ -42,7 +42,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://johnfeng.github.io">
 <meta property="og:title" content="A Tech Blog by John Feng">
-<meta property="og:description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load .so Crash Weibo Android SDK 3.0.1 - load libweibosdkcore.so Crash Question I was trying &hellip;">
+<meta property="og:description" content="February 25, 2015 Guangwei Feng Weibo Android SDK 3.0.1 Load libweibosdkcore.so.so Crash Question I was trying to update my App&rsquo;s Weibo-SDK &hellip;">
 
   <meta property="og:image" content="/images/abstract-1.jpg">
 
@@ -146,15 +146,13 @@
   </div><!-- /.entry-meta -->
   
     <h1 class="entry-title">
-      <a href="/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash/" rel="bookmark" title="Weibo Android SDK 3.0.1 Load .so Crash" itemprop="url">Weibo Android SDK 3.0.1 Load .so Crash</a>
+      <a href="/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash/" rel="bookmark" title="Weibo Android SDK 3.0.1 Load libweibosdkcore.so.so Crash" itemprop="url">Weibo Android SDK 3.0.1 Load libweibosdkcore.so.so Crash</a>
     </h1>
   
 </header>
 
 <div class="entry-content">
-  <h1>Weibo Android SDK 3.0.1  - load <strong>libweibosdkcore.so</strong> Crash</h1>
-
-<hr />
+  <hr />
 
 <h2>Question</h2>
 
@@ -166,10 +164,10 @@
 
 <p>Add the following codes into the &ldquo;build.gradle&rdquo; file, inside of  the &ldquo;android&rdquo; block:</p>
 
-<p><code>build script
+<p><code>
 //noinspection all
     task copyNativeLibs(type: Copy) {
-        // third party lib so
+        // third party lib so        
         from(new File(projectDir, 'libs')) { include 'armeabi/*.so','armeabi-v7a/*.so' }
         into new File(buildDir, 'native-libs')
     }

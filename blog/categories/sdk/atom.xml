@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Sdk, | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/sdk/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-25T17:19:39+08:00</updated>
+  <updated>2015-02-25T17:24:11+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -14,13 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Weibo Android SDK 3.0.1 Load .so Crash]]></title>
+    <title type="html"><![CDATA[Weibo Android SDK 3.0.1 Load libweibosdkcore.so.so Crash]]></title>
     <link href="http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash/"/>
     <updated>2015-02-25T16:51:47+08:00</updated>
     <id>http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash</id>
-    <content type="html"><![CDATA[<h1>Weibo Android SDK 3.0.1  - load <strong>libweibosdkcore.so</strong> Crash</h1>
-
-<hr />
+    <content type="html"><![CDATA[<hr />
 
 <h2>Question</h2>
 
@@ -32,10 +30,10 @@
 
 <p>Add the following codes into the &ldquo;build.gradle&rdquo; file, inside of  the &ldquo;android&rdquo; block:</p>
 
-<p><code>build script
+<p><code>
 //noinspection all
     task copyNativeLibs(type: Copy) {
-        // third party lib so
+        // third party lib so        
         from(new File(projectDir, 'libs')) { include 'armeabi/*.so','armeabi-v7a/*.so' }
         into new File(buildDir, 'native-libs')
     }
