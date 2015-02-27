@@ -169,14 +169,11 @@ java.lang.IllegalArgumentException: Service not registered: android.speech.tts.T
 
 <blockquote>
 <p>Have to move all webview from the <strong>xml</strong> file and have added them <strong>dynamically</strong> and passing application context.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">```Java
-WebView webView = new WebView(getApplicationContext());
-``` 
-</code></pre></div></blockquote>
-
+</blockquote>
+<div class="highlight"><pre><code class="language-text" data-lang="text">WebView webView = new WebView(getApplicationContext());
+</code></pre></div>
 <ol>
-<li><p>Use following code in OnDestory() method.
-&ldquo;`Java </p>
+<li><p>Use following code in OnDestory() method.</p>
 <div class="highlight"><pre><code class="language-text" data-lang="text">@Override
 protected void onDestroy() {
      clearHistory();
@@ -220,13 +217,12 @@ private void destroyWebView(final WebView webView) {
         e.printStackTrace();
     }
 }
-</code></pre></div>
-<p>}
-    &rdquo;`
-Two things should be noticed :
-1. all operations related with Webview should be on the <strong>UIThread</strong>
-2. webview-destroy operations should happen after removed it from the <strong>container</strong> view.</p></li>
+</code></pre></div></li>
 </ol>
+
+<p>Two things should be noticed :
+  1. all operations related with Webview should be on the <strong>UIThread</strong>
+  2. webview-destroy operations should happen after removed it from the <strong>container</strong> view.</p>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="/categories/#android" title="Pages tagged android" class="tag">android</a><a href="/categories/#issue" title="Pages tagged issue" class="tag">issue</a><a href="/categories/#webview" title="Pages tagged webview" class="tag">webview</a><a href="/categories/#exception" title="Pages tagged exception" class="tag">exception</a></span>
