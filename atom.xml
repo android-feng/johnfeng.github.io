@@ -4,7 +4,7 @@
   <title><![CDATA[John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-25T18:34:37+08:00</updated>
+  <updated>2015-02-27T12:26:13+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -12,6 +12,14 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech/"/>
+    <updated>2015-02-27T12:14:34+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech</id>
+    <content type="html"><![CDATA[]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Weibo Android SDK 3.0.1 Load libweibosdkcore.so Crash]]></title>
