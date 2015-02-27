@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Exception | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/exception/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-27T17:54:57+08:00</updated>
+  <updated>2015-02-27T17:56:52+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -24,7 +24,7 @@
 
 <p></p>
 
-<p><img alt="smile" src="/images/emoji/unicode//unicode/1f604.png" class="emoji" /></p>
+<p><img alt="smile" src="/images/emoji/unicode/1f604.png" class="emoji" /></p>
 
 <p>Noticed a weird crash related with Android TTS, which I didn&#8217;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
 Here is the console output:</p>
