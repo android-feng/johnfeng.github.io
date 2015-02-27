@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Issue | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/issue/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-27T14:25:45+08:00</updated>
+  <updated>2015-02-27T14:27:15+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -18,7 +18,9 @@
     <link href="http://johnfeng.github.io/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech/"/>
     <updated>2015-02-27T12:14:34+08:00</updated>
     <id>http://johnfeng.github.io/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech</id>
-    <content type="html"><![CDATA[<h2 id="problem">Problem</h2>
+    <content type="html"><![CDATA[<p>=====</p>
+
+<h2 id="problem">Problem</h2>
 
 <p>Noticed a weird crash related with Android TTS, which I didn&rsquo;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
 Here is the console output:</p>
