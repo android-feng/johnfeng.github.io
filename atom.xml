@@ -4,7 +4,7 @@
   <title><![CDATA[John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-27T14:46:37+08:00</updated>
+  <updated>2015-02-27T14:54:54+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -20,9 +20,10 @@
     <id>http://johnfeng.github.io/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech</id>
     <content type="html"><![CDATA[<hr>
 
-<h2 id="problem:">Problem:</h2>
+<h2 id="problem:-">Problem: </h2>
 
-<p>Noticed a weird crash related with Android TTS, which I didn&rsquo;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
+<p><i class='emoji cry'></i> 
+Noticed a weird crash related with Android TTS, which I didn&rsquo;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
 Here is the console output:</p>
 
 <figure class='code'><figcaption><span>Console Out Put </span></figcaption>
@@ -89,9 +90,8 @@ Here is the console output:</p>
 
 <h2 id="fix:">Fix:</h2>
 
-<ol>
-<li>One Method from <a href="http://stackoverflow.com/questions/27740935/service-not-registered-android-speech-tts-texttospeech">stackoverflow</a></li>
-</ol>
+<p><i class='emoji smile'></i> 
+1. One Method from <a href="http://stackoverflow.com/questions/27740935/service-not-registered-android-speech-tts-texttospeech">stackoverflow</a></p>
 
 <blockquote>
 <p>Have to move all webview from the <strong>xml</strong> file and have added them <strong>dynamically</strong> and passing application context.</p>
