@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Webview | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/webview/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-27T15:10:51+08:00</updated>
+  <updated>2015-02-27T15:21:28+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -22,7 +22,7 @@
 
 <h2 id="problem:-">Problem: </h2>
 
-<p><i class='emoji cry'></i> </p>
+<p>:cry:</p>
 
 <p>Noticed a weird crash related with Android TTS, which I didn&rsquo;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
 Here is the console output:</p>
@@ -91,7 +91,7 @@ Here is the console output:</p>
 
 <h2 id="fix:">Fix:</h2>
 
-<p><i class='emoji smile'></i> </p>
+<p>:smile:</p>
 
 <ol>
 <li>One Method from <a href="http://stackoverflow.com/questions/27740935/service-not-registered-android-speech-tts-texttospeech">stackoverflow</a></li>
