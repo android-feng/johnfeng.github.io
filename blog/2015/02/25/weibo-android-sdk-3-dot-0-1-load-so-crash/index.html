@@ -16,7 +16,7 @@
 
 
 
-<meta name="description" content="Question I was trying to update my App&rsquo;s Weibo-SDK version from 2.x to 3.0.1 (in order to fix the SSO crash when authorizing apps without &hellip;">
+<meta name="description" content="Question I was trying to update my App's Weibo-SDK version from 2.x to 3.0.1 (in order to fix the SSO crash when authorizing apps without Weibo's &hellip;">
 
 <meta name="keywords" content="crash android gradle weibo-sdk libweibosdkcore.so ">
 
@@ -33,7 +33,7 @@
     <meta name="twitter:image" content"">
   
   <meta name="twitter:title" content="Weibo Android SDK 3.0.1 load libweibosdkcore.so Crash">
-  <meta name="twitter:description" content="Question I was trying to update my App&rsquo;s Weibo-SDK version from 2.x to 3.0.1 (in order to fix the SSO crash when authorizing apps without &hellip;">
+  <meta name="twitter:description" content="Question I was trying to update my App's Weibo-SDK version from 2.x to 3.0.1 (in order to fix the SSO crash when authorizing apps without Weibo's &hellip;">
   <meta name="twitter:creator" content="@GuangweiFeng">
 
 
@@ -42,7 +42,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash">
 <meta property="og:title" content="Weibo Android SDK 3.0.1 load libweibosdkcore.so Crash">
-<meta property="og:description" content="Question I was trying to update my App&rsquo;s Weibo-SDK version from 2.x to 3.0.1 (in order to fix the SSO crash when authorizing apps without &hellip;">
+<meta property="og:description" content="Question I was trying to update my App's Weibo-SDK version from 2.x to 3.0.1 (in order to fix the SSO crash when authorizing apps without Weibo's &hellip;">
 
   <meta property="og:image" content="">
 
@@ -121,39 +121,41 @@
       </div><!-- /.header-title-wrap -->
     </header>
     <div class="entry-content">
-      <hr>
+      <hr />
 
-<h2 id="question">Question</h2>
+<h2>Question</h2>
 
-<p>I was trying to update my App&rsquo;s Weibo-SDK version from 2.x to 3.0.1 <em>(in order to fix the SSO crash when authorizing apps without Weibo&rsquo;s client, happens on **Lollipop</em><em>)</em>, building process failed with log : Couldn&rsquo;t load sdk from loader dalvik &hellip; <strong>libweibosdkcore.so</strong> file.</p>
+<p> I was trying to update my App&#8217;s Weibo-SDK version from 2.x to 3.0.1 <em>(in order to fix the SSO crash when authorizing apps without Weibo&#8217;s client, happens on <strong>Lollipop</strong>)</em>, building process failed with log : Couldn&#8217;t load sdk from loader dalvik &#8230; <strong>libweibosdkcore.so</strong> file.</p>
 
-<p>After pasting the &ldquo;libweibosdkcore.so&rdquo; file into &ldquo;libs/armeabi-v7a/&rdquo; folder, gradle still could not pass the building process.</p>
+<p>After pasting the &#8220;libweibosdkcore.so&#8221; file into &#8220;libs/armeabi-v7a/&#8221; folder, gradle still could not pass the building process.</p>
 
-<h2 id="fix">Fix</h2>
+<h2>Fix</h2>
 
-<p>Add the following codes into the &ldquo;build.gradle&rdquo; file, inside of  the &ldquo;android&rdquo; block:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="c1">//noinspection all</span>
-    <span class="n">task</span> <span class="nf">copyNativeLibs</span><span class="o">(</span><span class="nl">type:</span> <span class="n">Copy</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// third party lib so                </span>
-        <span class="n">from</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">projectDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">))</span> <span class="o">{</span> <span class="n">include</span> <span class="err">&#39;</span><span class="n">armeabi</span><span class="o">/*.</span><span class="na">so</span><span class="sc">&#39;,&#39;</span><span class="n">armeabi</span><span class="o">-</span><span class="n">v7a</span><span class="o">/*.</span><span class="na">so</span><span class="err">&#39;</span> <span class="o">}</span>        
-        <span class="n">into</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">buildDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="kd">native</span><span class="o">-</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">)</span>
-    <span class="o">}</span>
-    <span class="n">tasks</span><span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">JavaCompile</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">compileTask</span> <span class="o">-&gt;</span>
-            <span class="c1">//noinspection all</span>
-            <span class="n">compileTask</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">copyNativeLibs</span>
-    <span class="o">}</span>
+<p>Add the following codes into the &#8220;build.gradle&#8221; file, inside of  the &#8220;android&#8221; block:</p>
 
-    <span class="c1">//noinspection all</span>
-    <span class="n">tasks</span><span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">build</span><span class="o">.</span><span class="na">gradle</span><span class="o">.</span><span class="na">tasks</span><span class="o">.</span><span class="na">PackageApplication</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">pkgTask</span> <span class="o">-&gt;</span>
-            <span class="n">pkgTask</span><span class="o">.</span><span class="na">jniFolders</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HashSet</span><span class="o">()</span>
-            <span class="n">pkgTask</span><span class="o">.</span><span class="na">jniFolders</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">buildDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="kd">native</span><span class="o">-</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">))</span>
-    <span class="o">}</span>
-</code></pre></div>
+<pre><code class="``java">    //noinspection all
+    task copyNativeLibs(type: Copy) {
+        // third party lib so                
+        from(new File(projectDir, 'libs')) { include 'armeabi/*.so','armeabi-v7a/*.so' }        
+        into new File(buildDir, 'native-libs')
+    }
+    tasks.withType(JavaCompile) {
+        compileTask -&gt;
+            //noinspection all
+            compileTask.dependsOn copyNativeLibs
+    }
+
+    //noinspection all
+    tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
+        pkgTask -&gt;
+            pkgTask.jniFolders = new HashSet()
+            pkgTask.jniFolders.add(new File(buildDir, 'native-libs'))
+    }
+</code></pre>
+
 <p>Problem Solved.</p>
 
-<p>From &lt;<a href="http://blog.sina.com.cn/s/blog_92814aa60102vhv1.html">镕羽&rsquo;s Blog</a>&gt;</p>
+<p>From &lt;<a href="http://blog.sina.com.cn/s/blog_92814aa60102vhv1.html">镕羽&#8217;s Blog</a>></p>
 
       <footer class="entry-meta">
         <span class="entry-tags"><a href="/categories/#crash" title="Pages tagged crash" class="tag">crash</a><a href="/categories/#android" title="Pages tagged android" class="tag">android</a><a href="/categories/#gradle" title="Pages tagged gradle" class="tag">gradle</a><a href="/categories/#weibo-sdk" title="Pages tagged weibo-sdk" class="tag">weibo-sdk</a><a href="/categories/#libweibosdkcore.so" title="Pages tagged libweibosdkcore.so" class="tag">libweibosdkcore.so</a></span>
