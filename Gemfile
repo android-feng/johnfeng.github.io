@@ -16,6 +16,7 @@ group :development do
   gem 'stringex', '~> 1.4.0'
   gem 'redcarpet', '~> 3.2.2'
   gem 'albino', '~> 1.3'
+  gem 'gemoji', '~> 2.1.0'
 end
 
 gem 'sinatra', '~> 1.4.2'

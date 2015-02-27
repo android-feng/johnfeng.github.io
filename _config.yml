@@ -35,13 +35,13 @@ destination: public
 plugins: plugins
 code_dir: downloads/code
 category_dir: blog/categories
-markdown: redcarpet
+markdown: rdiscount
 redcarpet: 
   extensions: ["no_intra_emphasis", "fenced_code_blocks", "autolink", "strikethrough", "superscript", "with_toc_data", "smart", "footnotes", "highlight", "emoji_for_jekyll"]
 
 highlighter: pygments # default python pygments have been replaced by pygments.rb
 
-paginate: 10          # Posts per page on the blog index
+paginate: 7          # Posts per page on the blog index
 paginate_path: "posts/:num"  # Directory base for pagination URLs eg. /posts/2/
 recent_posts: 5       # Posts in the sidebar Recent Posts section
 excerpt_link: "Read on &rarr;"  # "Continue reading" link text at the bottom of excerpted articles
@@ -59,6 +59,10 @@ blog_index_asides: [asides/recent_posts.html, asides/github.html, asides/delicio
 post_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html, custom/asides/calendar.html]
 page_asides: [asides/recent_posts.html, asides/github.html, asides/delicious.html, asides/pinboard.html, asides/googleplus.html, custom/asides/calendar.html]
 
+# Number of recent posts to appear in the sidebar
+recent_posts: 5
+emoji_dir: /images/emoji
+
 # ----------------------- #
 #   3rd Party Settings    #
 # ----------------------- #
@@ -73,6 +77,11 @@ github_skip_forks: true
 twitter_user: "GuangweiFeng"
 twitter_tweet_button: true
 twitter_widget_id: 569365840349249536
+twitter_tweet_count: 4
+twitter_show_replies: false
+twitter_follow_button: true
+twitter_show_follower_count: false
+twitter_tweet_button: true
 
 # Google +1
 google_plus_one: true
@@ -92,8 +101,8 @@ delicious_user:
 delicious_count: 3
 
 # Disqus Comments
-disqus_short_name:
-disqus_show_comment_count: false
+disqus_short_name: "guangweijohnfengsblog"
+disqus_show_comment_count: 5
 
 # Google Analytics
 google_analytics_tracking_id: "UA-59729566-1"
