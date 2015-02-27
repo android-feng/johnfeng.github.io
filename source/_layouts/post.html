@@ -22,9 +22,9 @@
     <header class="header-title">
       <div class="header-title-wrap">
         {% if page.external_url %}
-          <h1 class="entry-title"><a href="{{ page.external_url }}">{{ page.title }}</a></h1>
+          <h2 class="entry-title"><a href="{{ page.external_url }}">{{ page.title }}</a></h2>
         {% else %}
-          <h1 class="entry-title"><a href="{{ root_url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h1>
+          <h2 class="entry-title"><a href="{{ root_url }}{{ page.url }}" rel="bookmark" title="{{ page.title }}">{{ page.title }}</a></h2>
         {% endif %}
         <h2>{{ page.date | date: "%B %d, %Y" }}</h2>
       </div><!-- /.header-title-wrap -->
@@ -45,6 +45,7 @@
         </div><!-- /.social-share -->{% endif %}
       </footer>
     </div><!-- /.entry-content -->
+    {% if site.disqus_short_name and page.comments %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
     {% if site.related_posts.size %}
       <div class="read-more">
         {% for post in site.related_posts limit:1 %}
@@ -66,7 +67,6 @@
         </div><!-- /.read-more-list -->
       </div><!-- /.read-more -->
     {% endif %}
-    {% if site.disqus_short_name and page.comments %}<section id="disqus_thread"></section><!-- /#disqus_thread -->{% endif %}
   </article>
 </div><!-- /#main -->
 

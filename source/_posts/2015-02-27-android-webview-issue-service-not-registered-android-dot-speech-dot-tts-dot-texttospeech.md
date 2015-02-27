@@ -10,9 +10,7 @@ categories: android issue webview exception
 Problem: 
 -----
 
-{{:cry:}}
-
-{%gemoji smile%}
+######{%gemoji cry%}
 
 Noticed a weird crash related with Android TTS, which I didn't wish to use, when I tried to initial or destroy a webview loaded from XML file.
 Here is the console output:
@@ -55,7 +53,8 @@ Here is the console output:
 Fix:
 ----
 
-{{:smile:}}
+######{%gemoji smile%}
+
 
 
 1. One Method from [stackoverflow](http://stackoverflow.com/questions/27740935/service-not-registered-android-speech-tts-texttospeech)
