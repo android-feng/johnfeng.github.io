@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Issue | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/issue/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-27T13:49:20+08:00</updated>
+  <updated>2015-02-27T13:55:39+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -65,9 +65,7 @@ Here is the console output:</p>
 <blockquote>
 <p>Have to move all webview from the <strong>xml</strong> file and have added them <strong>dynamically</strong> and passing application context.</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-text" data-lang="text">```java
-WebView webView = new WebView(getApplicationContext());
-```
+<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="n">WebView</span> <span class="n">webView</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">WebView</span><span class="o">(</span><span class="n">getApplicationContext</span><span class="o">());</span>
 </code></pre></div>
 <ol>
 <li>Use following code in OnDestory() method.</li>
@@ -116,9 +114,12 @@ WebView webView = new WebView(getApplicationContext());
             <span class="o">}</span>
         <span class="o">}</span>
 </code></pre></div>
-<p>Two things should be noticed :
-  1. all operations related with Webview should be on the <strong>UIThread</strong>
-  2. webview-destroy operations should happen after removed it from the <strong>container</strong> view.</p>
+<p>Two things should be noticed :</p>
+
+<ol>
+<li>all operations related with Webview should be on the <strong>UIThread</strong></li>
+<li>webview-destroy operations should happen after removed it from the <strong>container</strong> view.</li>
+</ol>
 ]]></content>
   </entry>
   
