@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Exception | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/exception/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-27T12:52:53+08:00</updated>
+  <updated>2015-02-27T13:49:20+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -22,34 +22,32 @@
 
 <p>Noticed a weird crash related with Android TTS, which I didn&rsquo;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
 Here is the console output:</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">```Java
-java.lang.IllegalArgumentException: Service not registered: android.speech.tts.TextToSpeech$Connection@41519670
-   at android.app.LoadedApk.forgetServiceDispatcher(LoadedApk.java:937)
-   at android.app.ContextImpl.unbindService(ContextImpl.java:1521)
-   at android.content.ContextWrapper.unbindService(ContextWrapper.java:490)
-   at android.speech.tts.TextToSpeech$Connection.disconnect(TextToSpeech.java:1321)
-   at android.speech.tts.TextToSpeech$1.run(TextToSpeech.java:661)
-   at android.speech.tts.TextToSpeech$1.run(TextToSpeech.java:656)
-   at android.speech.tts.TextToSpeech$Connection.runAction(TextToSpeech.java:1340)
-   at android.speech.tts.TextToSpeech.runAction(TextToSpeech.java:570)
-   at android.speech.tts.TextToSpeech.runActionNoReconnect(TextToSpeech.java:557)
-   at android.speech.tts.TextToSpeech.shutdown(TextToSpeech.java:656)
-   at android.webkit.AccessibilityInjector$TextToSpeechWrapper.shutdown(AccessibilityInjector.java:748)
-   at android.webkit.AccessibilityInjector.destroy(AccessibilityInjector.java:187)
-   at android.webkit.WebViewClassic.destroyJava(WebViewClassic.java:2618)
-   at android.webkit.WebViewClassic.destroy(WebViewClassic.java:2601)
-   at android.webkit.WebView.destroy(WebView.java:665)
-   at com.douban.dongxi.app.BrowserPurchaseActvitiy$5.run(BrowserPurchaseActvitiy.java:197)
-   at android.os.Handler.handleCallback(Handler.java:725)
-   at android.os.Handler.dispatchMessage(Handler.java:92)
-   at android.os.Looper.loop(Looper.java:137)
-   at android.app.ActivityThread.main(ActivityThread.java:5105)
-   at java.lang.reflect.Method.invokeNative(Method.java)
-   at java.lang.reflect.Method.invoke(Method.java:511)
-   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:793)
-   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:560)
-   at dalvik.system.NativeStart.main(NativeStart.java)
-   ```
+<div class="highlight"><pre><code class="language-Java" data-lang="Java">    <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalArgumentException</span><span class="o">:</span> <span class="n">Service</span> <span class="n">not</span> <span class="nl">registered:</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="err">@</span><span class="mi">41519670</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">LoadedApk</span><span class="o">.</span><span class="na">forgetServiceDispatcher</span><span class="o">(</span><span class="n">LoadedApk</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">937</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ContextImpl</span><span class="o">.</span><span class="na">unbindService</span><span class="o">(</span><span class="n">ContextImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1521</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">content</span><span class="o">.</span><span class="na">ContextWrapper</span><span class="o">.</span><span class="na">unbindService</span><span class="o">(</span><span class="n">ContextWrapper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">490</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1321</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$1</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">661</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$1</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">656</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="o">.</span><span class="na">runAction</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1340</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">runAction</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">570</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">runActionNoReconnect</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">557</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">shutdown</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">656</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">AccessibilityInjector$TextToSpeechWrapper</span><span class="o">.</span><span class="na">shutdown</span><span class="o">(</span><span class="n">AccessibilityInjector</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">748</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">AccessibilityInjector</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">AccessibilityInjector</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">187</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebViewClassic</span><span class="o">.</span><span class="na">destroyJava</span><span class="o">(</span><span class="n">WebViewClassic</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">2618</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebViewClassic</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">WebViewClassic</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">2601</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebView</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">WebView</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">665</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">dongxi</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">BrowserPurchaseActvitiy$5</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">BrowserPurchaseActvitiy</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">197</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">handleCallback</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">725</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">dispatchMessage</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">92</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Looper</span><span class="o">.</span><span class="na">loop</span><span class="o">(</span><span class="n">Looper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">137</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ActivityThread</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ActivityThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">5105</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invokeNative</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">511</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit$MethodAndArgsCaller</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">793</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">560</span><span class="o">)</span>
+       <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">NativeStart</span><span class="o">.</span><span class="na">java</span><span class="o">)</span>
 </code></pre></div>
 <h4 id="and-the-output-from-crashlytics.">And the output from <strong><a href="http://crashes.to/s/539a8babf82">CrashLytics</a></strong>.</h4>
 
@@ -67,56 +65,57 @@ java.lang.IllegalArgumentException: Service not registered: android.speech.tts.T
 <blockquote>
 <p>Have to move all webview from the <strong>xml</strong> file and have added them <strong>dynamically</strong> and passing application context.</p>
 </blockquote>
-<div class="highlight"><pre><code class="language-text" data-lang="text">WebView webView = new WebView(getApplicationContext());
+<div class="highlight"><pre><code class="language-text" data-lang="text">```java
+WebView webView = new WebView(getApplicationContext());
+```
 </code></pre></div>
 <ol>
-<li><p>Use following code in OnDestory() method.</p>
-<div class="highlight"><pre><code class="language-text" data-lang="text">@Override
-protected void onDestroy() {
-     clearHistory();
-     long timeout = ViewConfiguration.getZoomControlsTimeout();
-     new Timer().schedule(new TimerTask() {
-             @Override
-              public void run() {
-                    destroyWebView(mWebView);
-              }
-      }, timeout);
-}
-
-void clearHistory() {
-if (mWebView != null) {
-    runOnUiThread(new Runnable() {
-        @Override
-        public void run() {
-            mWebView.clearHistory();
-        }
-    });
-}  
-
-private void destroyWebView(final WebView webView) {
-    if (webView != null) {
-    try {
-        mWebViewContainer.removeView(webView);
-
-        if (webView != null) {
-            runOnUiThread(new Runnable() {
-                @Override
-                public void run() {
-                    webView.stopLoading();
-                    webView.removeAllViews();
-                    webView.clearCache(true);
-                    webView.destroyDrawingCache();
-                    webView.destroy();
-                }
-            });
-        }
-    } catch (Exception e) {
-        e.printStackTrace();
-    }
-}
-</code></pre></div></li>
+<li>Use following code in OnDestory() method.</li>
 </ol>
+<div class="highlight"><pre><code class="language-java" data-lang="java">        <span class="nd">@Override</span>
+        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+             <span class="n">clearHistory</span><span class="o">();</span>
+             <span class="kt">long</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">ViewConfiguration</span><span class="o">.</span><span class="na">getZoomControlsTimeout</span><span class="o">();</span>
+             <span class="k">new</span> <span class="nf">Timer</span><span class="o">().</span><span class="na">schedule</span><span class="o">(</span><span class="k">new</span> <span class="nf">TimerTask</span><span class="o">()</span> <span class="o">{</span>
+                     <span class="nd">@Override</span>
+                      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                            <span class="n">destroyWebView</span><span class="o">(</span><span class="n">mWebView</span><span class="o">);</span>
+                      <span class="o">}</span>
+              <span class="o">},</span> <span class="n">timeout</span><span class="o">);</span>
+        <span class="o">}</span>
 
+        <span class="kt">void</span> <span class="nf">clearHistory</span><span class="o">()</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">mWebView</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="nf">Runnable</span><span class="o">()</span> <span class="o">{</span>
+                <span class="nd">@Override</span>
+                <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                    <span class="n">mWebView</span><span class="o">.</span><span class="na">clearHistory</span><span class="o">();</span>
+                <span class="o">}</span>
+            <span class="o">});</span>
+        <span class="o">}</span>  
+
+        <span class="kd">private</span> <span class="kt">void</span> <span class="nf">destroyWebView</span><span class="o">(</span><span class="kd">final</span> <span class="n">WebView</span> <span class="n">webView</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">webView</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">try</span> <span class="o">{</span>
+                <span class="n">mWebViewContainer</span><span class="o">.</span><span class="na">removeView</span><span class="o">(</span><span class="n">webView</span><span class="o">);</span>
+
+                <span class="k">if</span> <span class="o">(</span><span class="n">webView</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                    <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="nf">Runnable</span><span class="o">()</span> <span class="o">{</span>
+                        <span class="nd">@Override</span>
+                        <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+                            <span class="n">webView</span><span class="o">.</span><span class="na">stopLoading</span><span class="o">();</span>
+                            <span class="n">webView</span><span class="o">.</span><span class="na">removeAllViews</span><span class="o">();</span>
+                            <span class="n">webView</span><span class="o">.</span><span class="na">clearCache</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+                            <span class="n">webView</span><span class="o">.</span><span class="na">destroyDrawingCache</span><span class="o">();</span>
+                            <span class="n">webView</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+                        <span class="o">}</span>
+                    <span class="o">});</span>
+                <span class="o">}</span>
+            <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+</code></pre></div>
 <p>Two things should be noticed :
   1. all operations related with Webview should be on the <strong>UIThread</strong>
   2. webview-destroy operations should happen after removed it from the <strong>container</strong> view.</p>
