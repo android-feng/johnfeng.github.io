@@ -16,7 +16,7 @@
 
 
 
-<meta name="description" content="February 27, 2015 Guangwei Feng Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech February 25, 2015 Guangwei Feng &hellip;">
+<meta name="description" content="February 27, 2015 Guangwei Feng Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech Problem Noticed a weird crash &hellip;">
 
 <meta name="keywords" content="Jekyll theme themes responsive blog modern tech hacks ">
 
@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="/images/abstract-1.jpg"
   
   <meta name="twitter:title" content="A Tech Blog by John Feng">
-  <meta name="twitter:description" content="February 27, 2015 Guangwei Feng Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech February 25, 2015 Guangwei Feng &hellip;">
+  <meta name="twitter:description" content="February 27, 2015 Guangwei Feng Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech Problem Noticed a weird crash &hellip;">
   <meta name="twitter:creator" content="@GuangweiFeng">
 
 
@@ -42,7 +42,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://johnfeng.github.io">
 <meta property="og:title" content="A Tech Blog by John Feng">
-<meta property="og:description" content="February 27, 2015 Guangwei Feng Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech February 25, 2015 Guangwei Feng &hellip;">
+<meta property="og:description" content="February 27, 2015 Guangwei Feng Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech Problem Noticed a weird crash &hellip;">
 
   <meta property="og:image" content="/images/abstract-1.jpg">
 
@@ -152,7 +152,113 @@
 </header>
 
 <div class="entry-content">
-  
+  <h2 id="problem">Problem</h2>
+
+<p>Noticed a weird crash related with Android TTS, which I didn&rsquo;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
+Here is the console output:</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">```Java
+java.lang.IllegalArgumentException: Service not registered: android.speech.tts.TextToSpeech$Connection@41519670
+   at android.app.LoadedApk.forgetServiceDispatcher(LoadedApk.java:937)
+   at android.app.ContextImpl.unbindService(ContextImpl.java:1521)
+   at android.content.ContextWrapper.unbindService(ContextWrapper.java:490)
+   at android.speech.tts.TextToSpeech$Connection.disconnect(TextToSpeech.java:1321)
+   at android.speech.tts.TextToSpeech$1.run(TextToSpeech.java:661)
+   at android.speech.tts.TextToSpeech$1.run(TextToSpeech.java:656)
+   at android.speech.tts.TextToSpeech$Connection.runAction(TextToSpeech.java:1340)
+   at android.speech.tts.TextToSpeech.runAction(TextToSpeech.java:570)
+   at android.speech.tts.TextToSpeech.runActionNoReconnect(TextToSpeech.java:557)
+   at android.speech.tts.TextToSpeech.shutdown(TextToSpeech.java:656)
+   at android.webkit.AccessibilityInjector$TextToSpeechWrapper.shutdown(AccessibilityInjector.java:748)
+   at android.webkit.AccessibilityInjector.destroy(AccessibilityInjector.java:187)
+   at android.webkit.WebViewClassic.destroyJava(WebViewClassic.java:2618)
+   at android.webkit.WebViewClassic.destroy(WebViewClassic.java:2601)
+   at android.webkit.WebView.destroy(WebView.java:665)
+   at com.douban.dongxi.app.BrowserPurchaseActvitiy$5.run(BrowserPurchaseActvitiy.java:197)
+   at android.os.Handler.handleCallback(Handler.java:725)
+   at android.os.Handler.dispatchMessage(Handler.java:92)
+   at android.os.Looper.loop(Looper.java:137)
+   at android.app.ActivityThread.main(ActivityThread.java:5105)
+   at java.lang.reflect.Method.invokeNative(Method.java)
+   at java.lang.reflect.Method.invoke(Method.java:511)
+   at com.android.internal.os.ZygoteInit$MethodAndArgsCaller.run(ZygoteInit.java:793)
+   at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:560)
+   at dalvik.system.NativeStart.main(NativeStart.java)
+   ```
+</code></pre></div>
+<h4 id="and-the-output-from-crashlytics.">And the output from <strong><a href="http://crashes.to/s/539a8babf82">CrashLytics</a></strong>.</h4>
+
+<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/source/source/images/CrashLytics%202015-02-27%20at%2012.22.23.png?raw=true" alt="Crash Pie Chart">
+<em>Notice that most crashes happened third-party roms like :MEIZU. Had they changed the webview core?</em></p>
+
+<hr>
+
+<h2 id="fix">Fix</h2>
+
+<ol>
+<li>One Method from <a href="http://stackoverflow.com/questions/27740935/service-not-registered-android-speech-tts-texttospeech">stackoverflow</a></li>
+</ol>
+
+<blockquote>
+<p>Have to move all webview from the <strong>xml</strong> file and have added them <strong>dynamically</strong> and passing application context.</p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">```Java
+WebView webView = new WebView(getApplicationContext());
+``` 
+</code></pre></div></blockquote>
+
+<ol>
+<li><p>Use following code in OnDestory() method.
+&ldquo;`Java </p>
+<div class="highlight"><pre><code class="language-text" data-lang="text">@Override
+protected void onDestroy() {
+     clearHistory();
+     long timeout = ViewConfiguration.getZoomControlsTimeout();
+     new Timer().schedule(new TimerTask() {
+             @Override
+              public void run() {
+                    destroyWebView(mWebView);
+              }
+      }, timeout);
+}
+
+void clearHistory() {
+if (mWebView != null) {
+    runOnUiThread(new Runnable() {
+        @Override
+        public void run() {
+            mWebView.clearHistory();
+        }
+    });
+}  
+
+private void destroyWebView(final WebView webView) {
+    if (webView != null) {
+    try {
+        mWebViewContainer.removeView(webView);
+
+        if (webView != null) {
+            runOnUiThread(new Runnable() {
+                @Override
+                public void run() {
+                    webView.stopLoading();
+                    webView.removeAllViews();
+                    webView.clearCache(true);
+                    webView.destroyDrawingCache();
+                    webView.destroy();
+                }
+            });
+        }
+    } catch (Exception e) {
+        e.printStackTrace();
+    }
+}
+</code></pre></div>
+<p>}
+    &rdquo;`
+Two things should be noticed :
+1. all operations related with Webview should be on the <strong>UIThread</strong>
+2. webview-destroy operations should happen after removed it from the <strong>container</strong> view.</p></li>
+</ol>
+
   
   
 </div><!-- /.entry-content -->

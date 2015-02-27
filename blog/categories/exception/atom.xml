@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
 
-  <title><![CDATA[Category: Android | John Feng's Blog]]></title>
-  <link href="http://johnfeng.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <title><![CDATA[Category: Exception | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/exception/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
   <updated>2015-02-27T12:49:43+08:00</updated>
   <id>http://johnfeng.github.io/</id>
@@ -124,47 +124,6 @@ Two things should be noticed :
 1. all operations related with Webview should be on the <strong>UIThread</strong>
 2. webview-destroy operations should happen after removed it from the <strong>container</strong> view.</p></li>
 </ol>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[Weibo Android SDK 3.0.1 Load libweibosdkcore.so Crash]]></title>
-    <link href="http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash/"/>
-    <updated>2015-02-25T16:51:47+08:00</updated>
-    <id>http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash</id>
-    <content type="html"><![CDATA[<hr>
-
-<h2 id="question">Question</h2>
-
-<p>I was trying to update my App&rsquo;s Weibo-SDK version from 2.x to 3.0.1 <em>(in order to fix the SSO crash when authorizing apps without Weibo&rsquo;s client, happens on **Lollipop</em><em>)</em>, building process failed with log : Couldn&rsquo;t load sdk from loader dalvik &hellip; <strong>libweibosdkcore.so</strong> file.</p>
-
-<p>After pasting the &ldquo;libweibosdkcore.so&rdquo; file into &ldquo;libs/armeabi-v7a/&rdquo; folder, gradle still could not pass the building process.</p>
-
-<h2 id="fix">Fix</h2>
-
-<p>Add the following codes into the &ldquo;build.gradle&rdquo; file, inside of  the &ldquo;android&rdquo; block:</p>
-<div class="highlight"><pre><code class="language-java" data-lang="java">    <span class="c1">//noinspection all</span>
-    <span class="n">task</span> <span class="nf">copyNativeLibs</span><span class="o">(</span><span class="nl">type:</span> <span class="n">Copy</span><span class="o">)</span> <span class="o">{</span>
-        <span class="c1">// third party lib so                </span>
-        <span class="n">from</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">projectDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">))</span> <span class="o">{</span> <span class="n">include</span> <span class="err">&#39;</span><span class="n">armeabi</span><span class="o">/*.</span><span class="na">so</span><span class="sc">&#39;,&#39;</span><span class="n">armeabi</span><span class="o">-</span><span class="n">v7a</span><span class="o">/*.</span><span class="na">so</span><span class="err">&#39;</span> <span class="o">}</span>        
-        <span class="n">into</span> <span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">buildDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="kd">native</span><span class="o">-</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">)</span>
-    <span class="o">}</span>
-    <span class="n">tasks</span><span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">JavaCompile</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">compileTask</span> <span class="o">-&gt;</span>
-            <span class="c1">//noinspection all</span>
-            <span class="n">compileTask</span><span class="o">.</span><span class="na">dependsOn</span> <span class="n">copyNativeLibs</span>
-    <span class="o">}</span>
-
-    <span class="c1">//noinspection all</span>
-    <span class="n">tasks</span><span class="o">.</span><span class="na">withType</span><span class="o">(</span><span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">build</span><span class="o">.</span><span class="na">gradle</span><span class="o">.</span><span class="na">tasks</span><span class="o">.</span><span class="na">PackageApplication</span><span class="o">)</span> <span class="o">{</span>
-        <span class="n">pkgTask</span> <span class="o">-&gt;</span>
-            <span class="n">pkgTask</span><span class="o">.</span><span class="na">jniFolders</span> <span class="o">=</span> <span class="k">new</span> <span class="nf">HashSet</span><span class="o">()</span>
-            <span class="n">pkgTask</span><span class="o">.</span><span class="na">jniFolders</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="k">new</span> <span class="nf">File</span><span class="o">(</span><span class="n">buildDir</span><span class="o">,</span> <span class="err">&#39;</span><span class="kd">native</span><span class="o">-</span><span class="n">libs</span><span class="err">&#39;</span><span class="o">))</span>
-    <span class="o">}</span>
-</code></pre></div>
-<p>Problem Solved.</p>
-
-<p>From &lt;<a href="http://blog.sina.com.cn/s/blog_92814aa60102vhv1.html">镕羽&rsquo;s Blog</a>&gt;</p>
 ]]></content>
   </entry>
   
