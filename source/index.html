@@ -22,8 +22,12 @@ image:
       <a href="{{ root_url }}{ paginator.previous_page_path }}" class="btn">Previous</a>
     {% endif %}
   {% endif %}
-  <a href="{{ root_url }}/archives">Blog Archives</a>
+  <a href="{{ root_url }}/archives">Archives</a>
   {% if paginator.next_page %}
     <a href="{{ root_url }}{{ paginator.next_page_path }}" class="btn">Next</a>
   {% endif %}
+  <form class="search" action="http://google.com/search" method="get">
+    <input class="alignright" type="text" name="q" results="0" placeholder="Search this Site">
+    <input type="hidden" name="q" value="site:johnfeng.github.io">
+  </form>
 </div><!-- /.pagination -->
