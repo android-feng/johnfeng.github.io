@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Exception | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/exception/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-03-03T12:42:30+08:00</updated>
+  <updated>2015-03-03T14:57:01+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -81,6 +81,9 @@ Here is the console output:</p>
 </span><span class='line'>       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">560</span><span class="o">)</span>
 </span><span class='line'>       <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">NativeStart</span><span class="o">.</span><span class="na">java</span><span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure></p>
+
+<!-- more -->
+
 
 <h4>And the output from <strong><a href="http://crashes.to/s/539a8babf82">CrashLytics</a></strong>.</h4>
 
