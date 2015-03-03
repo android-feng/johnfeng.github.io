@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Androidwear | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/androidwear/atom.xml" rel="self"/>
+  <link href="http://johnfeng.github.io/"/>
+  <updated>2015-03-04T01:32:19+08:00</updated>
+  <id>http://johnfeng.github.io/</id>
+  <author>
+    <name><![CDATA[Guangwei Feng]]></name>
+    <email><![CDATA[fengguangwei.007@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[First Glance at Moto360]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/03/03/first-glance-at-moto360/"/>
+    <updated>2015-03-03T12:26:35+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/03/03/first-glance-at-moto360</id>
+    <content type="html"><![CDATA[<p>Check out my brand new Moto360. LOL . So Gorgeous!!!</p>
+
+<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360.jpg?raw=true" alt="moto360" /></p>
+
+<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360-1.jpg?raw=true" alt="moto360-1" /></p>
+
+<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360-2.jpg?raw=true" alt="moto360-2" /></p>
+
+<p>I decided to start a new android-tool project on Github following days, basing on Android wear. So much excited I am right now with my moto360.</p>
+]]></content>
+  </entry>
+  
+</feed>
