@@ -4,7 +4,7 @@
   <title><![CDATA[John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-02-28T19:31:41+08:00</updated>
+  <updated>2015-03-03T12:38:10+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[First Glance at Moto360]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/03/03/first-glance-at-moto360/"/>
+    <updated>2015-03-03T12:26:35+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/03/03/first-glance-at-moto360</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech]]></title>
