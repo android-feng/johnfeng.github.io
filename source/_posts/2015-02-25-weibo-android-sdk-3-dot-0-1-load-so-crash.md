@@ -3,6 +3,7 @@ layout: post
 title: "Weibo Android SDK 3.0.1 load libweibosdkcore.so Crash"
 date: 2015-02-25 16:51:47 +0800
 comments: true
+share: true
 categories: crash android gradle weibo-sdk libweibosdkcore.so 
 ---
 ---
@@ -11,6 +12,8 @@ Question
  I was trying to update my App's Weibo-SDK version from 2.x to 3.0.1 *(in order to fix the SSO crash when authorizing apps without Weibo's client, happens on **Lollipop**)*, building process failed with log : Couldn't load sdk from loader dalvik ... **libweibosdkcore.so** file.
 
 After pasting the "libweibosdkcore.so" file into "libs/armeabi-v7a/" folder, gradle still could not pass the building process.
+
+<!-- more -->
 
 Fix
 ------

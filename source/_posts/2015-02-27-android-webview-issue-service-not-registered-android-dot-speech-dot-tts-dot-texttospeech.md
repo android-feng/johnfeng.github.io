@@ -3,7 +3,7 @@ layout: post
 title: "Android WebView Issue - Service not registered: android.speech.tts.TextToSpeech"
 date: 2015-02-27 12:14:34 +0800
 comments: true
-sharing: true
+share: true
 footer: true
 categories: android issue webview exception 
 ---
@@ -45,6 +45,8 @@ Here is the console output:
        at com.android.internal.os.ZygoteInit.main(ZygoteInit.java:560)
        at dalvik.system.NativeStart.main(NativeStart.java)
 {% endcodeblock %}
+
+<!-- more -->
 
 ####And the output from **[CrashLytics](http://crashes.to/s/539a8babf82)**.
 ![Crash Pie Chart](https://github.com/JohnFeng/johnfeng.github.io/blob/source/source/images/CrashLytics%202015-02-27%20at%2012.22.23.png?raw=true)

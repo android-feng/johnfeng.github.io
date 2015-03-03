@@ -16,6 +16,8 @@ image:
       <h2 id="{{ this_year }}-ref">{{ this_year }}</h2>
     {% endif %}
 
+    <hr width="80%" asign="left">
+    <h5><time style="color:gray" datetime="{{ post.date | datetime | date_to_xmlschema }}" updated>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</h5>
     <h3><a href="{{ root_url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
     {% if forloop.last %}
       <div class="clear-both"></div>

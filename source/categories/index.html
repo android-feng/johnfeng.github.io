@@ -28,7 +28,9 @@ image:
 		{% for post in pages_list %}
 			{% if post.title != null %}
 			{% if group == null or group == post.group %}
-      <h3><a href="{{ root_url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
+			   <hr width="80%" asign="left">
+               <h5><time style="color:gray" datetime="{{ post.date | datetime | date_to_xmlschema }}" updated>{{ post.date | date: "<span class='month'>%b</span> <span class='day'>%d</span> <span class='year'>%Y</span>"}}</h5>
+               <h3><a href="{{ root_url }}{{ post.url }}" title="{{ post.title }}">{{ post.title }}</a></h3>
 			{% endif %}
 			{% endif %}
 		{% endfor %}

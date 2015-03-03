@@ -71,7 +71,8 @@ a {
 }
 
 html {
-  background: $page-bg image-url('line-tile.png') top left;
+  //background: $page-bg image-url('line-tile.png') top left;
+    background: $page-bg image-url('background.png') top left;
 }
 body {
   > div {
