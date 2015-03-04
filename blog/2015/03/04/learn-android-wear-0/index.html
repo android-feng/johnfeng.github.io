@@ -132,6 +132,9 @@
 
 <h2><a href="https://developer.android.com/training/building-wearables.html">Official Guide</a> &#8212; <a href="https://developer.android.com/training/wearables/notifications/index.html">1. Adding Wearable Features to Notifications</a></h2>
 
+<!--more-->
+
+
 <pre><code>How to build handheld notifications that are synced to and look great on wearables.
 </code></pre>
 
@@ -175,20 +178,23 @@
 <li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#NotificationBuilder">Create Notifications with the Notification Builder
 </a></p>
 
-<pre><code>  Just the same with the notifications built on handhelds.
-</code></pre></li>
-<li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#ActionButtons">Add action Buttons</a></p>
+<p>  <strong>Just the same with the notifications built on handhelds.</strong></p></li>
+<li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#ActionButtons">Add action Buttons</a></p></li>
+</ul>
 
-<pre><code class="``java        ">  new NotificationCompat.Builder(this)
-      .setSmallIcon(R.drawable.ic_event)
-      .setContentTitle(eventTitle)
-      .setContentText(eventLocation)
-      .setContentIntent(viewPendingIntent)
 
-      // which did the job
-      .addAction(R.drawable.ic_map,
-              getString(R.string.map), mapPendingIntent);
-</code></pre></li>
+<pre><code class="`       ">    new NotificationCompat.Builder(this)
+        .setSmallIcon(R.drawable.ic_event)
+        .setContentTitle(eventTitle)
+        .setContentText(eventLocation)
+        .setContentIntent(viewPendingIntent)
+
+        // which did the job
+        .addAction(R.drawable.ic_map,
+                getString(R.string.map), mapPendingIntent);
+</code></pre>
+
+<ul>
 <li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#SpecifyWearableOnlyActions">Specify Wearable Only Actions</a></p>
 
 <ul>
@@ -209,24 +215,23 @@
 <ul>
 <li>use the NotificationManagerCompat API instead of NotificationManager:</li>
 </ul>
-
-
-<pre><code class="``java">  // Get an instance of the NotificationManager service
-  NotificationManagerCompat notificationManager =
-          NotificationManagerCompat.from(mContext);
-
-  // Issue the notification with notification manager.
-  notificationManager.notify(notificationId, notif);
-</code></pre></li>
+</li>
 </ul>
 
+
+<pre><code class="`">    // Get an instance of the NotificationManager service
+    NotificationManagerCompat notificationManager =
+            NotificationManagerCompat.from(mContext);
+
+    // Issue the notification with notification manager.
+    notificationManager.notify(notificationId, notif);
+</code></pre>
 
 <hr />
 
 <h2>Useful 3rd Party Libs</h2>
 
-<pre><code>Give credits to [Michal Tajchert](https://github.com/tajchert). Really nice work!!!
-</code></pre>
+<h4><strong>Give all credits to <a href="https://github.com/tajchert">Michal Tajchert</a>. Really nice work!!!</strong></h4>
 
 <h3>1. <a href="https://github.com/tajchert/BusWear">BusWear - EventBus for Android Wear</a></h3>
 
