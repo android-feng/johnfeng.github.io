@@ -1,0 +1,10 @@
+<div class="highlight"><pre>	<span class="k">new</span> <span class="n">NotificationCompat</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="k">this</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setSmallIcon</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_event</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setContentTitle</span><span class="o">(</span><span class="n">eventTitle</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setContentText</span><span class="o">(</span><span class="n">eventLocation</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">setContentIntent</span><span class="o">(</span><span class="n">viewPendingIntent</span><span class="o">)</span>
+        
+        <span class="c1">// which did the job</span>
+        <span class="o">.</span><span class="na">addAction</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_map</span><span class="o">,</span>
+                <span class="n">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">map</span><span class="o">),</span> <span class="n">mapPendingIntent</span><span class="o">);</span>
+</pre></div>
