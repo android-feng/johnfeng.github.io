@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Moto360 | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/moto360/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-03-04T15:42:46+08:00</updated>
+  <updated>2015-03-04T15:46:55+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -43,14 +43,14 @@
 
 <p><figure class='code'><figcaption><span>in gradle </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">compile</span> <span class="s">&quot;com.android.support:support-v4:20.0.+&quot;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">compile</span> <span class="s">&quot;com.android.support:support-v4:20.0.+&quot;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
 <p><figure class='code'><figcaption><span>in activity || fragment ||&#8230; </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
-</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationCompat</span><span class="o">;</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationCompat</span><span class="o">;</span>
 </span><span class='line'><span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationManagerCompat</span><span class="o">;</span>
 </span><span class='line'><span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationCompat.WearableExtender</span><span class="o">;</span>
 </span></code></pre></td></tr></table></div></figure></p>
@@ -66,16 +66,31 @@
 </ul>
 
 
-<pre><code class="`       ">    new NotificationCompat.Builder(this)
-        .setSmallIcon(R.drawable.ic_event)
-        .setContentTitle(eventTitle)
-        .setContentText(eventLocation)
-        .setContentIntent(viewPendingIntent)
-
-        // which did the job
-        .addAction(R.drawable.ic_map,
-                getString(R.string.map), mapPendingIntent);
-</code></pre>
+<p> <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="k">new</span> <span class="n">NotificationCompat</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="k">this</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setSmallIcon</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_event</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentTitle</span><span class="o">(</span><span class="n">eventTitle</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentText</span><span class="o">(</span><span class="n">eventLocation</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentIntent</span><span class="o">(</span><span class="n">viewPendingIntent</span><span class="o">)&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="c1">// which did the job</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">addAction</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_map</span><span class="o">,</span>
+</span><span class='line'>            <span class="n">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">map</span><span class="o">),</span> <span class="n">mapPendingIntent</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <ul>
 <li><p>3.<a href="https://developer.android.com/training/wearables/notifications/creating.html#SpecifyWearableOnlyActions">Specify Wearable Only Actions</a></p>
@@ -86,11 +101,11 @@
 </li>
 <li><p>4.<a href="https://developer.android.com/training/wearables/notifications/creating.html#BigView">Add a Big View</a></p>
 
-<blockquote><ul>
+<ul>
 <li><p>On a handheld device, users can see the big view <strong>content</strong> by expanding the notification. On a wearable device, the big view content is <strong>visible</strong> by default.</p></li>
 <li><p>To add the extended content to your notification, call setStyle() on the <a href="https://developer.android.com/reference/android/support/v4/app/NotificationCompat.BigTextStyle.html">NotificationCompat.Builder</a> object, passing it an instance of either BigTextStyle or InboxStyle.</p></li>
 </ul>
-</blockquote></li>
+</li>
 <li><p>5.<a href="https://developer.android.com/training/wearables/notifications/creating.html#AddWearableFeatures">Add Wearable Features For a Notification
 </a></p></li>
 <li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#Deliver">Deliver the Notification</a></p>
@@ -102,17 +117,29 @@
 </ul>
 
 
-<pre><code class="`">    // Get an instance of the NotificationManager service
-    NotificationManagerCompat notificationManager =
-            NotificationManagerCompat.from(mContext);
-
-    // Issue the notification with notification manager.
-    notificationManager.notify(notificationId, notif);
-</code></pre>
+<p> <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="c1">// Get an instance of the NotificationManager service</span>
+</span><span class='line'>    <span class="n">NotificationManagerCompat</span> <span class="n">notificationManager</span> <span class="o">=</span>
+</span><span class='line'>            <span class="n">NotificationManagerCompat</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">mContext</span><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c1">// Issue the notification with notification manager.</span>
+</span><span class='line'><span class="n">notificationManager</span><span class="o">.</span><span class="na">notify</span><span class="o">(</span><span class="n">notificationId</span><span class="o">,</span> <span class="n">notif</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
 
 <hr />
 
-<h2>Useful 3rd Party Libs</h2>
+<h2>One more thing - Useful 3rd Party Libs</h2>
 
 <h4><strong>Give all credits to <a href="https://github.com/tajchert">Michal Tajchert</a>. Really nice work!!!</strong></h4>
 
