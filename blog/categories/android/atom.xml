@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-03-04T15:39:18+08:00</updated>
+  <updated>2015-03-04T15:42:46+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -35,10 +35,7 @@
 <p>There two types of notifications in wear system, one is the <strong>default</strong> card , which will automatically sync received messages to wearable devices with some simple default actions. Another is the <strong>customized</strong> one , which has developer customized layouts and actions, and can do more thing directly from wearable devices.</p>
 
 <ul>
-<li><ol>
-<li>import dependances</li>
-</ol>
-</li>
+<li>0.import dependances</li>
 </ul>
 
 
@@ -61,11 +58,11 @@
 <p>and what you can do with customized notification:</p>
 
 <ul>
-<li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#NotificationBuilder">Create Notifications with the Notification Builder
+<li><p>1.<a href="https://developer.android.com/training/wearables/notifications/creating.html#NotificationBuilder">Create Notifications with the Notification Builder
 </a></p>
 
 <p>  <strong>Just the same with the notifications built on handhelds.</strong></p></li>
-<li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#ActionButtons">Add action Buttons</a></p></li>
+<li><p>2.<a href="https://developer.android.com/training/wearables/notifications/creating.html#ActionButtons">Add action Buttons</a></p></li>
 </ul>
 
 
@@ -81,20 +78,20 @@
 </code></pre>
 
 <ul>
-<li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#SpecifyWearableOnlyActions">Specify Wearable Only Actions</a></p>
+<li><p>3.<a href="https://developer.android.com/training/wearables/notifications/creating.html#SpecifyWearableOnlyActions">Specify Wearable Only Actions</a></p>
 
 <ul>
 <li>use the <a href="https://developer.android.com/reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addAction(android.support.v4.app.NotificationCompat.Action"> NotificationCompat.WearableExtender.addAction (NotificationCompat.Action action)</a>) method to add your own action to notifications.</li>
 </ul>
 </li>
-<li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#BigView">Add a Big View</a></p>
+<li><p>4.<a href="https://developer.android.com/training/wearables/notifications/creating.html#BigView">Add a Big View</a></p>
 
 <blockquote><ul>
 <li><p>On a handheld device, users can see the big view <strong>content</strong> by expanding the notification. On a wearable device, the big view content is <strong>visible</strong> by default.</p></li>
 <li><p>To add the extended content to your notification, call setStyle() on the <a href="https://developer.android.com/reference/android/support/v4/app/NotificationCompat.BigTextStyle.html">NotificationCompat.Builder</a> object, passing it an instance of either BigTextStyle or InboxStyle.</p></li>
 </ul>
 </blockquote></li>
-<li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#AddWearableFeatures">Add Wearable Features For a Notification
+<li><p>5.<a href="https://developer.android.com/training/wearables/notifications/creating.html#AddWearableFeatures">Add Wearable Features For a Notification
 </a></p></li>
 <li><p><a href="https://developer.android.com/training/wearables/notifications/creating.html#Deliver">Deliver the Notification</a></p>
 
