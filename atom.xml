@@ -4,7 +4,7 @@
   <title><![CDATA[John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-03-04T16:26:36+08:00</updated>
+  <updated>2015-03-05T12:14:57+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -12,6 +12,15 @@
   </author>
   <generator uri="http://octopress.org/">Octopress</generator>
 
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Android Wear Developemnt - 1. Create a Wear Project and Debug on Real Devices]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/"/>
+    <updated>2015-03-05T12:09:24+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices</id>
+    <content type="html"><![CDATA[
+]]></content>
+  </entry>
   
   <entry>
     <title type="html"><![CDATA[Learn Android Wear Development - 0]]></title>
