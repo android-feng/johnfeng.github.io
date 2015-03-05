@@ -178,75 +178,12 @@
 
 <p>This project contains two modules: Mobile &amp; Wear. And Wear module should be wrapped inside the gradle file of the Mobile Module.</p>
 
-<h2>2. Debug &amp; Run on Real Device(Moto 360)</h2>
-
-<p>Since Moto360 don&#8217;t have any usb port, apps have to be  debugged over bluetooth.</p>
-
-<h4><a href="https://developer.android.com/training/wearables/apps/bt-debugging.html#SetupDevices">a.  Set up Debugging</a></h4>
-
-<blockquote><h4>1. Enable USB debugging on the handheld:</h4>
-
-<ul>
-<li>Open the Settings app and scroll to the bottom.</li>
-<li>If it doesn&#8217;t have a Developer Options setting, tap About Phone (or >About Tablet), scroll to the bottom, and tap the build number 7 times.</li>
-<li>Go back and tap Developer Options.</li>
-<li>Enable USB debugging.
-<hr>
-
-<h4>2.Enable Bluetooth debugging on the wearable:</h4></li>
-<li>Tap the home screen twice to bring up the Wear menu.</li>
-<li>Scroll to the bottom and tap Settings.</li>
-<li>Scroll to the bottom. If there&#8217;s no Developer Options item, tap About, >and then tap the build number 7 times.</li>
-<li>Tap the Developer Options item.</li>
-<li>Enable Debug over Bluetooth.</li>
-</ul>
-</blockquote>
-
-<h4><a href="https://developer.android.com/training/wearables/apps/bt-debugging.html#SetupDevices">b.Setup Devices</a></h4>
-
-<p>After you enabled <strong>Debugging over Bluetooth</strong> in handhelds Android wear -> &#8220;settings&#8221; page ,and add following code:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>adb forward tcp:4444 localabstract:/adb-hub
-</span><span class='line'>adb connect localhost:4444</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And here is the output:
-<img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug.png?raw=true" alt="" /></p>
-
-<p>And in Android Studio&#8217;s DDMS:
-<img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug1.png?raw=true" alt="" /></p>
-
-<h4>c.Run Hello World</h4>
-
-<p>Since  there are two sub-modules in this project, the specific module has to been selected before run, here is in Android Studio:</p>
-
-<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug2.png?raw=true" alt="" /></p>
-
-<h3><a href="https://developer.android.com/training/wearables/apps/packaging.html">d. Package</a></h3>
-
-<p>Both sub modules have to use the same package ,and wearable module has to be wrapped inside of the handheld app in this way:</p>
-
-<figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
-<span class='line-number'>2</span>
-<span class='line-number'>3</span>
-<span class='line-number'>4</span>
-<span class='line-number'>5</span>
-</pre></td><td class='code'><pre><code class=''><span class='line'>dependencies {
-</span><span class='line'>   compile 'com.google.android.gms:play-services:5.0.+@aar'
-</span><span class='line'>   compile 'com.android.support:support-v4:20.0.+''
-</span><span class='line'>   wearApp project(':wearable')
-</span><span class='line'>}</span></code></pre></td></tr></table></div></figure>
-
-
-<p>And then set up the <strong>Signed APK</strong> follow the <a href="https://developer.android.com/training/wearables/apps/packaging.html">official guide</a>.</p>
-
-<p>And See the Hello World:</p>
-
-<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug3.jpg?raw=true%" width="400" height="400"></p>
 
   
+  
+    <footer>
+      <a class="btn" rel="full-article" href="/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/">Read on &rarr;</a>
+    </footer>
   
 </div><!-- /.entry-content -->
 
