@@ -59,9 +59,9 @@ Since  there are two sub-modules in this project, the specific module has to bee
 
 ![](https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug2.png?raw=true)
 
-###[d. Package](https://developer.android.com/training/wearables/apps/packaging.html)
+###[d. Packages](https://developer.android.com/training/wearables/apps/packaging.html)
 
-Both sub modules have to use the same package ,and wearable module has to be wrapped inside of the handheld app in this way:
+Both submodules have to use the same package name,and the wearable module has to be wrapped inside of the handheld app in this way:
 
 {%codeblock %}dependencies {
    compile 'com.google.android.gms:play-services:5.0.+@aar'
