@@ -1,0 +1,26 @@
+<div class="highlight"><pre>    <span class="cm">/**</span>
+<span class="cm">     * Adds an action to the queue of pending actions.</span>
+<span class="cm">     *</span>
+<span class="cm">     * @param action the action to add</span>
+<span class="cm">     * @param allowStateLoss whether to allow loss of state information</span>
+<span class="cm">     * @throws IllegalStateException if the activity has been destroyed</span>
+<span class="cm">     */</span>
+    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueueAction</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">action</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">allowStateLoss</span><span class="o">)</span> <span class="o">{</span>
+        <span class="k">if</span> <span class="o">(!</span><span class="n">allowStateLoss</span><span class="o">)</span> <span class="o">{</span>
+            <span class="n">checkStateLoss</span><span class="o">();</span>
+        <span class="o">}</span>
+        <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">mDestroyed</span> <span class="o">||</span> <span class="n">mActivity</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">&quot;Activity has been destroyed&quot;</span><span class="o">);</span>
+            <span class="o">}</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">mPendingActions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">mPendingActions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;();</span>
+            <span class="o">}</span>
+            <span class="n">mPendingActions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">action</span><span class="o">);</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">mPendingActions</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+                <span class="n">mActivity</span><span class="o">.</span><span class="na">mHandler</span><span class="o">.</span><span class="na">removeCallbacks</span><span class="o">(</span><span class="n">mExecCommit</span><span class="o">);</span>
+                <span class="n">mActivity</span><span class="o">.</span><span class="na">mHandler</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">mExecCommit</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
