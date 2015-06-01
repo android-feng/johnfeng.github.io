@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Fragment | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/fragment/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-06-01T00:14:39+08:00</updated>
+  <updated>2015-06-01T14:10:38+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -70,6 +70,9 @@
 </span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">599</span><span class="o">)</span>
 </span><span class='line'>    <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
 </span></code></pre></td></tr></table></div></figure></p>
+
+<!--more-->
+
 
 <hr />
 
