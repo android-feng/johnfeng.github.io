@@ -34,6 +34,7 @@ java.lang.IllegalStateException: Activity has been destroyed
     at dalvik.system.NativeStart.main(Native Method)
 {% endcodeblock %}
 
+<!--more-->
 ---
 
 ###[Situation]
