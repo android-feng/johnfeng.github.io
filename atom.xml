@@ -4,7 +4,7 @@
   <title><![CDATA[John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-08-31T00:11:58+08:00</updated>
+  <updated>2015-08-31T00:14:30+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -32,6 +32,11 @@
 <p>
   <strong>Here is my .gitignore file <span style=" font-style:italic">(I am pretty sure it works fine)</span>:</strong>
 </p>
+
+
+
+
+<!--more-->
 
 
 
