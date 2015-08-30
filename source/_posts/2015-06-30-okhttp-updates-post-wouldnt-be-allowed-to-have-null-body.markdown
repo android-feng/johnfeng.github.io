@@ -22,7 +22,7 @@ According to the [ChangeLog](https://github.com/square/okhttp/blob/master/CHANGE
     ```
 
 And the real changes in code is : [page](https://github.com/square/okhttp/blob/master/okhttp/src/main/java/com/squareup/okhttp/Request.java#L248)
-{% codeblock lang: Builder updates %}
+{% codeblock lang:java Builder updates %}
     public Builder method(String method, RequestBody body) {
       if (method == null || method.length() == 0) {
         throw new IllegalArgumentException("method == null || method.length() == 0");
@@ -49,7 +49,7 @@ Since we don't time to fix every single API with null body , we build a method t
 
 the final code should be like :
 
-{% codeblock lang: Override getBody %}
+{% codeblock lang:java Override getBody %}
     @Override
     public byte[] getBody() throws AuthFailureError {
         byte[] body = super.getBody();
