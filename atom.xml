@@ -4,7 +4,7 @@
   <title><![CDATA[John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-08-31T00:14:30+08:00</updated>
+  <updated>2015-09-16T23:39:03+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -14,17 +14,27 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Cannot Ignore Idea Slash Workspace Dot Xml Keeps Popping Up]]></title>
-    <link href="http://johnfeng.github.io/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/"/>
-    <updated>2015-08-30T00:00:00+08:00</updated>
-    <id>http://johnfeng.github.io/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up</id>
+    <title type="html"><![CDATA[In Mid Night]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/09/01/in-mid-night/"/>
+    <updated>2015-09-01T00:00:00+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/09/01/in-mid-night</id>
     <content type="html"><![CDATA[<hr />
 
-<p>layout: post title: &#8220;Cannot ignore .idea/workspace.xml - keeps popping up&#8221; date: 2015-08-30 23:36:07 +0800 comments: true share: true</p>
+<p>layout: post title: &#8220;In Mid Night&#8221; date: 2015-09-01 01:16:38 +0800 comments: true</p>
 
-<h2>categories: anroid .gitignore .idea/workspace.xml</h2>
+<h2>categories:</h2>
 
-<h3> Problem </h3>
+<p>Feel so tired&#8230;Don&#8217;t know what should I do to find the correct way&#8230;</p>
+
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Cannot Ignore .idea/workspace.xml - Keeps Popping Up]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/"/>
+    <updated>2015-08-30T23:36:07+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up</id>
+    <content type="html"><![CDATA[<h3> Problem </h3>
 
 
 <p>I created a new Github project with .gitignore file downloaded from <strong><a href="https://www.gitignore.io/">.gitignore.io</a></strong>. And every time I wanna make my commits, I found that the .idea/workspace.xml file&#8217;s changes keep popping up.</p>

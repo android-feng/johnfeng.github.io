@@ -16,7 +16,7 @@
 
 
 
-<meta name="description" content="February 25, 2015 Guangwei Feng &nbsp; &bull; &nbsp; Comment Weibo Android SDK 3.0.1 Load libweibosdkcore.so Crash Question I was trying to update &hellip;">
+<meta name="description" content="Problem: Noticed a weird crash related with Android TTS, which I didn't wish to use, when I tried to initial or destroy a webview loaded from XML &hellip;">
 
 <meta name="keywords" content="Jekyll theme themes responsive blog modern tech hacks ">
 
@@ -33,7 +33,7 @@
     <meta name="twitter:image" content="/images/abstract-1.jpg"
   
   <meta name="twitter:title" content="A Tech Blog by John Feng">
-  <meta name="twitter:description" content="February 25, 2015 Guangwei Feng &nbsp; &bull; &nbsp; Comment Weibo Android SDK 3.0.1 Load libweibosdkcore.so Crash Question I was trying to update &hellip;">
+  <meta name="twitter:description" content="Problem: Noticed a weird crash related with Android TTS, which I didn't wish to use, when I tried to initial or destroy a webview loaded from XML &hellip;">
   <meta name="twitter:creator" content="@GuangweiFeng">
 
 
@@ -42,7 +42,7 @@
 <meta property="og:type" content="article">
 <meta property="og:url" content="http://johnfeng.github.io/posts/2">
 <meta property="og:title" content="A Tech Blog by John Feng">
-<meta property="og:description" content="February 25, 2015 Guangwei Feng &nbsp; &bull; &nbsp; Comment Weibo Android SDK 3.0.1 Load libweibosdkcore.so Crash Question I was trying to update &hellip;">
+<meta property="og:description" content="Problem: Noticed a weird crash related with Android TTS, which I didn't wish to use, when I tried to initial or destroy a webview loaded from XML &hellip;">
 
   <meta property="og:image" content="/images/abstract-1.jpg">
 
@@ -133,6 +133,119 @@
 
   <div id="main" role="main">
     
+
+<article class="hentry">
+  
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-02-27T12:14:34+08:00">
+        <a href="/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech/">February 27, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+      &nbsp; &bull; &nbsp;<span class="entry-comments">
+        <a href="/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech/#disqus_thread">Comment</a>
+      </span>
+    
+  </div><!-- /.entry-meta -->
+  
+    <h1 class="entry-title">
+      <a href="/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech/" rel="bookmark" title="Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech" itemprop="url">Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech</a>
+    </h1>
+  
+</header>
+
+<div class="entry-content">
+  <hr />
+
+<h2>Problem: </h2>
+
+<h6><img alt="cry" src="/images/emoji/unicode/1f622.png" class="emoji" /></h6>
+
+<p>Noticed a weird crash related with Android TTS, which I didn&#8217;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
+Here is the console output:</p>
+
+<figure class='code'><figcaption><span>Console Out Put </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalArgumentException</span><span class="o">:</span> <span class="n">Service</span> <span class="n">not</span> <span class="nl">registered:</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="err">@</span><span class="mi">41519670</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">LoadedApk</span><span class="o">.</span><span class="na">forgetServiceDispatcher</span><span class="o">(</span><span class="n">LoadedApk</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">937</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ContextImpl</span><span class="o">.</span><span class="na">unbindService</span><span class="o">(</span><span class="n">ContextImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1521</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">content</span><span class="o">.</span><span class="na">ContextWrapper</span><span class="o">.</span><span class="na">unbindService</span><span class="o">(</span><span class="n">ContextWrapper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">490</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1321</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$1</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">661</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$1</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">656</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="o">.</span><span class="na">runAction</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1340</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">runAction</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">570</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">runActionNoReconnect</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">557</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">shutdown</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">656</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">AccessibilityInjector$TextToSpeechWrapper</span><span class="o">.</span><span class="na">shutdown</span><span class="o">(</span><span class="n">AccessibilityInjector</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">748</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">AccessibilityInjector</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">AccessibilityInjector</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">187</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebViewClassic</span><span class="o">.</span><span class="na">destroyJava</span><span class="o">(</span><span class="n">WebViewClassic</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">2618</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebViewClassic</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">WebViewClassic</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">2601</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebView</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">WebView</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">665</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">dongxi</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">BrowserPurchaseActvitiy$5</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">BrowserPurchaseActvitiy</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">197</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">handleCallback</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">725</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">dispatchMessage</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">92</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Looper</span><span class="o">.</span><span class="na">loop</span><span class="o">(</span><span class="n">Looper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">137</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ActivityThread</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ActivityThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">5105</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invokeNative</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">511</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit$MethodAndArgsCaller</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">793</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">560</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">NativeStart</span><span class="o">.</span><span class="na">java</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure>
+
+
+
+
+
+  
+  
+    <footer>
+      <a class="btn" rel="full-article" href="/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech/">Read on &rarr;</a>
+    </footer>
+  
+</div><!-- /.entry-content -->
+
+
+
+
+
+</article><!-- /.hentry -->
 
 <article class="hentry">
   
