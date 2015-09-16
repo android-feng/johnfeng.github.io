@@ -1,9 +1,11 @@
 ---
-
-layout: post title: "Cannot ignore .idea/workspace.xml - keeps popping up" date: 2015-08-30 23:36:07 +0800 comments: true share: true
-
+layout: post
+title: "Cannot ignore .idea/workspace.xml - keeps popping up" 
+date: 2015-08-30 23:36:07 +0800 
+comments: true 
+share: true
 categories: anroid .gitignore .idea/workspace.xml
--------------------------------------------------
+---
 
 <h3> Problem </h3>
 
