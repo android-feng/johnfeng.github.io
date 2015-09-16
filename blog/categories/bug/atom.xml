@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Bug | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/bug/atom.xml" rel="self"/>
+  <link href="http://johnfeng.github.io/"/>
+  <updated>2015-08-31T00:14:30+08:00</updated>
+  <id>http://johnfeng.github.io/</id>
+  <author>
+    <name><![CDATA[Guangwei Feng]]></name>
+    <email><![CDATA[fengguangwei.007@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fragment - Activity Has Been Destoryed Problem]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/"/>
+    <updated>2015-05-31T23:40:18+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/05/31/fragment-activity-has-been-destoryed-problem</id>
+    <content type="html"><![CDATA[<h3>[Bug]</h3>
+
+<p>When fixing projects&#8217; bugs, I found a really wired one with error info shown as below:</p>
+
+<p><figure class='code'><figcaption><span>Error Info </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">Activity</span> <span class="n">has</span> <span class="n">been</span> <span class="n">destroyed</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">FragmentManagerImpl</span><span class="o">.</span><span class="na">enqueueAction</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">BackStackRecord</span><span class="o">.</span><span class="na">commitInternal</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">BackStackRecord</span><span class="o">.</span><span class="na">commitAllowingStateLoss</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">FragmentStatePagerAdapter</span><span class="o">.</span><span class="na">finishUpdate</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">ViewPager</span><span class="o">.</span><span class="na">dataSetChanged</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">ViewPager$PagerObserver</span><span class="o">.</span><span class="na">onChanged</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">database</span><span class="o">.</span><span class="na">DataSetObservable</span><span class="o">.</span><span class="na">notifyChanged</span><span class="o">(</span><span class="n">DataSetObservable</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">35</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">PagerAdapter</span><span class="o">.</span><span class="na">notifyDataSetChanged</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">frodo</span><span class="o">.</span><span class="na">activity</span><span class="o">.</span><span class="na">AlbumPhotoActivity$AlbumPhotoPagerAdapter</span><span class="o">.</span><span class="na">b</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">frodo</span><span class="o">.</span><span class="na">activity</span><span class="o">.</span><span class="na">AlbumPhotoActivity$10</span><span class="o">.</span><span class="na">a</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">frodo</span><span class="o">.</span><span class="na">activity</span><span class="o">.</span><span class="na">AlbumPhotoActivity$10</span><span class="o">.</span><span class="na">onResponse</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">im</span><span class="o">.</span><span class="na">amomo</span><span class="o">.</span><span class="na">volley</span><span class="o">.</span><span class="na">OkRequest</span><span class="o">.</span><span class="na">deliverResponse</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">volley</span><span class="o">.</span><span class="na">ExecutorDelivery$ResponseDeliveryRunnable</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">handleCallback</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">605</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">dispatchMessage</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">92</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Looper</span><span class="o">.</span><span class="na">loop</span><span class="o">(</span><span class="n">Looper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">148</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ActivityThread</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ActivityThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">4529</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invokeNative</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">511</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit$MethodAndArgsCaller</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">832</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">599</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<!--more-->
+
+
+<hr />
+
+<h3>[Situation]</h3>
+
+<p>The situation is : I tried to put a viewpager with a fragmentAdapter inside of another fragment, which is inside of a activity. And I tested these code on my Nexus5(5.1.1), they worked like a charm .And so did on our QA&#8217;s phones.</p>
+
+<p>But this morning , when I was &#8216;enjoying&#8217; my regular online-app-running-data reading work, I found this crash happened over 150 times and continuely growing. I tried every method I could get, including the nest-fragments crashes we usually easy to get, and after a few searching on Internet, I concluded this result: &#8220;It&#8217;s Google&#8217;s mistake.&#8221;</p>
+
+<h3>[Reason]</h3>
+
+<p>In Google&#8217;s Android Source Code, something wierd found like this:</p>
+
+<p><a href="http://grepcode.com/file_/repository.grepcode.com/java/ext/com.google.android/android/5.0.0_r1/android/support/v4/app/Fragment.java/?v=diff&amp;id2=4.4.4_r1#1223">Android Source Code</a></p>
+
+<pre><code class="java">mChildFragmentManager = null;
+</code></pre>
+
+<p>It means before 5.0.1, everytime a fragement invokes its onDestory or onDetach Method, its mChildFramentManager has never been reset. WOW. And I guess that&#8217;s the reason.</p>
+
+<p>What Marcus Forsell Stahre said on <a href="http://stackoverflow.com/questions/15207305/getting-the-error-java-lang-illegalstateexception-activity-has-been-destroyed">StackOverflow</a>:</p>
+
+<blockquote><p>If you look at the implementation of Fragment, you&#8217;ll see that when moving to the detached state, it&#8217;ll reset its internal state. However, it doesn&#8217;t reset mChildFragmentManager (this is a bug in the current version of the support library). This causes it to not reattach the child fragment manager when the Fragment is reattached, causing the exception you saw.</p></blockquote>
+
+<p>And I also found a <a href="https://code.google.com/p/android/issues/detail?id=42601">Google Issue</a> for this problem.</p>
+
+<p>Where the crash been throw:</p>
+
+<p><figure class='code'><figcaption><span>android.support.v4.app.FragmentManagerImpl.enqueueAction </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;*</span>
+</span><span class='line'>     <span class="o">*</span> <span class="n">Adds</span> <span class="n">an</span> <span class="n">action</span> <span class="n">to</span> <span class="n">the</span> <span class="n">queue</span> <span class="n">of</span> <span class="n">pending</span> <span class="n">actions</span><span class="o">.</span>
+</span><span class='line'>     <span class="o">*</span>
+</span><span class='line'>     <span class="o">*</span> <span class="nd">@param</span> <span class="n">action</span> <span class="n">the</span> <span class="n">action</span> <span class="n">to</span> <span class="n">add</span>
+</span><span class='line'>     <span class="o">*</span> <span class="nd">@param</span> <span class="n">allowStateLoss</span> <span class="n">whether</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">loss</span> <span class="n">of</span> <span class="n">state</span> <span class="n">information</span>
+</span><span class='line'>     <span class="o">*</span> <span class="nd">@throws</span> <span class="n">IllegalStateException</span> <span class="k">if</span> <span class="n">the</span> <span class="n">activity</span> <span class="n">has</span> <span class="n">been</span> <span class="n">destroyed</span>
+</span><span class='line'>     <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueueAction</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">action</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">allowStateLoss</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">(!</span><span class="n">allowStateLoss</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">checkStateLoss</span><span class="o">();</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>        <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">mDestroyed</span> <span class="o">||</span> <span class="n">mActivity</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">&quot;Activity has been destroyed&quot;</span><span class="o">);</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">mPendingActions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">mPendingActions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;();</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>            <span class="n">mPendingActions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">action</span><span class="o">);</span>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">mPendingActions</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">mActivity</span><span class="o">.</span><span class="na">mHandler</span><span class="o">.</span><span class="na">removeCallbacks</span><span class="o">(</span><span class="n">mExecCommit</span><span class="o">);</span>
+</span><span class='line'>                <span class="n">mActivity</span><span class="o">.</span><span class="na">mHandler</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">mExecCommit</span><span class="o">);</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h3>[Fix]</h3>
+
+<p>the answer is simple, we need to reset its child fragmentManager manully on devices carrying systems below Android 5.0.1.Here is the code , inside the onDetach method:</p>
+
+<p><figure class='code'><figcaption><span>Fix</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDetach</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onDetach</span><span class="o">();&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">Field</span> <span class="n">childFragmentManager</span> <span class="o">=</span> <span class="n">Fragment</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getDeclaredField</span><span class="o">(</span><span class="s">&quot;mChildFragmentManager&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">childFragmentManager</span><span class="o">.</span><span class="na">setAccessible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">childFragmentManager</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchFieldException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalAccessException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+]]></content>
+  </entry>
+  
+</feed>

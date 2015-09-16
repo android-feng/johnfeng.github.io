@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Crash | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/crash/atom.xml" rel="self"/>
+  <link href="http://johnfeng.github.io/"/>
+  <updated>2015-08-31T00:14:30+08:00</updated>
+  <id>http://johnfeng.github.io/</id>
+  <author>
+    <name><![CDATA[Guangwei Feng]]></name>
+    <email><![CDATA[fengguangwei.007@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Weibo Android SDK 3.0.1 Load libweibosdkcore.so Crash]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash/"/>
+    <updated>2015-02-25T16:51:47+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/02/25/weibo-android-sdk-3-dot-0-1-load-so-crash</id>
+    <content type="html"><![CDATA[<hr />
+
+<h2>Question</h2>
+
+<p> I was trying to update my App&#8217;s Weibo-SDK version from 2.x to 3.0.1 <em>(in order to fix the SSO crash when authorizing apps without Weibo&#8217;s client, happens on <strong>Lollipop</strong>)</em>, building process failed with log : Couldn&#8217;t load sdk from loader dalvik &#8230; <strong>libweibosdkcore.so</strong> file.</p>
+
+<p>After pasting the &#8220;libweibosdkcore.so&#8221; file into &#8220;libs/armeabi-v7a/&#8221; folder, gradle still could not pass the building process.</p>
+
+<!-- more -->
+
+
+<h2>Fix</h2>
+
+<p>Add the following codes into the &#8220;build.gradle&#8221; file, inside of  the &#8220;android&#8221; block:</p>
+
+<pre><code class="``java">    //noinspection all
+    task copyNativeLibs(type: Copy) {
+        // third party lib so                
+        from(new File(projectDir, 'libs')) { include 'armeabi/*.so','armeabi-v7a/*.so' }        
+        into new File(buildDir, 'native-libs')
+    }
+    tasks.withType(JavaCompile) {
+        compileTask -&gt;
+            //noinspection all
+            compileTask.dependsOn copyNativeLibs
+    }
+
+    //noinspection all
+    tasks.withType(com.android.build.gradle.tasks.PackageApplication) {
+        pkgTask -&gt;
+            pkgTask.jniFolders = new HashSet()
+            pkgTask.jniFolders.add(new File(buildDir, 'native-libs'))
+    }
+</code></pre>
+
+<p>Problem Solved.</p>
+
+<p>From &lt;<a href="http://blog.sina.com.cn/s/blog_92814aa60102vhv1.html">镕羽&#8217;s Blog</a>></p>
+]]></content>
+  </entry>
+  
+</feed>

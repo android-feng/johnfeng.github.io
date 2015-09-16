@@ -1,0 +1,667 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Android | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/android/atom.xml" rel="self"/>
+  <link href="http://johnfeng.github.io/"/>
+  <updated>2015-08-31T00:14:30+08:00</updated>
+  <id>http://johnfeng.github.io/</id>
+  <author>
+    <name><![CDATA[Guangwei Feng]]></name>
+    <email><![CDATA[fengguangwei.007@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Fragment - Activity Has Been Destoryed Problem]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/"/>
+    <updated>2015-05-31T23:40:18+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/05/31/fragment-activity-has-been-destoryed-problem</id>
+    <content type="html"><![CDATA[<h3>[Bug]</h3>
+
+<p>When fixing projects&#8217; bugs, I found a really wired one with error info shown as below:</p>
+
+<p><figure class='code'><figcaption><span>Error Info </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalStateException</span><span class="o">:</span> <span class="n">Activity</span> <span class="n">has</span> <span class="n">been</span> <span class="n">destroyed</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">FragmentManagerImpl</span><span class="o">.</span><span class="na">enqueueAction</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">BackStackRecord</span><span class="o">.</span><span class="na">commitInternal</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">BackStackRecord</span><span class="o">.</span><span class="na">commitAllowingStateLoss</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">FragmentStatePagerAdapter</span><span class="o">.</span><span class="na">finishUpdate</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">ViewPager</span><span class="o">.</span><span class="na">dataSetChanged</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">ViewPager$PagerObserver</span><span class="o">.</span><span class="na">onChanged</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">database</span><span class="o">.</span><span class="na">DataSetObservable</span><span class="o">.</span><span class="na">notifyChanged</span><span class="o">(</span><span class="n">DataSetObservable</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">35</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">support</span><span class="o">.</span><span class="na">v4</span><span class="o">.</span><span class="na">view</span><span class="o">.</span><span class="na">PagerAdapter</span><span class="o">.</span><span class="na">notifyDataSetChanged</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">frodo</span><span class="o">.</span><span class="na">activity</span><span class="o">.</span><span class="na">AlbumPhotoActivity$AlbumPhotoPagerAdapter</span><span class="o">.</span><span class="na">b</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">frodo</span><span class="o">.</span><span class="na">activity</span><span class="o">.</span><span class="na">AlbumPhotoActivity$10</span><span class="o">.</span><span class="na">a</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">frodo</span><span class="o">.</span><span class="na">activity</span><span class="o">.</span><span class="na">AlbumPhotoActivity$10</span><span class="o">.</span><span class="na">onResponse</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">im</span><span class="o">.</span><span class="na">amomo</span><span class="o">.</span><span class="na">volley</span><span class="o">.</span><span class="na">OkRequest</span><span class="o">.</span><span class="na">deliverResponse</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">volley</span><span class="o">.</span><span class="na">ExecutorDelivery$ResponseDeliveryRunnable</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">Unknown</span> <span class="n">Source</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">handleCallback</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">605</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">dispatchMessage</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">92</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Looper</span><span class="o">.</span><span class="na">loop</span><span class="o">(</span><span class="n">Looper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">148</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ActivityThread</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ActivityThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">4529</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invokeNative</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">511</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit$MethodAndArgsCaller</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">832</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">599</span><span class="o">)</span>
+</span><span class='line'>    <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">Native</span> <span class="n">Method</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<!--more-->
+
+
+<hr />
+
+<h3>[Situation]</h3>
+
+<p>The situation is : I tried to put a viewpager with a fragmentAdapter inside of another fragment, which is inside of a activity. And I tested these code on my Nexus5(5.1.1), they worked like a charm .And so did on our QA&#8217;s phones.</p>
+
+<p>But this morning , when I was &#8216;enjoying&#8217; my regular online-app-running-data reading work, I found this crash happened over 150 times and continuely growing. I tried every method I could get, including the nest-fragments crashes we usually easy to get, and after a few searching on Internet, I concluded this result: &#8220;It&#8217;s Google&#8217;s mistake.&#8221;</p>
+
+<h3>[Reason]</h3>
+
+<p>In Google&#8217;s Android Source Code, something wierd found like this:</p>
+
+<p><a href="http://grepcode.com/file_/repository.grepcode.com/java/ext/com.google.android/android/5.0.0_r1/android/support/v4/app/Fragment.java/?v=diff&amp;id2=4.4.4_r1#1223">Android Source Code</a></p>
+
+<pre><code class="java">mChildFragmentManager = null;
+</code></pre>
+
+<p>It means before 5.0.1, everytime a fragement invokes its onDestory or onDetach Method, its mChildFramentManager has never been reset. WOW. And I guess that&#8217;s the reason.</p>
+
+<p>What Marcus Forsell Stahre said on <a href="http://stackoverflow.com/questions/15207305/getting-the-error-java-lang-illegalstateexception-activity-has-been-destroyed">StackOverflow</a>:</p>
+
+<blockquote><p>If you look at the implementation of Fragment, you&#8217;ll see that when moving to the detached state, it&#8217;ll reset its internal state. However, it doesn&#8217;t reset mChildFragmentManager (this is a bug in the current version of the support library). This causes it to not reattach the child fragment manager when the Fragment is reattached, causing the exception you saw.</p></blockquote>
+
+<p>And I also found a <a href="https://code.google.com/p/android/issues/detail?id=42601">Google Issue</a> for this problem.</p>
+
+<p>Where the crash been throw:</p>
+
+<p><figure class='code'><figcaption><span>android.support.v4.app.FragmentManagerImpl.enqueueAction </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="o">/&lt;</span><span class="n">em</span><span class="o">&gt;*</span>
+</span><span class='line'>     <span class="o">*</span> <span class="n">Adds</span> <span class="n">an</span> <span class="n">action</span> <span class="n">to</span> <span class="n">the</span> <span class="n">queue</span> <span class="n">of</span> <span class="n">pending</span> <span class="n">actions</span><span class="o">.</span>
+</span><span class='line'>     <span class="o">*</span>
+</span><span class='line'>     <span class="o">*</span> <span class="nd">@param</span> <span class="n">action</span> <span class="n">the</span> <span class="n">action</span> <span class="n">to</span> <span class="n">add</span>
+</span><span class='line'>     <span class="o">*</span> <span class="nd">@param</span> <span class="n">allowStateLoss</span> <span class="n">whether</span> <span class="n">to</span> <span class="n">allow</span> <span class="n">loss</span> <span class="n">of</span> <span class="n">state</span> <span class="n">information</span>
+</span><span class='line'>     <span class="o">*</span> <span class="nd">@throws</span> <span class="n">IllegalStateException</span> <span class="k">if</span> <span class="n">the</span> <span class="n">activity</span> <span class="n">has</span> <span class="n">been</span> <span class="n">destroyed</span>
+</span><span class='line'>     <span class="o">&lt;/</span><span class="n">em</span><span class="o">&gt;/</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">enqueueAction</span><span class="o">(</span><span class="n">Runnable</span> <span class="n">action</span><span class="o">,</span> <span class="kt">boolean</span> <span class="n">allowStateLoss</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">(!</span><span class="n">allowStateLoss</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">checkStateLoss</span><span class="o">();</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>        <span class="kd">synchronized</span> <span class="o">(</span><span class="k">this</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">mDestroyed</span> <span class="o">||</span> <span class="n">mActivity</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalStateException</span><span class="o">(</span><span class="s">&quot;Activity has been destroyed&quot;</span><span class="o">);</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">mPendingActions</span> <span class="o">==</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">mPendingActions</span> <span class="o">=</span> <span class="k">new</span> <span class="n">ArrayList</span><span class="o">&lt;</span><span class="n">Runnable</span><span class="o">&gt;();</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>            <span class="n">mPendingActions</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">action</span><span class="o">);</span>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">mPendingActions</span><span class="o">.</span><span class="na">size</span><span class="o">()</span> <span class="o">==</span> <span class="mi">1</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">mActivity</span><span class="o">.</span><span class="na">mHandler</span><span class="o">.</span><span class="na">removeCallbacks</span><span class="o">(</span><span class="n">mExecCommit</span><span class="o">);</span>
+</span><span class='line'>                <span class="n">mActivity</span><span class="o">.</span><span class="na">mHandler</span><span class="o">.</span><span class="na">post</span><span class="o">(</span><span class="n">mExecCommit</span><span class="o">);</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<h3>[Fix]</h3>
+
+<p>the answer is simple, we need to reset its child fragmentManager manully on devices carrying systems below Android 5.0.1.Here is the code , inside the onDetach method:</p>
+
+<p><figure class='code'><figcaption><span>Fix</span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'><span class="o">&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span><span class="nd">@Override</span>
+</span><span class='line'><span class="kd">public</span> <span class="kt">void</span> <span class="nf">onDetach</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="kd">super</span><span class="o">.</span><span class="na">onDetach</span><span class="o">();&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>    <span class="n">Field</span> <span class="n">childFragmentManager</span> <span class="o">=</span> <span class="n">Fragment</span><span class="o">.</span><span class="na">class</span><span class="o">.</span><span class="na">getDeclaredField</span><span class="o">(</span><span class="s">&quot;mChildFragmentManager&quot;</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">childFragmentManager</span><span class="o">.</span><span class="na">setAccessible</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span><span class='line'>    <span class="n">childFragmentManager</span><span class="o">.</span><span class="na">set</span><span class="o">(</span><span class="k">this</span><span class="o">,</span> <span class="kc">null</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">NoSuchFieldException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">IllegalAccessException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">throw</span> <span class="k">new</span> <span class="nf">RuntimeException</span><span class="o">(</span><span class="n">e</span><span class="o">);</span>
+</span><span class='line'><span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Android Wear Developemnt - 1. Create a Wear Project and Debug on Real Devices]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/"/>
+    <updated>2015-03-05T12:09:24+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices</id>
+    <content type="html"><![CDATA[<h2>1. Create a new Project</h2>
+
+<p>It&#8217;s quite easy when you wanna create a new Android wear project using Android studio. All you need is just hit the new project and choose the &#8220;Android wear&#8221; label.</p>
+
+<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/creat.png?raw=true" alt="" /></p>
+
+<p>The relationship between Handheld App and Wear App will be told in the &#8221;<strong>Package</strong>&#8221; Section.</p>
+
+<p>And now you can browser all available items in project stucture:
+<img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/create1.png?raw=true" alt="" /></p>
+
+<p>This project contains two modules: Mobile &amp; Wear. And Wear module should be wrapped inside the gradle file of the Mobile Module.</p>
+
+<!--more-->
+
+
+<h2>2. Debug &amp; Run on Real Device(Moto 360)</h2>
+
+<p>Since Moto360 don&#8217;t have any usb port, apps have to be  debugged over bluetooth.</p>
+
+<h4><a href="https://developer.android.com/training/wearables/apps/bt-debugging.html#SetupDevices">a.  Set up Debugging</a></h4>
+
+<blockquote><h4>1. Enable USB debugging on the handheld:</h4>
+
+<ul>
+<li>Open the Settings app and scroll to the bottom.</li>
+<li>If it doesn&#8217;t have a Developer Options setting, tap About Phone (or >About Tablet), scroll to the bottom, and tap the build number 7 times.</li>
+<li>Go back and tap Developer Options.</li>
+<li>Enable USB debugging.
+<hr>
+
+<h4>2.Enable Bluetooth debugging on the wearable:</h4></li>
+<li>Tap the home screen twice to bring up the Wear menu.</li>
+<li>Scroll to the bottom and tap Settings.</li>
+<li>Scroll to the bottom. If there&#8217;s no Developer Options item, tap About, >and then tap the build number 7 times.</li>
+<li>Tap the Developer Options item.</li>
+<li>Enable Debug over Bluetooth.</li>
+</ul>
+</blockquote>
+
+<h4><a href="https://developer.android.com/training/wearables/apps/bt-debugging.html#SetupDevices">b.Setup Devices</a></h4>
+
+<p>After you enabled <strong>Debugging over Bluetooth</strong> in handhelds Android wear -> &#8220;settings&#8221; page ,and add following code:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>adb forward tcp:4444 localabstract:/adb-hub
+</span><span class='line'>adb connect localhost:4444</span></code></pre></td></tr></table></div></figure></p>
+
+<p>And here is the output:
+<img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug.png?raw=true" alt="" /></p>
+
+<p>And in Android Studio&#8217;s DDMS:
+<img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug1.png?raw=true" alt="" /></p>
+
+<h4>c.Run Hello World</h4>
+
+<p>Since  there are two sub-modules in this project, the specific module has to been selected before run, here is in Android Studio:</p>
+
+<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug2.png?raw=true" alt="" /></p>
+
+<h3><a href="https://developer.android.com/training/wearables/apps/packaging.html">d. Packages</a></h3>
+
+<p>Both submodules have to use the same package name,and the wearable module has to be wrapped inside of the handheld app in this way:</p>
+
+<p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+</pre></td><td class='code'><pre><code class=''><span class='line'>dependencies {
+</span><span class='line'>   compile 'com.google.android.gms:play-services:5.0.+@aar'
+</span><span class='line'>   compile 'com.android.support:support-v4:20.0.+''
+</span><span class='line'>   wearApp project(':wearable')
+</span><span class='line'>}</span></code></pre></td></tr></table></div></figure></p>
+
+<p>And then set up the <strong>Signed APK</strong> follow the <a href="https://developer.android.com/training/wearables/apps/packaging.html">official guide</a>.</p>
+
+<p>And See the Hello World:</p>
+
+<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug3.jpg?raw=true" width="400" height="400"></p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Android Wear Development - 0]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/03/04/learn-android-wear-development-0/"/>
+    <updated>2015-03-04T11:31:11+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/03/04/learn-android-wear-development-0</id>
+    <content type="html"><![CDATA[<blockquote><p>Through the first couple days with my Moto360 , I quickly fall in love with the <a href="https://www.android.com/wear/">Android Wear</a> system. It doesn&#8217;t only look fancy , but indeed the combination of the Modern Tech &amp; Art as well . Thus, I wanna start a small Android Wear project following days in order to learn more about this wonderful platform and try to be familiar with it.</p></blockquote>
+
+<p>First thing first, Let&#8217;s go thought the official dev guide.</p>
+
+<hr />
+
+<h2><a href="https://developer.android.com/training/building-wearables.html">Official Guide</a> &#8212; <a href="https://developer.android.com/training/wearables/notifications/index.html">1. Adding Wearable Features to Notifications</a></h2>
+
+<!--more-->
+
+
+<pre><code>How to build handheld notifications that are synced to and look great on wearables.
+</code></pre>
+
+<p>There two types of notifications in wear system, one is the <strong>default</strong> card , which will automatically sync received messages to wearable devices with some simple default actions. Another is the <strong>customized</strong> one , which has developer customized layouts and actions, and can do more thing directly from wearable devices.</p>
+
+<ul>
+<li>0.import dependances</li>
+</ul>
+
+
+<p><em>following codes are needed to be set up before starting</em> :</p>
+
+<p><figure class='code'><figcaption><span>in gradle </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">compile</span> <span class="s">&quot;com.android.support:support-v4:20.0.+&quot;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>in activity || fragment ||&#8230; </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationCompat</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationManagerCompat</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationCompat.WearableExtender</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>and what you can do with customized notification:</p>
+
+<ul>
+<li><p>1.<a href="https://developer.android.com/training/wearables/notifications/creating.html#NotificationBuilder">Create Notifications with the Notification Builder
+</a></p>
+
+<p>  <strong>Just the same with the notifications built on handhelds.</strong></p></li>
+<li><p>2.<a href="https://developer.android.com/training/wearables/notifications/creating.html#ActionButtons">Add action Buttons</a></p></li>
+</ul>
+
+
+<p> <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="k">new</span> <span class="n">NotificationCompat</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="k">this</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setSmallIcon</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_event</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentTitle</span><span class="o">(</span><span class="n">eventTitle</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentText</span><span class="o">(</span><span class="n">eventLocation</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentIntent</span><span class="o">(</span><span class="n">viewPendingIntent</span><span class="o">)&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="c1">// which did the job</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">addAction</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_map</span><span class="o">,</span>
+</span><span class='line'>            <span class="n">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">map</span><span class="o">),</span> <span class="n">mapPendingIntent</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li><p>3.<a href="https://developer.android.com/training/wearables/notifications/creating.html#SpecifyWearableOnlyActions">Specify Wearable Only Actions</a></p>
+
+<ul>
+<li>use the <a href="https://developer.android.com/reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addAction(android.support.v4.app.NotificationCompat.Action"> NotificationCompat.WearableExtender.addAction (NotificationCompat.Action action)</a>) method to add your own action to notifications.</li>
+</ul>
+</li>
+<li><p>4.<a href="https://developer.android.com/training/wearables/notifications/creating.html#BigView">Add a Big View</a></p>
+
+<ul>
+<li><p>On a handheld device, users can see the big view <strong>content</strong> by expanding the notification. On a wearable device, the big view content is <strong>visible</strong> by default.</p></li>
+<li><p>To add the extended content to your notification, call setStyle() on the <a href="https://developer.android.com/reference/android/support/v4/app/NotificationCompat.BigTextStyle.html">NotificationCompat.Builder</a> object, passing it an instance of either BigTextStyle or InboxStyle.</p></li>
+</ul>
+</li>
+<li><p>5.<a href="https://developer.android.com/training/wearables/notifications/creating.html#AddWearableFeatures">Add Wearable Features For a Notification
+</a></p></li>
+<li><p>6.<a href="https://developer.android.com/training/wearables/notifications/creating.html#Deliver">Deliver the Notification</a></p>
+
+<ul>
+<li>use the NotificationManagerCompat API instead of NotificationManager:</li>
+</ul>
+</li>
+</ul>
+
+
+<p> <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="c1">// Get an instance of the NotificationManager service</span>
+</span><span class='line'>    <span class="n">NotificationManagerCompat</span> <span class="n">notificationManager</span> <span class="o">=</span>
+</span><span class='line'>            <span class="n">NotificationManagerCompat</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">mContext</span><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c1">// Issue the notification with notification manager.</span>
+</span><span class='line'><span class="n">notificationManager</span><span class="o">.</span><span class="na">notify</span><span class="o">(</span><span class="n">notificationId</span><span class="o">,</span> <span class="n">notif</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<hr />
+
+<h2>One more thing - Useful 3rd Party Libs</h2>
+
+<h4><strong>Give all credits to <a href="https://github.com/tajchert">Michal Tajchert</a>. Really nice work!!!</strong></h4>
+
+<h3>1. <a href="https://github.com/tajchert/BusWear">BusWear - EventBus for Android Wear</a></h3>
+
+<p><img src="https://raw.githubusercontent.com/tajchert/BusWear/master/mobile/src/main/res/drawable-xxxhdpi/ic_launcher.png" alt="BusWear" /></p>
+
+<blockquote><p>BusWear <img alt="bus" src="/images/emoji/unicode/1f68c.png" class="emoji" /><img alt="watch" src="/images/emoji/unicode/231a.png" class="emoji" /> is a simple library for EventBus to support Android Wear devices. Just adding one line of code lets you get synchronized event buses on Wear and mobile platform.</p></blockquote>
+
+<p><img src="https://raw.githubusercontent.com/tajchert/BusWear/master/docs/diagram_simple.png" alt="architecture" /></p>
+
+<blockquote><h4>What is EventBus?</h4>
+
+<p>A great multi-purpose tool for Android apps, way of triggering some events in separate Activity, Fragment, Service etc. EventBus, origin of that project or Otto.</p></blockquote>
+
+<p>if you&#8217;re already familiar with <a href="https://github.com/greenrobot/EventBus">Android EventBus</a>, it works just in the same pattern, syncing data between wear and handhelds like a boss.</p>
+
+<h3>2. <a href="https://github.com/tajchert/ExceptionWear">ExceptionWear - library for handling Exceptions on Android Wear</a></h3>
+
+<blockquote><p><strong>ExceptionWear</strong> <img alt="exclamation" src="/images/emoji/unicode/2757.png" class="emoji" /><img alt="watch" src="/images/emoji/unicode/231a.png" class="emoji" /> is very simple library to solve problem of not <strong>passing</strong> exceptions from Android Wear <strong>devices</strong> to the <strong>phone</strong>. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won&#8217;t get any information about it (sic!).</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First Glance at Moto360]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/03/03/first-glance-at-moto360/"/>
+    <updated>2015-03-03T12:26:35+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/03/03/first-glance-at-moto360</id>
+    <content type="html"><![CDATA[<p>Check out my brand new Moto360. LOL . So Gorgeous!!!</p>
+
+<p><img class="align=center" src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360.jpg?raw=true" width="400" height="400" title="[moto360]" ></p>
+
+<!--more-->
+
+
+<p><img class="align=center" src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360-1.jpg?raw=true" width="400" height="400" title="[moto360]" ></p>
+
+<p><img class="align=center" src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360-2.jpg?raw=true" width="400" height="400" title="[moto360]" ></p>
+
+<p>I decided to start a new android-tool project on Github following days, basing on Android wear. So much excited I am right now with my moto360.</p>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[Android WebView Issue - Service Not Registered: android.speech.tts.TextToSpeech]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech/"/>
+    <updated>2015-02-27T12:14:34+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/02/27/android-webview-issue-service-not-registered-android-dot-speech-dot-tts-dot-texttospeech</id>
+    <content type="html"><![CDATA[<hr />
+
+<h2>Problem: </h2>
+
+<h6><img alt="cry" src="/images/emoji/unicode/1f622.png" class="emoji" /></h6>
+
+<p>Noticed a weird crash related with Android TTS, which I didn&#8217;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
+Here is the console output:</p>
+
+<p><figure class='code'><figcaption><span>Console Out Put </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>       <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">IllegalArgumentException</span><span class="o">:</span> <span class="n">Service</span> <span class="n">not</span> <span class="nl">registered:</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="err">@</span><span class="mi">41519670</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">LoadedApk</span><span class="o">.</span><span class="na">forgetServiceDispatcher</span><span class="o">(</span><span class="n">LoadedApk</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">937</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ContextImpl</span><span class="o">.</span><span class="na">unbindService</span><span class="o">(</span><span class="n">ContextImpl</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1521</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">content</span><span class="o">.</span><span class="na">ContextWrapper</span><span class="o">.</span><span class="na">unbindService</span><span class="o">(</span><span class="n">ContextWrapper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">490</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="o">.</span><span class="na">disconnect</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1321</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$1</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">661</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$1</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">656</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech$Connection</span><span class="o">.</span><span class="na">runAction</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">1340</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">runAction</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">570</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">runActionNoReconnect</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">557</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">speech</span><span class="o">.</span><span class="na">tts</span><span class="o">.</span><span class="na">TextToSpeech</span><span class="o">.</span><span class="na">shutdown</span><span class="o">(</span><span class="n">TextToSpeech</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">656</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">AccessibilityInjector$TextToSpeechWrapper</span><span class="o">.</span><span class="na">shutdown</span><span class="o">(</span><span class="n">AccessibilityInjector</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">748</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">AccessibilityInjector</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">AccessibilityInjector</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">187</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebViewClassic</span><span class="o">.</span><span class="na">destroyJava</span><span class="o">(</span><span class="n">WebViewClassic</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">2618</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebViewClassic</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">WebViewClassic</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">2601</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">webkit</span><span class="o">.</span><span class="na">WebView</span><span class="o">.</span><span class="na">destroy</span><span class="o">(</span><span class="n">WebView</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">665</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">douban</span><span class="o">.</span><span class="na">dongxi</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">BrowserPurchaseActvitiy$5</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">BrowserPurchaseActvitiy</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">197</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">handleCallback</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">725</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Handler</span><span class="o">.</span><span class="na">dispatchMessage</span><span class="o">(</span><span class="n">Handler</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">92</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">Looper</span><span class="o">.</span><span class="na">loop</span><span class="o">(</span><span class="n">Looper</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">137</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">android</span><span class="o">.</span><span class="na">app</span><span class="o">.</span><span class="na">ActivityThread</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ActivityThread</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">5105</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invokeNative</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">java</span><span class="o">.</span><span class="na">lang</span><span class="o">.</span><span class="na">reflect</span><span class="o">.</span><span class="na">Method</span><span class="o">.</span><span class="na">invoke</span><span class="o">(</span><span class="n">Method</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">511</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit$MethodAndArgsCaller</span><span class="o">.</span><span class="na">run</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">793</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">com</span><span class="o">.</span><span class="na">android</span><span class="o">.</span><span class="na">internal</span><span class="o">.</span><span class="na">os</span><span class="o">.</span><span class="na">ZygoteInit</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">ZygoteInit</span><span class="o">.</span><span class="na">java</span><span class="o">:</span><span class="mi">560</span><span class="o">)</span>
+</span><span class='line'>       <span class="n">at</span> <span class="n">dalvik</span><span class="o">.</span><span class="na">system</span><span class="o">.</span><span class="na">NativeStart</span><span class="o">.</span><span class="na">main</span><span class="o">(</span><span class="n">NativeStart</span><span class="o">.</span><span class="na">java</span><span class="o">)</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<!-- more -->
+
+
+<h4>And the output from <strong><a href="http://crashes.to/s/539a8babf82">CrashLytics</a></strong>.</h4>
+
+<p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/source/source/images/CrashLytics%202015-02-27%20at%2012.22.23.png?raw=true" alt="Crash Pie Chart" />
+<em>Notice that most crashes happened third-party roms like :MEIZU. Had they changed the webview core?</em></p>
+
+<hr />
+
+<h2>Fix:</h2>
+
+<h6><img alt="smile" src="/images/emoji/unicode/1f604.png" class="emoji" /></h6>
+
+<ol>
+<li>One Method from <a href="http://stackoverflow.com/questions/27740935/service-not-registered-android-speech-tts-texttospeech">stackoverflow</a></li>
+</ol>
+
+
+<blockquote><p>Have to move all webview from the <strong>xml</strong> file and have added them <strong>dynamically</strong> and passing application context.</p></blockquote>
+
+<pre><code class="`java">
+    WebView webView = new WebView(getApplicationContext());
+</code></pre>
+
+<ol>
+<li>Use following code in OnDestory() method.</li>
+</ol>
+
+
+<p><figure class='code'><figcaption><span>Destory a Webview </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>        <span class="nd">@Override</span>
+</span><span class='line'>        <span class="kd">protected</span> <span class="kt">void</span> <span class="nf">onDestroy</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>             <span class="n">clearHistory</span><span class="o">();</span>
+</span><span class='line'>             <span class="kt">long</span> <span class="n">timeout</span> <span class="o">=</span> <span class="n">ViewConfiguration</span><span class="o">.</span><span class="na">getZoomControlsTimeout</span><span class="o">();</span>
+</span><span class='line'>             <span class="k">new</span> <span class="nf">Timer</span><span class="o">().</span><span class="na">schedule</span><span class="o">(</span><span class="k">new</span> <span class="nf">TimerTask</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>                     <span class="nd">@Override</span>
+</span><span class='line'>                      <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>                            <span class="n">destroyWebView</span><span class="o">(</span><span class="n">mWebView</span><span class="o">);</span>
+</span><span class='line'>                      <span class="o">}</span>
+</span><span class='line'>              <span class="o">},</span> <span class="n">timeout</span><span class="o">);</span>
+</span><span class='line'>        <span class="o">}&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="kt">void</span> <span class="nf">clearHistory</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>    <span class="k">if</span> <span class="o">(</span><span class="n">mWebView</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="nf">Runnable</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>            <span class="nd">@Override</span>
+</span><span class='line'>            <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">mWebView</span><span class="o">.</span><span class="na">clearHistory</span><span class="o">();</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">});</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="kd">private</span> <span class="kt">void</span> <span class="nf">destroyWebView</span><span class="o">(</span><span class="kd">final</span> <span class="n">WebView</span> <span class="n">webView</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="n">webView</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">try</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">mWebViewContainer</span><span class="o">.</span><span class="na">removeView</span><span class="o">(</span><span class="n">webView</span><span class="o">);</span>
+</span><span class='line'>
+</span><span class='line'>            <span class="k">if</span> <span class="o">(</span><span class="n">webView</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>                <span class="n">runOnUiThread</span><span class="o">(</span><span class="k">new</span> <span class="nf">Runnable</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>                    <span class="nd">@Override</span>
+</span><span class='line'>                    <span class="kd">public</span> <span class="kt">void</span> <span class="nf">run</span><span class="o">()</span> <span class="o">{</span>
+</span><span class='line'>                        <span class="n">webView</span><span class="o">.</span><span class="na">stopLoading</span><span class="o">();</span>
+</span><span class='line'>                        <span class="n">webView</span><span class="o">.</span><span class="na">removeAllViews</span><span class="o">();</span>
+</span><span class='line'>                        <span class="n">webView</span><span class="o">.</span><span class="na">clearCache</span><span class="o">(</span><span class="kc">true</span><span class="o">);</span>
+</span><span class='line'>                        <span class="n">webView</span><span class="o">.</span><span class="na">destroyDrawingCache</span><span class="o">();</span>
+</span><span class='line'>                        <span class="n">webView</span><span class="o">.</span><span class="na">destroy</span><span class="o">();</span>
+</span><span class='line'>                    <span class="o">}</span>
+</span><span class='line'>                <span class="o">});</span>
+</span><span class='line'>            <span class="o">}</span>
+</span><span class='line'>        <span class="o">}</span> <span class="k">catch</span> <span class="o">(</span><span class="n">Exception</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">e</span><span class="o">.</span><span class="na">printStackTrace</span><span class="o">();</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>    <span class="o">}</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Two things should be noticed :</p>
+
+<ol>
+<li>all operations related with Webview should be on the <strong>UIThread</strong></li>
+<li>webview-destroy operations should happen after removed it from the <strong>container</strong> view.</li>
+</ol>
+
+]]></content>
+  </entry>
+  
+</feed>

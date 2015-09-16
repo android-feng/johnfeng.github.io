@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Anroid | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/anroid/atom.xml" rel="self"/>
+  <link href="http://johnfeng.github.io/"/>
+  <updated>2015-08-31T00:14:30+08:00</updated>
+  <id>http://johnfeng.github.io/</id>
+  <author>
+    <name><![CDATA[Guangwei Feng]]></name>
+    <email><![CDATA[fengguangwei.007@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[okHttp Updates: POST Wouldn't Be Allowed to Have Null Body]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/"/>
+    <updated>2015-06-30T22:42:48+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body</id>
+    <content type="html"><![CDATA[<h2>Problem</h2>
+
+<p>The <a href="https://github.com/square/okhttp">OkHttp</a> lib has been updated to 2.4.0 in late May , it has been a long time since last version 2.4.0 RC released in mid March with a lot of <a href="https://github.com/square/okhttp/blob/master/CHANGELOG.md">changes</a>. And one thing affects my projects most is the POST requests&#8217; limitation.</p>
+
+<!--more-->
+
+
+<p>According to the <a href="https://github.com/square/okhttp/blob/master/CHANGELOG.md">ChangeLog</a>:</p>
+
+<blockquote><ul>
+<li><strong><code>Request.Builder</code> no longer accepts null if a request body is required.</strong>
+ Passing null will now fail for request methods that require a body. Instead
+ use an empty body such as this one:
+ <code>
+     RequestBody.create(null, new byte[0]);
+</code></li>
+</ul>
+</blockquote>
+
+<p>And the real changes in code is : <a href="https://github.com/square/okhttp/blob/master/okhttp/src/main/java/com/squareup/okhttp/Request.java#L248">page</a>
+<figure class='code'><figcaption><span>Builder updates </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="kd">public</span> <span class="n">Builder</span> <span class="nf">method</span><span class="o">(</span><span class="n">String</span> <span class="n">method</span><span class="o">,</span> <span class="n">RequestBody</span> <span class="n">body</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>      <span class="k">if</span> <span class="o">(</span><span class="n">method</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">||</span> <span class="n">method</span><span class="o">.</span><span class="na">length</span><span class="o">()</span> <span class="o">==</span> <span class="mi">0</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;method == null || method.length() == 0&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="o">(</span><span class="n">body</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="o">!</span><span class="n">HttpMethod</span><span class="o">.</span><span class="na">permitsRequestBody</span><span class="o">(</span><span class="n">method</span><span class="o">))</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;method &quot;</span> <span class="o">+</span> <span class="n">method</span> <span class="o">+</span> <span class="s">&quot; must not have a request body.&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>      <span class="k">if</span> <span class="o">(</span><span class="n">body</span> <span class="o">==</span> <span class="kc">null</span> <span class="o">&amp;</span><span class="n">amp</span><span class="o">;&amp;</span><span class="n">amp</span><span class="o">;</span> <span class="n">HttpMethod</span><span class="o">.</span><span class="na">requiresRequestBody</span><span class="o">(</span><span class="n">method</span><span class="o">))</span> <span class="o">{</span>
+</span><span class='line'>        <span class="k">throw</span> <span class="k">new</span> <span class="nf">IllegalArgumentException</span><span class="o">(</span><span class="s">&quot;method &quot;</span> <span class="o">+</span> <span class="n">method</span> <span class="o">+</span> <span class="s">&quot; must have a request body.&quot;</span><span class="o">);</span>
+</span><span class='line'>      <span class="o">}</span>
+</span><span class='line'>      <span class="k">this</span><span class="o">.</span><span class="na">method</span> <span class="o">=</span> <span class="n">method</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">this</span><span class="o">.</span><span class="na">body</span> <span class="o">=</span> <span class="n">body</span><span class="o">;</span>
+</span><span class='line'>      <span class="k">return</span> <span class="k">this</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>Since in our projects, lots of POST request are created with null body , eg : <strong>likeObject</strong> requests and <strong>commentObject</strong> requests. Usually we add these parameters , without any Personally identifiable information, directly append the request url , instead of into the Map entities in request forms , where they should be. And from 2.4.0, these will lead to compile error says <strong><em>&#8220;POST methods must have a request body&#8221;</em></strong> or get NPE <strong><em>&#8220;invoke length method on a null object&#8221;</em></strong></p>
+
+<h2>Fix</h2>
+
+<p>Since we don&#8217;t time to fix every single API with null body , we build a method to avoid this error. Inside of request&#8217;s init class, we override the <strong>getBody()</strong> method of the BaseAPIRequest, which extends ApiGsonRequest&lt; T> class created from Volley and Gson libs, to return a Byte[0] when request get null body. It looks different from official suggestion, but write once , fix all .</p>
+
+<blockquote><p><em>Just inside the smallest project we have , over 40 API requests have been created, that&#8217;s why we really don&#8217;t have time to fix them one by one or add a meaningless parameter to each null POST request to avoid this error.</em></p></blockquote>
+
+<p>the final code should be like :</p>
+
+<p><figure class='code'><figcaption><span>Override getBody </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>    <span class="nd">@Override</span>
+</span><span class='line'>    <span class="kd">public</span> <span class="kt">byte</span><span class="o">[]</span> <span class="nf">getBody</span><span class="o">()</span> <span class="kd">throws</span> <span class="n">AuthFailureError</span> <span class="o">{</span>
+</span><span class='line'>        <span class="kt">byte</span><span class="o">[]</span> <span class="n">body</span> <span class="o">=</span> <span class="kd">super</span><span class="o">.</span><span class="na">getBody</span><span class="o">();</span>
+</span><span class='line'>        <span class="k">if</span> <span class="o">(</span><span class="kc">null</span> <span class="o">==</span> <span class="n">body</span><span class="o">)</span> <span class="o">{</span>
+</span><span class='line'>            <span class="n">body</span> <span class="o">=</span> <span class="k">new</span> <span class="kt">byte</span><span class="o">[</span><span class="mi">0</span><span class="o">];</span>
+</span><span class='line'>        <span class="o">}</span>
+</span><span class='line'>        <span class="k">return</span> <span class="n">body</span><span class="o">;</span>
+</span><span class='line'>    <span class="o">}</span>
+</span></code></pre></td></tr></table></div></figure></p>
+]]></content>
+  </entry>
+  
+</feed>

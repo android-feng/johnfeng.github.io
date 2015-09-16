@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Moto360 | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/moto360/atom.xml" rel="self"/>
+  <link href="http://johnfeng.github.io/"/>
+  <updated>2015-08-31T00:14:30+08:00</updated>
+  <id>http://johnfeng.github.io/</id>
+  <author>
+    <name><![CDATA[Guangwei Feng]]></name>
+    <email><![CDATA[fengguangwei.007@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Learn Android Wear Development - 0]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/03/04/learn-android-wear-development-0/"/>
+    <updated>2015-03-04T11:31:11+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/03/04/learn-android-wear-development-0</id>
+    <content type="html"><![CDATA[<blockquote><p>Through the first couple days with my Moto360 , I quickly fall in love with the <a href="https://www.android.com/wear/">Android Wear</a> system. It doesn&#8217;t only look fancy , but indeed the combination of the Modern Tech &amp; Art as well . Thus, I wanna start a small Android Wear project following days in order to learn more about this wonderful platform and try to be familiar with it.</p></blockquote>
+
+<p>First thing first, Let&#8217;s go thought the official dev guide.</p>
+
+<hr />
+
+<h2><a href="https://developer.android.com/training/building-wearables.html">Official Guide</a> &#8212; <a href="https://developer.android.com/training/wearables/notifications/index.html">1. Adding Wearable Features to Notifications</a></h2>
+
+<!--more-->
+
+
+<pre><code>How to build handheld notifications that are synced to and look great on wearables.
+</code></pre>
+
+<p>There two types of notifications in wear system, one is the <strong>default</strong> card , which will automatically sync received messages to wearable devices with some simple default actions. Another is the <strong>customized</strong> one , which has developer customized layouts and actions, and can do more thing directly from wearable devices.</p>
+
+<ul>
+<li>0.import dependances</li>
+</ul>
+
+
+<p><em>following codes are needed to be set up before starting</em> :</p>
+
+<p><figure class='code'><figcaption><span>in gradle </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">compile</span> <span class="s">&quot;com.android.support:support-v4:20.0.+&quot;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p><figure class='code'><figcaption><span>in activity || fragment ||&#8230; </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationCompat</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationManagerCompat</span><span class="o">;</span>
+</span><span class='line'><span class="kn">import</span> <span class="nn">android.support.v4.app.NotificationCompat.WearableExtender</span><span class="o">;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>and what you can do with customized notification:</p>
+
+<ul>
+<li><p>1.<a href="https://developer.android.com/training/wearables/notifications/creating.html#NotificationBuilder">Create Notifications with the Notification Builder
+</a></p>
+
+<p>  <strong>Just the same with the notifications built on handhelds.</strong></p></li>
+<li><p>2.<a href="https://developer.android.com/training/wearables/notifications/creating.html#ActionButtons">Add action Buttons</a></p></li>
+</ul>
+
+
+<p> <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="k">new</span> <span class="n">NotificationCompat</span><span class="o">.</span><span class="na">Builder</span><span class="o">(</span><span class="k">this</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setSmallIcon</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_event</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentTitle</span><span class="o">(</span><span class="n">eventTitle</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentText</span><span class="o">(</span><span class="n">eventLocation</span><span class="o">)</span>
+</span><span class='line'>        <span class="o">.</span><span class="na">setContentIntent</span><span class="o">(</span><span class="n">viewPendingIntent</span><span class="o">)&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span>    <span class="c1">// which did the job</span>
+</span><span class='line'>    <span class="o">.</span><span class="na">addAction</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">drawable</span><span class="o">.</span><span class="na">ic_map</span><span class="o">,</span>
+</span><span class='line'>            <span class="n">getString</span><span class="o">(</span><span class="n">R</span><span class="o">.</span><span class="na">string</span><span class="o">.</span><span class="na">map</span><span class="o">),</span> <span class="n">mapPendingIntent</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<ul>
+<li><p>3.<a href="https://developer.android.com/training/wearables/notifications/creating.html#SpecifyWearableOnlyActions">Specify Wearable Only Actions</a></p>
+
+<ul>
+<li>use the <a href="https://developer.android.com/reference/android/support/v4/app/NotificationCompat.WearableExtender.html#addAction(android.support.v4.app.NotificationCompat.Action"> NotificationCompat.WearableExtender.addAction (NotificationCompat.Action action)</a>) method to add your own action to notifications.</li>
+</ul>
+</li>
+<li><p>4.<a href="https://developer.android.com/training/wearables/notifications/creating.html#BigView">Add a Big View</a></p>
+
+<ul>
+<li><p>On a handheld device, users can see the big view <strong>content</strong> by expanding the notification. On a wearable device, the big view content is <strong>visible</strong> by default.</p></li>
+<li><p>To add the extended content to your notification, call setStyle() on the <a href="https://developer.android.com/reference/android/support/v4/app/NotificationCompat.BigTextStyle.html">NotificationCompat.Builder</a> object, passing it an instance of either BigTextStyle or InboxStyle.</p></li>
+</ul>
+</li>
+<li><p>5.<a href="https://developer.android.com/training/wearables/notifications/creating.html#AddWearableFeatures">Add Wearable Features For a Notification
+</a></p></li>
+<li><p>6.<a href="https://developer.android.com/training/wearables/notifications/creating.html#Deliver">Deliver the Notification</a></p>
+
+<ul>
+<li>use the NotificationManagerCompat API instead of NotificationManager:</li>
+</ul>
+</li>
+</ul>
+
+
+<p> <figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+</pre></td><td class='code'><pre><code class='java'><span class='line'>  <span class="c1">// Get an instance of the NotificationManager service</span>
+</span><span class='line'>    <span class="n">NotificationManagerCompat</span> <span class="n">notificationManager</span> <span class="o">=</span>
+</span><span class='line'>            <span class="n">NotificationManagerCompat</span><span class="o">.</span><span class="na">from</span><span class="o">(</span><span class="n">mContext</span><span class="o">);&lt;/</span><span class="n">p</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">pre</span><span class="o">&gt;&lt;</span><span class="n">code</span><span class="o">&gt;</span><span class="c1">// Issue the notification with notification manager.</span>
+</span><span class='line'><span class="n">notificationManager</span><span class="o">.</span><span class="na">notify</span><span class="o">(</span><span class="n">notificationId</span><span class="o">,</span> <span class="n">notif</span><span class="o">);</span>
+</span><span class='line'><span class="o">&lt;/</span><span class="n">code</span><span class="o">&gt;&lt;/</span><span class="n">pre</span><span class="o">&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="o">&lt;</span><span class="n">p</span><span class="o">&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<hr />
+
+<h2>One more thing - Useful 3rd Party Libs</h2>
+
+<h4><strong>Give all credits to <a href="https://github.com/tajchert">Michal Tajchert</a>. Really nice work!!!</strong></h4>
+
+<h3>1. <a href="https://github.com/tajchert/BusWear">BusWear - EventBus for Android Wear</a></h3>
+
+<p><img src="https://raw.githubusercontent.com/tajchert/BusWear/master/mobile/src/main/res/drawable-xxxhdpi/ic_launcher.png" alt="BusWear" /></p>
+
+<blockquote><p>BusWear <img alt="bus" src="/images/emoji/unicode/1f68c.png" class="emoji" /><img alt="watch" src="/images/emoji/unicode/231a.png" class="emoji" /> is a simple library for EventBus to support Android Wear devices. Just adding one line of code lets you get synchronized event buses on Wear and mobile platform.</p></blockquote>
+
+<p><img src="https://raw.githubusercontent.com/tajchert/BusWear/master/docs/diagram_simple.png" alt="architecture" /></p>
+
+<blockquote><h4>What is EventBus?</h4>
+
+<p>A great multi-purpose tool for Android apps, way of triggering some events in separate Activity, Fragment, Service etc. EventBus, origin of that project or Otto.</p></blockquote>
+
+<p>if you&#8217;re already familiar with <a href="https://github.com/greenrobot/EventBus">Android EventBus</a>, it works just in the same pattern, syncing data between wear and handhelds like a boss.</p>
+
+<h3>2. <a href="https://github.com/tajchert/ExceptionWear">ExceptionWear - library for handling Exceptions on Android Wear</a></h3>
+
+<blockquote><p><strong>ExceptionWear</strong> <img alt="exclamation" src="/images/emoji/unicode/2757.png" class="emoji" /><img alt="watch" src="/images/emoji/unicode/231a.png" class="emoji" /> is very simple library to solve problem of not <strong>passing</strong> exceptions from Android Wear <strong>devices</strong> to the <strong>phone</strong>. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won&#8217;t get any information about it (sic!).</p></blockquote>
+]]></content>
+  </entry>
+  
+  <entry>
+    <title type="html"><![CDATA[First Glance at Moto360]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/03/03/first-glance-at-moto360/"/>
+    <updated>2015-03-03T12:26:35+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/03/03/first-glance-at-moto360</id>
+    <content type="html"><![CDATA[<p>Check out my brand new Moto360. LOL . So Gorgeous!!!</p>
+
+<p><img class="align=center" src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360.jpg?raw=true" width="400" height="400" title="[moto360]" ></p>
+
+<!--more-->
+
+
+<p><img class="align=center" src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360-1.jpg?raw=true" width="400" height="400" title="[moto360]" ></p>
+
+<p><img class="align=center" src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360-2.jpg?raw=true" width="400" height="400" title="[moto360]" ></p>
+
+<p>I decided to start a new android-tool project on Github following days, basing on Android wear. So much excited I am right now with my moto360.</p>
+]]></content>
+  </entry>
+  
+</feed>
