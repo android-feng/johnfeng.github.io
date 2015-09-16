@@ -13,6 +13,8 @@ I created a new Github project with .gitignore file downloaded from <strong><a h
   <strong>Here is my .gitignore file <span style=" font-style:italic">(I am pretty sure it works fine)</span>:</strong>
 </p>
 
+<!--more-->
+
 {% codeblock lang:java .gitignore %}
 
 Created by https://www.gitignore.io/api/android,intellij
