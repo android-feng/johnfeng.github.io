@@ -4,7 +4,7 @@
   <title><![CDATA[John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-10-13T11:13:58+08:00</updated>
+  <updated>2015-10-13T11:15:25+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -232,22 +232,6 @@
 <p>P.S. If your apps' lowest support API levels are above 18, you don't have to worry about this problem.</p>
 
 <p>Peace!</p>
-]]></content>
-  </entry>
-  
-  <entry>
-    <title type="html"><![CDATA[In Mid Night]]></title>
-    <link href="http://johnfeng.github.io/blog/2015/09/01/in-mid-night/"/>
-    <updated>2015-09-01T00:00:00+08:00</updated>
-    <id>http://johnfeng.github.io/blog/2015/09/01/in-mid-night</id>
-    <content type="html"><![CDATA[<hr />
-
-<p>layout: post title: "In Mid Night" date: 2015-09-01 01:16:38 +0800 comments: true</p>
-
-<h2>categories:</h2>
-
-<p>Feel so tired...Don't know what should I do to find the correct way...</p>
-
 ]]></content>
   </entry>
   
