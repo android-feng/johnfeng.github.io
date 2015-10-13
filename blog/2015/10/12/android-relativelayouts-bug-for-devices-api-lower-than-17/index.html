@@ -1,10 +1,127 @@
-<hr />
 
-<p>layout: post title: "Android RelativeLayout's Bug -- for devices' API lower than 17" date: 2015-10-12 18:19:04 +0800 comments: true share: true</p>
+<!DOCTYPE html>
+<!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
+<!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
+<!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
 
-<h2>categories: android bug relativeLayout 17 layout</h2>
+<head>
 
-<h2>Problem</h2>
+
+<meta charset="utf-8">
+<meta http-equiv="cleartype" content="on">
+
+<title>Android RelativeLayout's Bug -- for Devices' API Lower Than 17 - John Feng's Blog</title>
+<meta name="author" content="Guangwei Feng">
+
+
+
+
+<meta name="description" content="Problem This afternoon, When I am implementing a simple ListView's item view, I found a really wired problem. First, the layout is shown below: &hellip;">
+
+<meta name="keywords" content="android bug relativelayout 17 layout ">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Twitter Cards -->
+
+  
+    <meta name="twitter:card" content="summary">
+    <meta name="twitter:image" content"">
+  
+  <meta name="twitter:title" content="Android RelativeLayout's Bug -- for devices' API lower than 17">
+  <meta name="twitter:description" content="Problem This afternoon, When I am implementing a simple ListView's item view, I found a really wired problem. First, the layout is shown below: &hellip;">
+  <meta name="twitter:creator" content="@GuangweiFeng">
+
+
+<!-- Open Graph -->
+<meta property="og:local" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17">
+<meta property="og:title" content="Android RelativeLayout's Bug -- for devices' API lower than 17">
+<meta property="og:description" content="Problem This afternoon, When I am implementing a simple ListView's item view, I found a really wired problem. First, the layout is shown below: &hellip;">
+
+  <meta property="og:image" content="">
+
+<meta property="og:site_name" content="John Feng's Blog">
+
+<link rel="canonical" href="http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17">
+<link href="/favicon.png" rel="icon">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/atom.xml" rel="alternate" title="John Feng's Blog" type="application/atom+xml">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script>Modernizr || document.write('<script src="/javascripts/vendor/modernizr-2.6.2.custom.min.js"><\/script>') </script>
+
+
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+<link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
+
+
+</head>
+
+<body id="post" >
+
+<!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+<nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpeg" alt="Guangwei Feng photo" class="author-photo">
+					<h4>Guangwei Feng</h4>
+					<p>遥望远方...</p>
+				</li>
+				
+				<li>
+					<a href="mailto:fengguangwei.007@gmail.com"><i class="fa fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/GuangweiFeng"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/+GuangweiJohnFeng"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://github.com/JohnFeng"><i class="fa fa-github"></i> GitHub</a>
+				</li>
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/categories/">All Categories</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+
+
+<div id="main" role="main">
+  <article class="hentry">
+    <header class="header-title">
+      <div class="header-title-wrap">
+        
+          <h1 class="entry-title"><a href="/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/" rel="bookmark" title="Android RelativeLayout's Bug -- for devices' API lower than 17">Android RelativeLayout's Bug -- for devices' API lower than 17</a></h1>
+        
+        <h2>October 12, 2015</h2>
+      </div><!-- /.header-title-wrap -->
+    </header>
+    <div class="entry-content">
+      <h2>Problem</h2>
 
 <p>This afternoon, When I am implementing a simple ListView's item view, I found a really wired problem. First, the layout is shown below:</p>
 
@@ -212,3 +329,98 @@
 <p>P.S. If your apps' lowest support API levels are above 18, you don't have to worry about this problem.</p>
 
 <p>Peace!</p>
+
+      <footer class="entry-meta">
+        <span class="entry-tags"><a href="/categories/#android" title="Pages tagged android" class="tag">android</a><a href="/categories/#bug" title="Pages tagged bug" class="tag">bug</a><a href="/categories/#relativelayout" title="Pages tagged relativelayout" class="tag">relativelayout</a><a href="/categories/#17" title="Pages tagged 17" class="tag">17</a><a href="/categories/#layout" title="Pages tagged layout" class="tag">layout</a></span>
+        <span><a href="/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/" rel="bookmark" title="Android RelativeLayout's Bug -- for devices' API lower than 17">Android RelativeLayout's Bug -- for devices' API lower than 17</a> was published on <span class="entry-date date published updated"><time datetime="2015-10-12T18:19:04+08:00">October 12, 2015</time></span></span>
+        
+        <span class="author vcard"><span class="fn"><a href="" title="About Guangwei Feng">Guangwei Feng</a></span></span>
+        <div class="social-share">
+          <ul class="socialcount socialcount-small inline-list">
+            <li class="facebook"><a href="https://www.facebook.com/sharer/sharer.php?u=/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/" title="Share on Facebook"><span class="count"><i class="fa fa-facebook-square"></i> Like</span></a></li>
+            <li class="twitter"><a href="https://twitter.com/intent/tweet?text=/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/" title="Share on Twitter"><span class="count"><i class="fa fa-twitter-square"></i> Tweet</span></a></li>
+            <li class="googleplus"><a href="https://plus.google.com/share?url=/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/" title="Share on Google Plus"><span class="count"><i class="fa fa-google-plus-square"></i> +1</span></a></li>
+          </ul>
+        </div><!-- /.social-share -->
+      </footer>
+    </div><!-- /.entry-content -->
+    
+      <div class="read-more">
+        
+          <div class="read-more-header">
+            <a href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/" class="btn">Read More</a>
+          </div><!-- /.read-more-header -->
+          <div class="read-more-content">
+            <h3><a href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/" title="Cannot ignore .idea/workspace.xml - keeps popping up">Cannot ignore .idea/workspace.xml - keeps popping up</a></h3>
+            <p>Problem I created a new Github project with .gitignore file downloaded from .gitignore.io. And every time I wanna make my commits, I found &hellip;&hellip; <a href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/"> Continue reading</a></p>
+          </div><!-- /.read-more-content -->
+        
+        <div class="read-more-list">
+          
+            <div class="list-item">
+              <h4><a href="/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/" title="okHttp updates: POST wouldn't be allowed to have null body">okHttp updates: POST wouldn't be allowed to have null body</a></h4>
+              <span>Published on June 30, 2015</span>
+            </div><!-- /.list-item -->
+          
+            <div class="list-item">
+              <h4><a href="/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/" title="Fragment - Activity has been destoryed Problem">Fragment - Activity has been destoryed Problem</a></h4>
+              <span>Published on May 31, 2015</span>
+            </div><!-- /.list-item -->
+          
+        </div><!-- /.read-more-list -->
+      </div><!-- /.read-more -->
+    
+    <section id="disqus_thread"></section><!-- /#disqus_thread -->
+  </article>
+</div><!-- /#main -->
+
+<div class="footer-wrapper">
+  <footer role="contentinfo">
+    <span>&copy; 2015 Guangwei Feng. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/jez/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
+
+  </footer>
+</div><!-- /.footer-wrapper -->
+
+
+	        
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/javascripts/octopress.js" type="text/javascript"></script>
+<script src="/javascripts/scripts.min.js"></script>
+
+  <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-59729566-1']);
+    _gaq.push(['_trackPageview']);
+
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
+
+
+
+
+<script type="text/javascript">
+      var disqus_shortname = 'guangweijohnfengsblog';
+      
+        
+        // var disqus_developer = 1;
+        var disqus_identifier = 'http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/';
+        var disqus_url = 'http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/';
+        var disqus_script = 'embed.js';
+      
+    (function () {
+      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
+      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+    }());
+</script>
+
+
+	        
+
+</body>
+</html>

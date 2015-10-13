@@ -2,7 +2,7 @@
 <urlset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9 http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/</loc>
-    <lastmod>2015-10-12T00:00:00+08:00</lastmod>
+    <lastmod>2015-10-12T18:19:04+08:00</lastmod>
   </url>
   <url>
     <loc>http://johnfeng.github.io/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/</loc>
@@ -42,22 +42,22 @@
   </url>
   <url>
     <loc>http://johnfeng.github.io/archives/</loc>
-    <lastmod>2015-10-13T12:08:06+08:00</lastmod>
+    <lastmod>2015-10-13T12:13:04+08:00</lastmod>
   </url>
   <url>
     <loc>http://johnfeng.github.io/blog/archives/</loc>
-    <lastmod>2015-10-13T12:08:06+08:00</lastmod>
+    <lastmod>2015-10-13T12:13:04+08:00</lastmod>
   </url>
   <url>
     <loc>http://johnfeng.github.io/categories/</loc>
-    <lastmod>2015-10-13T12:08:06+08:00</lastmod>
+    <lastmod>2015-10-13T12:13:04+08:00</lastmod>
   </url>
   <url>
     <loc>http://johnfeng.github.io/</loc>
-    <lastmod>2015-10-13T12:08:06+08:00</lastmod>
+    <lastmod>2015-10-13T12:13:04+08:00</lastmod>
   </url>
   <url>
     <loc>http://johnfeng.github.io/posts/</loc>
-    <lastmod>2015-10-13T12:08:06+08:00</lastmod>
+    <lastmod>2015-10-13T12:13:04+08:00</lastmod>
   </url>
 </urlset>

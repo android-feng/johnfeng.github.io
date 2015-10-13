@@ -4,7 +4,7 @@
   <title><![CDATA[John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-10-13T12:08:06+08:00</updated>
+  <updated>2015-10-13T12:13:04+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -14,17 +14,11 @@
 
   
   <entry>
-    <title type="html"><![CDATA[Android Relativelayouts Bug for Devices Api Lower Than 17]]></title>
+    <title type="html"><![CDATA[Android RelativeLayout's Bug -- for Devices' API Lower Than 17]]></title>
     <link href="http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/"/>
-    <updated>2015-10-12T00:00:00+08:00</updated>
+    <updated>2015-10-12T18:19:04+08:00</updated>
     <id>http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17</id>
-    <content type="html"><![CDATA[<hr />
-
-<p>layout: post title: "Android RelativeLayout's Bug -- for devices' API lower than 17" date: 2015-10-12 18:19:04 +0800 comments: true share: true</p>
-
-<h2>categories: android bug relativeLayout 17 layout</h2>
-
-<h2>Problem</h2>
+    <content type="html"><![CDATA[<h2>Problem</h2>
 
 <p>This afternoon, When I am implementing a simple ListView's item view, I found a really wired problem. First, the layout is shown below:</p>
 

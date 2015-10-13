@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+
+  <title><![CDATA[Category: Layout | John Feng's Blog]]></title>
+  <link href="http://johnfeng.github.io/blog/categories/layout/atom.xml" rel="self"/>
+  <link href="http://johnfeng.github.io/"/>
+  <updated>2015-10-13T12:13:04+08:00</updated>
+  <id>http://johnfeng.github.io/</id>
+  <author>
+    <name><![CDATA[Guangwei Feng]]></name>
+    <email><![CDATA[fengguangwei.007@gmail.com]]></email>
+  </author>
+  <generator uri="http://octopress.org/">Octopress</generator>
+
+  
+  <entry>
+    <title type="html"><![CDATA[Android RelativeLayout's Bug -- for Devices' API Lower Than 17]]></title>
+    <link href="http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/"/>
+    <updated>2015-10-12T18:19:04+08:00</updated>
+    <id>http://johnfeng.github.io/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17</id>
+    <content type="html"><![CDATA[<h2>Problem</h2>
+
+<p>This afternoon, When I am implementing a simple ListView's item view, I found a really wired problem. First, the layout is shown below:</p>
+
+<p><figure class='code'><figcaption><span>item_list_notification </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+<span class='line-number'>44</span>
+<span class='line-number'>45</span>
+<span class='line-number'>46</span>
+<span class='line-number'>47</span>
+<span class='line-number'>48</span>
+<span class='line-number'>49</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span><span class="ni">&amp;lt;</span>?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;<span class="nt">&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;RelativeLayout</span> <span class="na">android:id=</span><span class="s">&quot;@+id/notification_layout&quot;</span>
+</span><span class='line'>    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span class='line'>    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>    <span class="na">android:background=</span><span class="s">&quot;?android:attr/selectableItemBackground&quot;</span>
+</span><span class='line'>    <span class="na">android:clickable=</span><span class="s">&quot;true&quot;</span>
+</span><span class='line'>    <span class="na">android:descendantFocusability=</span><span class="s">&quot;blocksDescendants&quot;</span>
+</span><span class='line'>    <span class="na">android:gravity=</span><span class="s">&quot;center_vertical&quot;</span>
+</span><span class='line'>    <span class="na">android:paddingBottom=</span><span class="s">&quot;15dp&quot;</span>
+</span><span class='line'>    <span class="na">android:paddingLeft=</span><span class="s">&quot;14dp&quot;</span>
+</span><span class='line'>    <span class="na">android:paddingRight=</span><span class="s">&quot;14dp&quot;</span>
+</span><span class='line'>    <span class="na">android:paddingTop=</span><span class="s">&quot;15dp&quot;</span>
+</span><span class='line'>    <span class="nt">&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span><span class="ni">&amp;lt;</span>LinearLayout
+</span><span class='line'>android:id=&quot;@+id/notification_content&quot;
+</span><span class='line'>android:layout_width=&quot;match_parent&quot;
+</span><span class='line'>android:layout_height=&quot;match_parent&quot;
+</span><span class='line'>android:orientation=&quot;vertical&quot;
+</span><span class='line'><span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>TextView
+</span><span class='line'>    android:id=&quot;@+id/notification_text&quot;
+</span><span class='line'>    style=&quot;@style/Text.Frodo.P4&quot;
+</span><span class='line'>    android:layout_width=&quot;wrap_content&quot;
+</span><span class='line'>    android:layout_height=&quot;wrap_content&quot;
+</span><span class='line'>    android:singleLine=&quot;false&quot;
+</span><span class='line'>    android:textColor=&quot;@color/text_gray&quot;
+</span><span class='line'>    /<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>TextView
+</span><span class='line'>    android:id=&quot;@+id/notification_time&quot;
+</span><span class='line'>    style=&quot;@style/Text.Frodo.P4&quot;
+</span><span class='line'>    android:layout_width=&quot;wrap_content&quot;
+</span><span class='line'>    android:layout_height=&quot;wrap_content&quot;
+</span><span class='line'>    android:singleLine=&quot;true&quot;
+</span><span class='line'>    android:textColor=&quot;@color/text_gray_light&quot;
+</span><span class='line'>    /<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="ni">&amp;lt;</span>/LinearLayout<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;/RelativeLayout&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<!-- more -->
+
+
+<p>The problem is : when runs on devices with API over 18, the LinearLayout shown in right places. But when runs on below 17, all padding properties of the LinearLayout seem do not work at all, with all subviews just shown at left-top side without any space to bounds.</p>
+
+<h2>Fix</h2>
+
+<p>After long time searching , I found a piece of words on <a href="http://developer.android.com/reference/android/widget/RelativeLayout.html">developer.android.com</a> , which says:</p>
+
+<blockquote><p>Note: In platform version 17 and lower, RelativeLayout was affected by a measurement bug that could cause child views to be measured with incorrect MeasureSpec values. (See MeasureSpec.makeMeasureSpec for more details.) This was triggered when a RelativeLayout container was placed in a scrolling container, such as a ScrollView or HorizontalScrollView. If a custom view not equipped to properly measure with the MeasureSpec mode UNSPECIFIED was placed in a RelativeLayout, this would silently work anyway as RelativeLayout would pass a very large AT_MOST MeasureSpec instead.</p></blockquote>
+
+<p><br></p>
+
+<h4>And something more is:</h4>
+
+<p><a href="http://developer.android.com/reference/android/view/View.MeasureSpec.html#makeMeasureSpec(int,%20int">View.makeMeasureSpec</a>)</p>
+
+<p>It seems that this bug only affects RelativeLayout's child views, when RelativeLayout is inside of a scrolling container , like a listview I am using. Thus , the result is quite simple , <strong>all measuring properties of RelativeLayout's child views should best move to RelativeLayout itself.</strong>  Like my list item , it should be like:</p>
+
+<p><figure class='code'><figcaption><span>fixed : item_list_notification </span></figcaption>
+<div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
+<span class='line-number'>2</span>
+<span class='line-number'>3</span>
+<span class='line-number'>4</span>
+<span class='line-number'>5</span>
+<span class='line-number'>6</span>
+<span class='line-number'>7</span>
+<span class='line-number'>8</span>
+<span class='line-number'>9</span>
+<span class='line-number'>10</span>
+<span class='line-number'>11</span>
+<span class='line-number'>12</span>
+<span class='line-number'>13</span>
+<span class='line-number'>14</span>
+<span class='line-number'>15</span>
+<span class='line-number'>16</span>
+<span class='line-number'>17</span>
+<span class='line-number'>18</span>
+<span class='line-number'>19</span>
+<span class='line-number'>20</span>
+<span class='line-number'>21</span>
+<span class='line-number'>22</span>
+<span class='line-number'>23</span>
+<span class='line-number'>24</span>
+<span class='line-number'>25</span>
+<span class='line-number'>26</span>
+<span class='line-number'>27</span>
+<span class='line-number'>28</span>
+<span class='line-number'>29</span>
+<span class='line-number'>30</span>
+<span class='line-number'>31</span>
+<span class='line-number'>32</span>
+<span class='line-number'>33</span>
+<span class='line-number'>34</span>
+<span class='line-number'>35</span>
+<span class='line-number'>36</span>
+<span class='line-number'>37</span>
+<span class='line-number'>38</span>
+<span class='line-number'>39</span>
+<span class='line-number'>40</span>
+<span class='line-number'>41</span>
+<span class='line-number'>42</span>
+<span class='line-number'>43</span>
+</pre></td><td class='code'><pre><code class='xml'><span class='line'><span class="ni">&amp;lt;</span>?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+</span><span class='line'><span class="nt">&lt;RelativeLayout</span> <span class="na">android:id=</span><span class="s">&quot;@+id/notification_layout&quot;</span>
+</span><span class='line'>    <span class="na">xmlns:android=</span><span class="s">&quot;http://schemas.android.com/apk/res/android&quot;</span>
+</span><span class='line'>    <span class="na">android:layout_width=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>    <span class="na">android:layout_height=</span><span class="s">&quot;match_parent&quot;</span>
+</span><span class='line'>    <span class="na">android:background=</span><span class="s">&quot;?android:attr/selectableItemBackground&quot;</span>
+</span><span class='line'>    <span class="na">android:clickable=</span><span class="s">&quot;true&quot;</span>
+</span><span class='line'>    <span class="na">android:descendantFocusability=</span><span class="s">&quot;blocksDescendants&quot;</span>
+</span><span class='line'>    <span class="na">android:gravity=</span><span class="s">&quot;center_vertical&quot;</span>
+</span><span class='line'>    <span class="na">android:paddingBottom=</span><span class="s">&quot;15dp&quot;</span>
+</span><span class='line'>    <span class="na">android:paddingLeft=</span><span class="s">&quot;14dp&quot;</span>
+</span><span class='line'>    <span class="na">android:paddingRight=</span><span class="s">&quot;14dp&quot;</span>
+</span><span class='line'>    <span class="na">android:paddingTop=</span><span class="s">&quot;15dp&quot;</span>
+</span><span class='line'>    <span class="nt">&gt;&lt;/p&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;pre&gt;&lt;code&gt;</span>    <span class="ni">&amp;lt;</span>LinearLayout
+</span><span class='line'>    android:id=&quot;@+id/notification_content&quot;
+</span><span class='line'>    android:layout_width=&quot;match_parent&quot;
+</span><span class='line'>    android:layout_height=&quot;match_parent&quot;
+</span><span class='line'>    android:orientation=&quot;vertical&quot;
+</span><span class='line'>    <span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="ni">&amp;lt;</span>TextView
+</span><span class='line'>        android:id=&quot;@+id/notification_text&quot;
+</span><span class='line'>        style=&quot;@style/Text.Frodo.P4&quot;
+</span><span class='line'>        android:layout_width=&quot;wrap_content&quot;
+</span><span class='line'>        android:layout_height=&quot;wrap_content&quot;
+</span><span class='line'>        android:singleLine=&quot;false&quot;
+</span><span class='line'>        android:textColor=&quot;@color/text_gray&quot;
+</span><span class='line'>        /<span class="ni">&amp;gt;</span>
+</span><span class='line'>
+</span><span class='line'>        <span class="ni">&amp;lt;</span>TextView
+</span><span class='line'>        android:id=&quot;@+id/notification_time&quot;
+</span><span class='line'>        style=&quot;@style/Text.Frodo.P4&quot;
+</span><span class='line'>        android:layout_width=&quot;wrap_content&quot;
+</span><span class='line'>        android:layout_height=&quot;wrap_content&quot;
+</span><span class='line'>        android:singleLine=&quot;true&quot;
+</span><span class='line'>        android:textColor=&quot;@color/text_gray_light&quot;
+</span><span class='line'>        /<span class="ni">&amp;gt;</span>
+</span><span class='line'>    <span class="ni">&amp;lt;</span>/LinearLayout<span class="ni">&amp;gt;</span>
+</span><span class='line'><span class="nt">&lt;/code&gt;&lt;/pre&gt;</span>
+</span><span class='line'>
+</span><span class='line'><span class="nt">&lt;p&gt;&lt;/RelativeLayout&gt;</span>
+</span></code></pre></td></tr></table></div></figure></p>
+
+<p>all paddings have been moved into RelativeLayout from LinearLayout.</p>
+
+<p>P.S. If your apps' lowest support API levels are above 18, you don't have to worry about this problem.</p>
+
+<p>Peace!</p>
+]]></content>
+  </entry>
+  
+</feed>
