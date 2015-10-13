@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Weibo-sdk | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/weibo-sdk/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-09-16T23:55:57+08:00</updated>
+  <updated>2015-10-13T11:13:58+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -22,16 +22,16 @@
 
 <h2>Question</h2>
 
-<p> I was trying to update my App&#8217;s Weibo-SDK version from 2.x to 3.0.1 <em>(in order to fix the SSO crash when authorizing apps without Weibo&#8217;s client, happens on <strong>Lollipop</strong>)</em>, building process failed with log : Couldn&#8217;t load sdk from loader dalvik &#8230; <strong>libweibosdkcore.so</strong> file.</p>
+<p> I was trying to update my App's Weibo-SDK version from 2.x to 3.0.1 <em>(in order to fix the SSO crash when authorizing apps without Weibo's client, happens on <strong>Lollipop</strong>)</em>, building process failed with log : Couldn't load sdk from loader dalvik ... <strong>libweibosdkcore.so</strong> file.</p>
 
-<p>After pasting the &#8220;libweibosdkcore.so&#8221; file into &#8220;libs/armeabi-v7a/&#8221; folder, gradle still could not pass the building process.</p>
+<p>After pasting the "libweibosdkcore.so" file into "libs/armeabi-v7a/" folder, gradle still could not pass the building process.</p>
 
 <!-- more -->
 
 
 <h2>Fix</h2>
 
-<p>Add the following codes into the &#8220;build.gradle&#8221; file, inside of  the &#8220;android&#8221; block:</p>
+<p>Add the following codes into the "build.gradle" file, inside of  the "android" block:</p>
 
 <pre><code class="``java">    //noinspection all
     task copyNativeLibs(type: Copy) {
@@ -55,7 +55,7 @@
 
 <p>Problem Solved.</p>
 
-<p>From &lt;<a href="http://blog.sina.com.cn/s/blog_92814aa60102vhv1.html">镕羽&#8217;s Blog</a>></p>
+<p>From &lt;<a href="http://blog.sina.com.cn/s/blog_92814aa60102vhv1.html">镕羽's Blog</a>></p>
 ]]></content>
   </entry>
   

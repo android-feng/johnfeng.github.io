@@ -4,7 +4,7 @@
   <title><![CDATA[Category: .gitignore | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/dot-gitignore/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-09-16T23:55:57+08:00</updated>
+  <updated>2015-10-13T11:13:58+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<h3> Problem </h3>
 
 
-<p>I created a new Github project with .gitignore file downloaded from <strong><a href="https://www.gitignore.io/">.gitignore.io</a></strong>. And every time I wanna make my commits, I found that the .idea/workspace.xml file&#8217;s changes keep popping up.</p>
+<p>I created a new Github project with .gitignore file downloaded from <strong><a href="https://www.gitignore.io/">.gitignore.io</a></strong>. And every time I wanna make my commits, I found that the .idea/workspace.xml file's changes keep popping up.</p>
 
 <p>
   <strong>Here is my .gitignore file <span style=" font-style:italic">(I am pretty sure it works fine)</span>:</strong>

@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Android | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/android/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-09-16T23:55:57+08:00</updated>
+  <updated>2015-10-13T11:13:58+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -20,7 +20,7 @@
     <id>http://johnfeng.github.io/blog/2015/05/31/fragment-activity-has-been-destoryed-problem</id>
     <content type="html"><![CDATA[<h3>[Bug]</h3>
 
-<p>When fixing projects&#8217; bugs, I found a really wired one with error info shown as below:</p>
+<p>When fixing projects' bugs, I found a really wired one with error info shown as below:</p>
 
 <p><figure class='code'><figcaption><span>Error Info </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -78,24 +78,24 @@
 
 <h3>[Situation]</h3>
 
-<p>The situation is : I tried to put a viewpager with a fragmentAdapter inside of another fragment, which is inside of a activity. And I tested these code on my Nexus5(5.1.1), they worked like a charm .And so did on our QA&#8217;s phones.</p>
+<p>The situation is : I tried to put a viewpager with a fragmentAdapter inside of another fragment, which is inside of a activity. And I tested these code on my Nexus5(5.1.1), they worked like a charm .And so did on our QA's phones.</p>
 
-<p>But this morning , when I was &#8216;enjoying&#8217; my regular online-app-running-data reading work, I found this crash happened over 150 times and continuely growing. I tried every method I could get, including the nest-fragments crashes we usually easy to get, and after a few searching on Internet, I concluded this result: &#8220;It&#8217;s Google&#8217;s mistake.&#8221;</p>
+<p>But this morning , when I was 'enjoying' my regular online-app-running-data reading work, I found this crash happened over 150 times and continuely growing. I tried every method I could get, including the nest-fragments crashes we usually easy to get, and after a few searching on Internet, I concluded this result: "It's Google's mistake."</p>
 
 <h3>[Reason]</h3>
 
-<p>In Google&#8217;s Android Source Code, something wierd found like this:</p>
+<p>In Google's Android Source Code, something wierd found like this:</p>
 
 <p><a href="http://grepcode.com/file_/repository.grepcode.com/java/ext/com.google.android/android/5.0.0_r1/android/support/v4/app/Fragment.java/?v=diff&amp;id2=4.4.4_r1#1223">Android Source Code</a></p>
 
 <pre><code class="java">mChildFragmentManager = null;
 </code></pre>
 
-<p>It means before 5.0.1, everytime a fragement invokes its onDestory or onDetach Method, its mChildFramentManager has never been reset. WOW. And I guess that&#8217;s the reason.</p>
+<p>It means before 5.0.1, everytime a fragement invokes its onDestory or onDetach Method, its mChildFramentManager has never been reset. WOW. And I guess that's the reason.</p>
 
 <p>What Marcus Forsell Stahre said on <a href="http://stackoverflow.com/questions/15207305/getting-the-error-java-lang-illegalstateexception-activity-has-been-destroyed">StackOverflow</a>:</p>
 
-<blockquote><p>If you look at the implementation of Fragment, you&#8217;ll see that when moving to the detached state, it&#8217;ll reset its internal state. However, it doesn&#8217;t reset mChildFragmentManager (this is a bug in the current version of the support library). This causes it to not reattach the child fragment manager when the Fragment is reattached, causing the exception you saw.</p></blockquote>
+<blockquote><p>If you look at the implementation of Fragment, you'll see that when moving to the detached state, it'll reset its internal state. However, it doesn't reset mChildFragmentManager (this is a bug in the current version of the support library). This causes it to not reattach the child fragment manager when the Fragment is reattached, causing the exception you saw.</p></blockquote>
 
 <p>And I also found a <a href="https://code.google.com/p/android/issues/detail?id=42601">Google Issue</a> for this problem.</p>
 
@@ -208,11 +208,11 @@
     <id>http://johnfeng.github.io/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices</id>
     <content type="html"><![CDATA[<h2>1. Create a new Project</h2>
 
-<p>It&#8217;s quite easy when you wanna create a new Android wear project using Android studio. All you need is just hit the new project and choose the &#8220;Android wear&#8221; label.</p>
+<p>It's quite easy when you wanna create a new Android wear project using Android studio. All you need is just hit the new project and choose the "Android wear" label.</p>
 
 <p><img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/creat.png?raw=true" alt="" /></p>
 
-<p>The relationship between Handheld App and Wear App will be told in the &#8221;<strong>Package</strong>&#8221; Section.</p>
+<p>The relationship between Handheld App and Wear App will be told in the "<strong>Package</strong>" Section.</p>
 
 <p>And now you can browser all available items in project stucture:
 <img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/create1.png?raw=true" alt="" /></p>
@@ -224,7 +224,7 @@
 
 <h2>2. Debug &amp; Run on Real Device(Moto 360)</h2>
 
-<p>Since Moto360 don&#8217;t have any usb port, apps have to be  debugged over bluetooth.</p>
+<p>Since Moto360 don't have any usb port, apps have to be  debugged over bluetooth.</p>
 
 <h4><a href="https://developer.android.com/training/wearables/apps/bt-debugging.html#SetupDevices">a.  Set up Debugging</a></h4>
 
@@ -232,7 +232,7 @@
 
 <ul>
 <li>Open the Settings app and scroll to the bottom.</li>
-<li>If it doesn&#8217;t have a Developer Options setting, tap About Phone (or >About Tablet), scroll to the bottom, and tap the build number 7 times.</li>
+<li>If it doesn't have a Developer Options setting, tap About Phone (or >About Tablet), scroll to the bottom, and tap the build number 7 times.</li>
 <li>Go back and tap Developer Options.</li>
 <li>Enable USB debugging.
 <hr>
@@ -240,7 +240,7 @@
 <h4>2.Enable Bluetooth debugging on the wearable:</h4></li>
 <li>Tap the home screen twice to bring up the Wear menu.</li>
 <li>Scroll to the bottom and tap Settings.</li>
-<li>Scroll to the bottom. If there&#8217;s no Developer Options item, tap About, >and then tap the build number 7 times.</li>
+<li>Scroll to the bottom. If there's no Developer Options item, tap About, >and then tap the build number 7 times.</li>
 <li>Tap the Developer Options item.</li>
 <li>Enable Debug over Bluetooth.</li>
 </ul>
@@ -248,7 +248,7 @@
 
 <h4><a href="https://developer.android.com/training/wearables/apps/bt-debugging.html#SetupDevices">b.Setup Devices</a></h4>
 
-<p>After you enabled <strong>Debugging over Bluetooth</strong> in handhelds Android wear -> &#8220;settings&#8221; page ,and add following code:</p>
+<p>After you enabled <strong>Debugging over Bluetooth</strong> in handhelds Android wear -> "settings" page ,and add following code:</p>
 
 <p><figure class='code'><div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
@@ -258,7 +258,7 @@
 <p>And here is the output:
 <img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug.png?raw=true" alt="" /></p>
 
-<p>And in Android Studio&#8217;s DDMS:
+<p>And in Android Studio's DDMS:
 <img src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-05/debug1.png?raw=true" alt="" /></p>
 
 <h4>c.Run Hello World</h4>
@@ -295,13 +295,13 @@
     <link href="http://johnfeng.github.io/blog/2015/03/04/learn-android-wear-development-0/"/>
     <updated>2015-03-04T11:31:11+08:00</updated>
     <id>http://johnfeng.github.io/blog/2015/03/04/learn-android-wear-development-0</id>
-    <content type="html"><![CDATA[<blockquote><p>Through the first couple days with my Moto360 , I quickly fall in love with the <a href="https://www.android.com/wear/">Android Wear</a> system. It doesn&#8217;t only look fancy , but indeed the combination of the Modern Tech &amp; Art as well . Thus, I wanna start a small Android Wear project following days in order to learn more about this wonderful platform and try to be familiar with it.</p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p>Through the first couple days with my Moto360 , I quickly fall in love with the <a href="https://www.android.com/wear/">Android Wear</a> system. It doesn't only look fancy , but indeed the combination of the Modern Tech &amp; Art as well . Thus, I wanna start a small Android Wear project following days in order to learn more about this wonderful platform and try to be familiar with it.</p></blockquote>
 
-<p>First thing first, Let&#8217;s go thought the official dev guide.</p>
+<p>First thing first, Let's go thought the official dev guide.</p>
 
 <hr />
 
-<h2><a href="https://developer.android.com/training/building-wearables.html">Official Guide</a> &#8212; <a href="https://developer.android.com/training/wearables/notifications/index.html">1. Adding Wearable Features to Notifications</a></h2>
+<h2><a href="https://developer.android.com/training/building-wearables.html">Official Guide</a> --- <a href="https://developer.android.com/training/wearables/notifications/index.html">1. Adding Wearable Features to Notifications</a></h2>
 
 <!--more-->
 
@@ -323,7 +323,7 @@
 </pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">compile</span> <span class="s">&quot;com.android.support:support-v4:20.0.+&quot;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p><figure class='code'><figcaption><span>in activity || fragment ||&#8230; </span></figcaption>
+<p><figure class='code'><figcaption><span>in activity || fragment ||... </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -432,11 +432,11 @@
 
 <p>A great multi-purpose tool for Android apps, way of triggering some events in separate Activity, Fragment, Service etc. EventBus, origin of that project or Otto.</p></blockquote>
 
-<p>if you&#8217;re already familiar with <a href="https://github.com/greenrobot/EventBus">Android EventBus</a>, it works just in the same pattern, syncing data between wear and handhelds like a boss.</p>
+<p>if you're already familiar with <a href="https://github.com/greenrobot/EventBus">Android EventBus</a>, it works just in the same pattern, syncing data between wear and handhelds like a boss.</p>
 
 <h3>2. <a href="https://github.com/tajchert/ExceptionWear">ExceptionWear - library for handling Exceptions on Android Wear</a></h3>
 
-<blockquote><p><strong>ExceptionWear</strong> <img alt="exclamation" src="/images/emoji/unicode/2757.png" class="emoji" /><img alt="watch" src="/images/emoji/unicode/231a.png" class="emoji" /> is very simple library to solve problem of not <strong>passing</strong> exceptions from Android Wear <strong>devices</strong> to the <strong>phone</strong>. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won&#8217;t get any information about it (sic!).</p></blockquote>
+<blockquote><p><strong>ExceptionWear</strong> <img alt="exclamation" src="/images/emoji/unicode/2757.png" class="emoji" /><img alt="watch" src="/images/emoji/unicode/231a.png" class="emoji" /> is very simple library to solve problem of not <strong>passing</strong> exceptions from Android Wear <strong>devices</strong> to the <strong>phone</strong>. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won't get any information about it (sic!).</p></blockquote>
 ]]></content>
   </entry>
   
@@ -471,7 +471,7 @@
 
 <h6><img alt="cry" src="/images/emoji/unicode/1f622.png" class="emoji" /></h6>
 
-<p>Noticed a weird crash related with Android TTS, which I didn&#8217;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
+<p>Noticed a weird crash related with Android TTS, which I didn't wish to use, when I tried to initial or destroy a webview loaded from XML file.
 Here is the console output:</p>
 
 <p><figure class='code'><figcaption><span>Console Out Put </span></figcaption>

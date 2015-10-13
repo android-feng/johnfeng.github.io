@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Moto360 | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/moto360/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-09-16T23:55:57+08:00</updated>
+  <updated>2015-10-13T11:13:58+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -18,13 +18,13 @@
     <link href="http://johnfeng.github.io/blog/2015/03/04/learn-android-wear-development-0/"/>
     <updated>2015-03-04T11:31:11+08:00</updated>
     <id>http://johnfeng.github.io/blog/2015/03/04/learn-android-wear-development-0</id>
-    <content type="html"><![CDATA[<blockquote><p>Through the first couple days with my Moto360 , I quickly fall in love with the <a href="https://www.android.com/wear/">Android Wear</a> system. It doesn&#8217;t only look fancy , but indeed the combination of the Modern Tech &amp; Art as well . Thus, I wanna start a small Android Wear project following days in order to learn more about this wonderful platform and try to be familiar with it.</p></blockquote>
+    <content type="html"><![CDATA[<blockquote><p>Through the first couple days with my Moto360 , I quickly fall in love with the <a href="https://www.android.com/wear/">Android Wear</a> system. It doesn't only look fancy , but indeed the combination of the Modern Tech &amp; Art as well . Thus, I wanna start a small Android Wear project following days in order to learn more about this wonderful platform and try to be familiar with it.</p></blockquote>
 
-<p>First thing first, Let&#8217;s go thought the official dev guide.</p>
+<p>First thing first, Let's go thought the official dev guide.</p>
 
 <hr />
 
-<h2><a href="https://developer.android.com/training/building-wearables.html">Official Guide</a> &#8212; <a href="https://developer.android.com/training/wearables/notifications/index.html">1. Adding Wearable Features to Notifications</a></h2>
+<h2><a href="https://developer.android.com/training/building-wearables.html">Official Guide</a> --- <a href="https://developer.android.com/training/wearables/notifications/index.html">1. Adding Wearable Features to Notifications</a></h2>
 
 <!--more-->
 
@@ -46,7 +46,7 @@
 </pre></td><td class='code'><pre><code class='java'><span class='line'> <span class="n">compile</span> <span class="s">&quot;com.android.support:support-v4:20.0.+&quot;</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p><figure class='code'><figcaption><span>in activity || fragment ||&#8230; </span></figcaption>
+<p><figure class='code'><figcaption><span>in activity || fragment ||... </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
 <span class='line-number'>2</span>
 <span class='line-number'>3</span>
@@ -155,11 +155,11 @@
 
 <p>A great multi-purpose tool for Android apps, way of triggering some events in separate Activity, Fragment, Service etc. EventBus, origin of that project or Otto.</p></blockquote>
 
-<p>if you&#8217;re already familiar with <a href="https://github.com/greenrobot/EventBus">Android EventBus</a>, it works just in the same pattern, syncing data between wear and handhelds like a boss.</p>
+<p>if you're already familiar with <a href="https://github.com/greenrobot/EventBus">Android EventBus</a>, it works just in the same pattern, syncing data between wear and handhelds like a boss.</p>
 
 <h3>2. <a href="https://github.com/tajchert/ExceptionWear">ExceptionWear - library for handling Exceptions on Android Wear</a></h3>
 
-<blockquote><p><strong>ExceptionWear</strong> <img alt="exclamation" src="/images/emoji/unicode/2757.png" class="emoji" /><img alt="watch" src="/images/emoji/unicode/231a.png" class="emoji" /> is very simple library to solve problem of not <strong>passing</strong> exceptions from Android Wear <strong>devices</strong> to the <strong>phone</strong>. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won&#8217;t get any information about it (sic!).</p></blockquote>
+<blockquote><p><strong>ExceptionWear</strong> <img alt="exclamation" src="/images/emoji/unicode/2757.png" class="emoji" /><img alt="watch" src="/images/emoji/unicode/231a.png" class="emoji" /> is very simple library to solve problem of not <strong>passing</strong> exceptions from Android Wear <strong>devices</strong> to the <strong>phone</strong>. So if you release an app for smartwatches to Google Play and it will crash (and it will) you won't get any information about it (sic!).</p></blockquote>
 ]]></content>
   </entry>
   

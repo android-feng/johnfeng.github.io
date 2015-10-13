@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Anroid | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/anroid/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-09-16T23:55:57+08:00</updated>
+  <updated>2015-10-13T11:13:58+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -21,7 +21,7 @@
     <content type="html"><![CDATA[<h3> Problem </h3>
 
 
-<p>I created a new Github project with .gitignore file downloaded from <strong><a href="https://www.gitignore.io/">.gitignore.io</a></strong>. And every time I wanna make my commits, I found that the .idea/workspace.xml file&#8217;s changes keep popping up.</p>
+<p>I created a new Github project with .gitignore file downloaded from <strong><a href="https://www.gitignore.io/">.gitignore.io</a></strong>. And every time I wanna make my commits, I found that the .idea/workspace.xml file's changes keep popping up.</p>
 
 <p>
   <strong>Here is my .gitignore file <span style=" font-style:italic">(I am pretty sure it works fine)</span>:</strong>
@@ -268,7 +268,7 @@
     <id>http://johnfeng.github.io/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body</id>
     <content type="html"><![CDATA[<h2>Problem</h2>
 
-<p>The <a href="https://github.com/square/okhttp">OkHttp</a> lib has been updated to 2.4.0 in late May , it has been a long time since last version 2.4.0 RC released in mid March with a lot of <a href="https://github.com/square/okhttp/blob/master/CHANGELOG.md">changes</a>. And one thing affects my projects most is the POST requests&#8217; limitation.</p>
+<p>The <a href="https://github.com/square/okhttp">OkHttp</a> lib has been updated to 2.4.0 in late May , it has been a long time since last version 2.4.0 RC released in mid March with a lot of <a href="https://github.com/square/okhttp/blob/master/CHANGELOG.md">changes</a>. And one thing affects my projects most is the POST requests' limitation.</p>
 
 <!--more-->
 
@@ -317,13 +317,13 @@
 </span><span class='line'>    <span class="o">}</span>
 </span></code></pre></td></tr></table></div></figure></p>
 
-<p>Since in our projects, lots of POST request are created with null body , eg : <strong>likeObject</strong> requests and <strong>commentObject</strong> requests. Usually we add these parameters , without any Personally identifiable information, directly append the request url , instead of into the Map entities in request forms , where they should be. And from 2.4.0, these will lead to compile error says <strong><em>&#8220;POST methods must have a request body&#8221;</em></strong> or get NPE <strong><em>&#8220;invoke length method on a null object&#8221;</em></strong></p>
+<p>Since in our projects, lots of POST request are created with null body , eg : <strong>likeObject</strong> requests and <strong>commentObject</strong> requests. Usually we add these parameters , without any Personally identifiable information, directly append the request url , instead of into the Map entities in request forms , where they should be. And from 2.4.0, these will lead to compile error says <strong><em>"POST methods must have a request body"</em></strong> or get NPE <strong><em>"invoke length method on a null object"</em></strong></p>
 
 <h2>Fix</h2>
 
-<p>Since we don&#8217;t time to fix every single API with null body , we build a method to avoid this error. Inside of request&#8217;s init class, we override the <strong>getBody()</strong> method of the BaseAPIRequest, which extends ApiGsonRequest&lt; T> class created from Volley and Gson libs, to return a Byte[0] when request get null body. It looks different from official suggestion, but write once , fix all .</p>
+<p>Since we don't time to fix every single API with null body , we build a method to avoid this error. Inside of request's init class, we override the <strong>getBody()</strong> method of the BaseAPIRequest, which extends ApiGsonRequest&lt; T> class created from Volley and Gson libs, to return a Byte[0] when request get null body. It looks different from official suggestion, but write once , fix all .</p>
 
-<blockquote><p><em>Just inside the smallest project we have , over 40 API requests have been created, that&#8217;s why we really don&#8217;t have time to fix them one by one or add a meaningless parameter to each null POST request to avoid this error.</em></p></blockquote>
+<blockquote><p><em>Just inside the smallest project we have , over 40 API requests have been created, that's why we really don't have time to fix them one by one or add a meaningless parameter to each null POST request to avoid this error.</em></p></blockquote>
 
 <p>the final code should be like :</p>
 

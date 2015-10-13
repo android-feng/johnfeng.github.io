@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Issue | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/issue/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-09-16T23:55:57+08:00</updated>
+  <updated>2015-10-13T11:13:58+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -24,7 +24,7 @@
 
 <h6><img alt="cry" src="/images/emoji/unicode/1f622.png" class="emoji" /></h6>
 
-<p>Noticed a weird crash related with Android TTS, which I didn&#8217;t wish to use, when I tried to initial or destroy a webview loaded from XML file.
+<p>Noticed a weird crash related with Android TTS, which I didn't wish to use, when I tried to initial or destroy a webview loaded from XML file.
 Here is the console output:</p>
 
 <p><figure class='code'><figcaption><span>Console Out Put </span></figcaption>

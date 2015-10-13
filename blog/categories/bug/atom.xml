@@ -4,7 +4,7 @@
   <title><![CDATA[Category: Bug | John Feng's Blog]]></title>
   <link href="http://johnfeng.github.io/blog/categories/bug/atom.xml" rel="self"/>
   <link href="http://johnfeng.github.io/"/>
-  <updated>2015-09-16T23:55:57+08:00</updated>
+  <updated>2015-10-13T11:13:58+08:00</updated>
   <id>http://johnfeng.github.io/</id>
   <author>
     <name><![CDATA[Guangwei Feng]]></name>
@@ -20,7 +20,7 @@
     <id>http://johnfeng.github.io/blog/2015/05/31/fragment-activity-has-been-destoryed-problem</id>
     <content type="html"><![CDATA[<h3>[Bug]</h3>
 
-<p>When fixing projects&#8217; bugs, I found a really wired one with error info shown as below:</p>
+<p>When fixing projects' bugs, I found a really wired one with error info shown as below:</p>
 
 <p><figure class='code'><figcaption><span>Error Info </span></figcaption>
 <div class="highlight"><table><tr><td class="gutter"><pre class="line-numbers"><span class='line-number'>1</span>
@@ -78,24 +78,24 @@
 
 <h3>[Situation]</h3>
 
-<p>The situation is : I tried to put a viewpager with a fragmentAdapter inside of another fragment, which is inside of a activity. And I tested these code on my Nexus5(5.1.1), they worked like a charm .And so did on our QA&#8217;s phones.</p>
+<p>The situation is : I tried to put a viewpager with a fragmentAdapter inside of another fragment, which is inside of a activity. And I tested these code on my Nexus5(5.1.1), they worked like a charm .And so did on our QA's phones.</p>
 
-<p>But this morning , when I was &#8216;enjoying&#8217; my regular online-app-running-data reading work, I found this crash happened over 150 times and continuely growing. I tried every method I could get, including the nest-fragments crashes we usually easy to get, and after a few searching on Internet, I concluded this result: &#8220;It&#8217;s Google&#8217;s mistake.&#8221;</p>
+<p>But this morning , when I was 'enjoying' my regular online-app-running-data reading work, I found this crash happened over 150 times and continuely growing. I tried every method I could get, including the nest-fragments crashes we usually easy to get, and after a few searching on Internet, I concluded this result: "It's Google's mistake."</p>
 
 <h3>[Reason]</h3>
 
-<p>In Google&#8217;s Android Source Code, something wierd found like this:</p>
+<p>In Google's Android Source Code, something wierd found like this:</p>
 
 <p><a href="http://grepcode.com/file_/repository.grepcode.com/java/ext/com.google.android/android/5.0.0_r1/android/support/v4/app/Fragment.java/?v=diff&amp;id2=4.4.4_r1#1223">Android Source Code</a></p>
 
 <pre><code class="java">mChildFragmentManager = null;
 </code></pre>
 
-<p>It means before 5.0.1, everytime a fragement invokes its onDestory or onDetach Method, its mChildFramentManager has never been reset. WOW. And I guess that&#8217;s the reason.</p>
+<p>It means before 5.0.1, everytime a fragement invokes its onDestory or onDetach Method, its mChildFramentManager has never been reset. WOW. And I guess that's the reason.</p>
 
 <p>What Marcus Forsell Stahre said on <a href="http://stackoverflow.com/questions/15207305/getting-the-error-java-lang-illegalstateexception-activity-has-been-destroyed">StackOverflow</a>:</p>
 
-<blockquote><p>If you look at the implementation of Fragment, you&#8217;ll see that when moving to the detached state, it&#8217;ll reset its internal state. However, it doesn&#8217;t reset mChildFragmentManager (this is a bug in the current version of the support library). This causes it to not reattach the child fragment manager when the Fragment is reattached, causing the exception you saw.</p></blockquote>
+<blockquote><p>If you look at the implementation of Fragment, you'll see that when moving to the detached state, it'll reset its internal state. However, it doesn't reset mChildFragmentManager (this is a bug in the current version of the support library). This causes it to not reattach the child fragment manager when the Fragment is reattached, causing the exception you saw.</p></blockquote>
 
 <p>And I also found a <a href="https://code.google.com/p/android/issues/detail?id=42601">Google Issue</a> for this problem.</p>
 
