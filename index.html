@@ -3,106 +3,156 @@
 <!--[if IEMobile 7 ]><html class="no-js iem7"><![endif]-->
 <!--[if lt IE 9]><html class="no-js lte-ie8"><![endif]-->
 <!--[if (gt IE 8)|(gt IEMobile 7)|!(IEMobile)|!(IE)]><!--><html class="no-js" lang="en"><!--<![endif]-->
+
 <head>
-  <meta charset="utf-8">
-  <title>John Feng's Blog</title>
-  <meta name="author" content="Guangwei Feng">
+
+
+<meta charset="utf-8">
+<meta http-equiv="cleartype" content="on">
+
+<title>A Tech Blog by Jake Zimmerman - John Feng's Blog</title>
+<meta name="author" content="Guangwei Feng">
+
+
+
+
+<meta name="description" content="A tech blog by Jake Zimmerman. Updates occaisonally with tips, tricks, and hacks that have helped me out.">
+
+<meta name="keywords" content="Jekyll theme themes responsive blog modern tech hacks ">
+
+
+<!-- http://t.co/dKP3o1e -->
+<meta name="HandheldFriendly" content="True">
+<meta name="MobileOptimized" content="320">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<!-- Twitter Cards -->
 
   
-  <meta name="description" content="layout: post title: "Android RelativeLayout's Bug -- for devices' API lower than 17" date: 2015-10-12 18:19:04 +0800 comments: true share: true &hellip;">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:image" content="/images/threaded-blue-on-black-cropped.jpg"
   
+  <meta name="twitter:title" content="A Tech Blog by Jake Zimmerman">
+  <meta name="twitter:description" content="A tech blog by Jake Zimmerman. Updates occaisonally with tips, tricks, and hacks that have helped me out.">
+  <meta name="twitter:creator" content="@GuangweiFeng">
 
-  <!-- http://t.co/dKP3o1e -->
-  <meta name="HandheldFriendly" content="True">
-  <meta name="MobileOptimized" content="320">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  
-  <link rel="canonical" href="http://johnfeng.github.io/">
-  <link href="/favicon.png" rel="icon">
-  <link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
-  <link href="/atom.xml" rel="alternate" title="John Feng's Blog" type="application/atom+xml">
-  <script src="/javascripts/modernizr-2.0.js"></script>
-  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
-  <script>!window.jQuery && document.write(unescape('%3Cscript src="/javascripts/libs/jquery.min.js"%3E%3C/script%3E'))</script>
-  <script src="/javascripts/octopress.js" type="text/javascript"></script>
-  <!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
+<!-- Open Graph -->
+<meta property="og:local" content="en_US">
+<meta property="og:type" content="article">
+<meta property="og:url" content="http://johnfeng.github.io">
+<meta property="og:title" content="A Tech Blog by Jake Zimmerman">
+<meta property="og:description" content="A tech blog by Jake Zimmerman. Updates occaisonally with tips, tricks, and hacks that have helped me out.">
+
+  <meta property="og:image" content="/images/threaded-blue-on-black-cropped.jpg">
+
+<meta property="og:site_name" content="John Feng's Blog">
+
+<link rel="canonical" href="http://johnfeng.github.io">
+<link href="/favicon.png" rel="icon">
+<link href="/stylesheets/screen.css" media="screen, projection" rel="stylesheet" type="text/css">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="/atom.xml" rel="alternate" title="John Feng's Blog" type="application/atom+xml">
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.6.2/modernizr.min.js"></script>
+<script>Modernizr || document.write('<script src="/javascripts/vendor/modernizr-2.6.2.custom.min.js"><\/script>') </script>
+
+
+
+<!--Fonts from Google"s Web font directory at http://google.com/webfonts -->
 <link href="//fonts.googleapis.com/css?family=PT+Serif:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
 <link href="//fonts.googleapis.com/css?family=PT+Sans:regular,italic,bold,bolditalic" rel="stylesheet" type="text/css">
-
-  
-  <script type="text/javascript">
-    var _gaq = _gaq || [];
-    _gaq.push(['_setAccount', 'UA-59729566-1']);
-    _gaq.push(['_trackPageview']);
-
-    (function() {
-      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-    })();
-  </script>
 
 
 </head>
 
-<body   >
-  <header role="banner"><hgroup>
-  <h1><a href="/">John Feng's Blog</a></h1>
+<body id="post-index" class="feature">
+  <!--[if lt IE 9]><div class="upgrade"><strong><a href="http://whatbrowser.org/">Your browser is quite old!</strong> Why not upgrade to a different browser to better enjoy this site?</a></div><![endif]-->
+  <nav id="dl-menu" class="dl-menuwrapper" role="navigation">
+	<button class="dl-trigger">Open Menu</button>
+	<ul class="dl-menu">
+		<li><a href="/">Home</a></li>
+		<li>
+			<a href="#">About</a>
+			<ul class="dl-submenu">
+				<li>
+					<img src="/images/avatar.jpeg" alt="Guangwei Feng photo" class="author-photo">
+					<h4>Guangwei Feng</h4>
+					<p>遥望远方...</p>
+				</li>
+				
+				<li>
+					<a href="mailto:fengguangwei.007@gmail.com"><i class="fa fa-envelope"></i> Email</a>
+				</li>
+				<li>
+					<a href="https://twitter.com/GuangweiFeng"><i class="fa fa-twitter"></i> Twitter</a>
+				</li>
+				<li>
+					<a href="https://plus.google.com/+GuangweiJohnFeng"><i class="fa fa-google-plus"></i> Google+</a>
+				</li>
+				<li>
+					<a href="https://github.com/JohnFeng"><i class="fa fa-github"></i> GitHub</a>
+				</li>
+			</ul><!-- /.dl-submenu -->
+		</li>
+		<li>
+			<a href="#">Posts</a>
+			<ul class="dl-submenu">
+				<li><a href="/posts/">All Posts</a></li>
+				<li><a href="/categories/">All Categories</a></li>
+			</ul>
+		</li>
+		
+	</ul><!-- /.dl-menu -->
+</nav><!-- /.dl-menuwrapper -->
+
+
+  <div class="entry-header">
+    
+    
+      <div class="entry-image">
+        <img src="/images/threaded-blue-on-black-cropped.jpg" alt="A Tech Blog by Jake Zimmerman">
+      </div><!-- /.entry-image -->
+    
+    <div class="header-title">
+      <div class="header-title-wrap">
+        <h1>John Feng's Blog</h1>
+        <h2>Riders On The Storm</h2>
+      </div><!-- /.header-title-wrap -->
+    </div><!-- /.header-title -->
+  </div><!-- /.entry-header -->
+
+  <div id="main" role="main">
+    
+
+<article class="hentry">
   
-    <h2>Riders On The Storm</h2>
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-10-12T00:00:00+08:00">
+        <a href="/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/">October 12, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+  </div><!-- /.entry-meta -->
   
-</hgroup>
+    <h1 class="entry-title">
+      <a href="/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/" rel="bookmark" title="Android Relativelayouts Bug for Devices Api Lower Than 17" itemprop="url">Android Relativelayouts Bug for Devices Api Lower Than 17</a>
+    </h1>
+  
 </header>
-  <nav role="navigation"><ul class="subscription" data-subscription="rss">
-  <li><a href="/atom.xml" rel="subscribe-rss" title="subscribe via RSS">RSS</a></li>
-  
-</ul>
-  
-<form action="https://www.google.com/search" method="get">
-  <fieldset role="search">
-    <input type="hidden" name="sitesearch" value="johnfeng.github.io">
-    <input class="search" type="text" name="q" results="0" placeholder="Search"/>
-  </fieldset>
-</form>
-  
-<ul class="main-navigation">
-  <li><a href="/">Blog</a></li>
-  <form class="search" action="http://google.com/search" method="get">
-		<input class="alignright" type="text" name="q" results="0">
-		<input type="hidden" name="q" value="site:johnfeng.github.io">
-  </form>
-  <li><a href="/blog/archives">Archives</a></li>
-</ul>
 
-</nav>
-  <div id="main">
-    <div id="content">
-      <div class="blog-index">
-  
-  
-  
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/">Android Relativelayouts Bug for Devices Api Lower Than 17</a></h1>
-    
-    
-      <p class="meta">
-        
-
-
-
-
-<time class='entry-date' datetime='2015-10-12T00:00:00+08:00'><span class='date'><span class='date-month'>Oct</span> <span class='date-day'>12</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:00 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><hr />
+<div class="entry-content">
+  <hr />
 
 <p>layout: post title: "Android RelativeLayout's Bug -- for devices' API lower than 17" date: 2015-10-12 18:19:04 +0800 comments: true share: true</p>
 
@@ -206,39 +256,53 @@
 
 
 
-</div>
+
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/">Read on &rarr;</a>
+      <a class="btn" rel="full-article" href="/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/">Read on &rarr;</a>
     </footer>
   
+</div><!-- /.entry-content -->
 
 
-    </article>
+
+
+
+</article><!-- /.hentry -->
+
+<article class="hentry">
   
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-08-30T23:36:07+08:00">
+        <a href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/">August 30, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+      &nbsp; &bull; &nbsp;<span class="entry-comments">
+        <a href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/#disqus_thread">Comment</a>
+      </span>
+    
+  </div><!-- /.entry-meta -->
   
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/">Cannot Ignore .idea/workspace.xml - Keeps Popping Up</a></h1>
-    
-    
-      <p class="meta">
-        
+    <h1 class="entry-title">
+      <a href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/" rel="bookmark" title="Cannot Ignore .idea/workspace.xml - Keeps Popping Up" itemprop="url">Cannot Ignore .idea/workspace.xml - Keeps Popping Up</a>
+    </h1>
+  
+</header>
 
-
-
-
-<time class='entry-date' datetime='2015-08-30T23:36:07+08:00'><span class='date'><span class='date-month'>Aug</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:36 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3> Problem </h3>
+<div class="entry-content">
+  <h3> Problem </h3>
 
 
 <p>I created a new Github project with .gitignore file downloaded from <strong><a href="https://www.gitignore.io/">.gitignore.io</a></strong>. And every time I wanna make my commits, I found that the .idea/workspace.xml file's changes keep popping up.</p>
@@ -250,75 +314,103 @@
 
 
 
-</div>
+
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/">Read on &rarr;</a>
+      <a class="btn" rel="full-article" href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/">Read on &rarr;</a>
     </footer>
   
+</div><!-- /.entry-content -->
 
 
-    </article>
+
+
+
+</article><!-- /.hentry -->
+
+<article class="hentry">
   
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-06-30T22:42:48+08:00">
+        <a href="/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/">June 30, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+      &nbsp; &bull; &nbsp;<span class="entry-comments">
+        <a href="/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/#disqus_thread">Comment</a>
+      </span>
+    
+  </div><!-- /.entry-meta -->
   
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/">okHttp Updates: POST Wouldn't Be Allowed to Have Null Body</a></h1>
-    
-    
-      <p class="meta">
-        
+    <h1 class="entry-title">
+      <a href="/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/" rel="bookmark" title="okHttp Updates: POST Wouldn't Be Allowed to Have Null Body" itemprop="url">okHttp Updates: POST Wouldn't Be Allowed to Have Null Body</a>
+    </h1>
+  
+</header>
 
-
-
-
-<time class='entry-date' datetime='2015-06-30T22:42:48+08:00'><span class='date'><span class='date-month'>Jun</span> <span class='date-day'>30</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>10:42 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>Problem</h2>
+<div class="entry-content">
+  <h2>Problem</h2>
 
 <p>The <a href="https://github.com/square/okhttp">OkHttp</a> lib has been updated to 2.4.0 in late May , it has been a long time since last version 2.4.0 RC released in mid March with a lot of <a href="https://github.com/square/okhttp/blob/master/CHANGELOG.md">changes</a>. And one thing affects my projects most is the POST requests' limitation.</p>
 
-</div>
+
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/">Read on &rarr;</a>
+      <a class="btn" rel="full-article" href="/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/">Read on &rarr;</a>
     </footer>
   
+</div><!-- /.entry-content -->
 
 
-    </article>
+
+
+
+</article><!-- /.hentry -->
+
+<article class="hentry">
   
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-05-31T23:40:18+08:00">
+        <a href="/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/">May 31, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+      &nbsp; &bull; &nbsp;<span class="entry-comments">
+        <a href="/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/#disqus_thread">Comment</a>
+      </span>
+    
+  </div><!-- /.entry-meta -->
   
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/">Fragment - Activity Has Been Destoryed Problem</a></h1>
-    
-    
-      <p class="meta">
-        
+    <h1 class="entry-title">
+      <a href="/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/" rel="bookmark" title="Fragment - Activity Has Been Destoryed Problem" itemprop="url">Fragment - Activity Has Been Destoryed Problem</a>
+    </h1>
+  
+</header>
 
-
-
-
-<time class='entry-date' datetime='2015-05-31T23:40:18+08:00'><span class='date'><span class='date-month'>May</span> <span class='date-day'>31</span><span class='date-suffix'>st</span>, <span class='date-year'>2015</span></span> <span class='time'>11:40 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h3>[Bug]</h3>
+<div class="entry-content">
+  <h3>[Bug]</h3>
 
 <p>When fixing projects' bugs, I found a really wired one with error info shown as below:</p>
 
@@ -374,39 +466,53 @@
 
 
 
-</div>
+
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/">Read on &rarr;</a>
+      <a class="btn" rel="full-article" href="/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/">Read on &rarr;</a>
     </footer>
   
+</div><!-- /.entry-content -->
 
 
-    </article>
+
+
+
+</article><!-- /.hentry -->
+
+<article class="hentry">
   
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-03-05T12:09:24+08:00">
+        <a href="/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/">March 05, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+      &nbsp; &bull; &nbsp;<span class="entry-comments">
+        <a href="/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/#disqus_thread">Comment</a>
+      </span>
+    
+  </div><!-- /.entry-meta -->
   
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/">Learn Android Wear Developemnt - 1. Create a Wear Project and Debug on Real Devices</a></h1>
-    
-    
-      <p class="meta">
-        
+    <h1 class="entry-title">
+      <a href="/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/" rel="bookmark" title="Learn Android Wear Developemnt - 1. Create a Wear Project and Debug on Real Devices" itemprop="url">Learn Android Wear Developemnt - 1. Create a Wear Project and Debug on Real Devices</a>
+    </h1>
+  
+</header>
 
-
-
-
-<time class='entry-date' datetime='2015-03-05T12:09:24+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>5</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>12:09 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><h2>1. Create a new Project</h2>
+<div class="entry-content">
+  <h2>1. Create a new Project</h2>
 
 <p>It's quite easy when you wanna create a new Android wear project using Android studio. All you need is just hit the new project and choose the "Android wear" label.</p>
 
@@ -419,39 +525,53 @@
 
 <p>This project contains two modules: Mobile &amp; Wear. And Wear module should be wrapped inside the gradle file of the Mobile Module.</p>
 
-</div>
+
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/">Read on &rarr;</a>
+      <a class="btn" rel="full-article" href="/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/">Read on &rarr;</a>
     </footer>
   
+</div><!-- /.entry-content -->
 
 
-    </article>
+
+
+
+</article><!-- /.hentry -->
+
+<article class="hentry">
   
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-03-04T11:31:11+08:00">
+        <a href="/blog/2015/03/04/learn-android-wear-development-0/">March 04, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+      &nbsp; &bull; &nbsp;<span class="entry-comments">
+        <a href="/blog/2015/03/04/learn-android-wear-development-0/#disqus_thread">Comment</a>
+      </span>
+    
+  </div><!-- /.entry-meta -->
   
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/04/learn-android-wear-development-0/">Learn Android Wear Development - 0</a></h1>
-    
-    
-      <p class="meta">
-        
+    <h1 class="entry-title">
+      <a href="/blog/2015/03/04/learn-android-wear-development-0/" rel="bookmark" title="Learn Android Wear Development - 0" itemprop="url">Learn Android Wear Development - 0</a>
+    </h1>
+  
+</header>
 
-
-
-
-<time class='entry-date' datetime='2015-03-04T11:31:11+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>4</span><span class='date-suffix'>th</span>, <span class='date-year'>2015</span></span> <span class='time'>11:31 am</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><blockquote><p>Through the first couple days with my Moto360 , I quickly fall in love with the <a href="https://www.android.com/wear/">Android Wear</a> system. It doesn't only look fancy , but indeed the combination of the Modern Tech &amp; Art as well . Thus, I wanna start a small Android Wear project following days in order to learn more about this wonderful platform and try to be familiar with it.</p></blockquote>
+<div class="entry-content">
+  <blockquote><p>Through the first couple days with my Moto360 , I quickly fall in love with the <a href="https://www.android.com/wear/">Android Wear</a> system. It doesn't only look fancy , but indeed the combination of the Modern Tech &amp; Art as well . Thus, I wanna start a small Android Wear project following days in order to learn more about this wonderful platform and try to be familiar with it.</p></blockquote>
 
 <p>First thing first, Let's go thought the official dev guide.</p>
 
@@ -459,198 +579,110 @@
 
 <h2><a href="https://developer.android.com/training/building-wearables.html">Official Guide</a> --- <a href="https://developer.android.com/training/wearables/notifications/index.html">1. Adding Wearable Features to Notifications</a></h2>
 
-</div>
+
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/03/04/learn-android-wear-development-0/">Read on &rarr;</a>
+      <a class="btn" rel="full-article" href="/blog/2015/03/04/learn-android-wear-development-0/">Read on &rarr;</a>
     </footer>
   
+</div><!-- /.entry-content -->
 
 
-    </article>
+
+
+
+</article><!-- /.hentry -->
+
+<article class="hentry">
   
+
+
+
+<header>
+  <div class="entry-meta">
+    <span class="entry-date date published updated">
+      <time datetime="2015-03-03T12:26:35+08:00">
+        <a href="/blog/2015/03/03/first-glance-at-moto360/">March 03, 2015</a>
+      </time>
+    </span>
+    <span class="author vcard">
+      <span class="fn">
+        <a href="" title="About Guangwei Feng">Guangwei Feng</a>
+      </span>
+    </span>
+    
+      &nbsp; &bull; &nbsp;<span class="entry-comments">
+        <a href="/blog/2015/03/03/first-glance-at-moto360/#disqus_thread">Comment</a>
+      </span>
+    
+  </div><!-- /.entry-meta -->
   
-    <article>
-      
-  <header>
-    
-      <h1 class="entry-title"><a href="/blog/2015/03/03/first-glance-at-moto360/">First Glance at Moto360</a></h1>
-    
-    
-      <p class="meta">
-        
+    <h1 class="entry-title">
+      <a href="/blog/2015/03/03/first-glance-at-moto360/" rel="bookmark" title="First Glance at Moto360" itemprop="url">First Glance at Moto360</a>
+    </h1>
+  
+</header>
 
-
-
-
-<time class='entry-date' datetime='2015-03-03T12:26:35+08:00'><span class='date'><span class='date-month'>Mar</span> <span class='date-day'>3</span><span class='date-suffix'>rd</span>, <span class='date-year'>2015</span></span> <span class='time'>12:26 pm</span></time>
-        
-      </p>
-    
-  </header>
-
-
-  <div class="entry-content"><p>Check out my brand new Moto360. LOL . So Gorgeous!!!</p>
+<div class="entry-content">
+  <p>Check out my brand new Moto360. LOL . So Gorgeous!!!</p>
 
 <p><img class="align=center" src="https://github.com/JohnFeng/johnfeng.github.io/blob/master/images/post/2015-03-03/moto360.jpg?raw=true" width="400" height="400" title="[moto360]" ></p>
 
-</div>
+
   
   
     <footer>
-      <a rel="full-article" href="/blog/2015/03/03/first-glance-at-moto360/">Read on &rarr;</a>
+      <a class="btn" rel="full-article" href="/blog/2015/03/03/first-glance-at-moto360/">Read on &rarr;</a>
     </footer>
   
+</div><!-- /.entry-content -->
 
 
-    </article>
+
+
+
+</article><!-- /.hentry -->
+
+
+<div class="pagination">
   
-  <div class="pagination">
-    
-      <a class="prev" href="/posts/2">&larr; Older</a>
-    
-    <a href="/blog/archives">Blog Archives</a>
-    
-  </div>
-</div>
-<aside class="sidebar">
+  <a href="/archives">Blog Archives</a>
   
-    <section>
-  <h1>Recent Posts</h1>
-  <ul id="recent_posts">
-    
-      <li class="post">
-        <a href="/blog/2015/10/12/android-relativelayouts-bug-for-devices-api-lower-than-17/">Android Relativelayouts Bug for Devices Api Lower Than 17</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/08/30/cannot-ignore-idea-slash-workspace-dot-xml-keeps-popping-up/">Cannot Ignore .idea/workspace.xml - Keeps Popping Up</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/06/30/okhttp-updates-post-wouldnt-be-allowed-to-have-null-body/">okHttp Updates: POST Wouldn't Be Allowed to Have Null Body</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/05/31/fragment-activity-has-been-destoryed-problem/">Fragment - Activity Has Been Destoryed Problem</a>
-      </li>
-    
-      <li class="post">
-        <a href="/blog/2015/03/05/learn-android-wear-developemnt-1-create-a-wear-project-and-debug-on-real-devices/">Learn Android Wear Developemnt - 1. Create a Wear Project and Debug on Real Devices</a>
-      </li>
-    
-  </ul>
-</section>
-
-<section>
-  <h1>GitHub Repos</h1>
-  <ul id="gh_repos">
-    <li class="loading">Status updating...</li>
-  </ul>
+    <a href="/posts/2" class="btn">Next</a>
   
-  <a href="https://github.com/JohnFeng">@JohnFeng</a> on GitHub
-  
-  <script type="text/javascript">
-    $(document).ready(function(){
-        if (!window.jXHR){
-            var jxhr = document.createElement('script');
-            jxhr.type = 'text/javascript';
-            jxhr.src = '/javascripts/libs/jXHR.js';
-            var s = document.getElementsByTagName('script')[0];
-            s.parentNode.insertBefore(jxhr, s);
-        }
+</div><!-- /.pagination -->
 
-        github.showRepos({
-            user: 'JohnFeng',
-            count: 5,
-            skip_forks: true,
-            target: '#gh_repos'
-        });
-    });
-  </script>
-  <script src="/javascripts/github.js" type="text/javascript"> </script>
-</section>
+  </div><!-- /#main -->
 
+  <div class="footer-wrapper">
+    <footer role="contentinfo">
+      <span>&copy; 2015 Guangwei Feng. Powered by <a href="http://octopress.org">Octopress</a> using the <a href="https://github.com/jez/hpstr-theme/">HPSTR Theme for Octopress</a>.</span>
 
+    </footer>
+  </div><!-- /.footer-wrapper -->
 
-<section class="googleplus">
-  <h1>
-    <a href="https://plus.google.com/+GuangweiJohnFeng?rel=author">
-      <img src="http://www.google.com/images/icons/ui/gprofile_button-32.png" width="32" height="32">
-      Google+
-    </a>
-  </h1>
-</section>
-
-
-Included file 'custom/asides/calendar.html' not found in _includes directoryIncluded file 'custom/asides/post/sharing.html' not found in _includes directory
-  
-</aside>
-
-    </div>
-  </div>
-  <footer role="contentinfo"><p>
-  Copyright &copy; 2015 - Guangwei Feng -
-  <!--><span class="credit">Powered by <a href="http://octopress.org">Octopress</a></span> -->
-</p>
-
-</footer>
-  
-
-<script type="text/javascript">
-      var disqus_shortname = 'guangweijohnfengsblog';
-      
-        
-        var disqus_script = 'count.js';
-      
-    (function () {
-      var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
-      dsq.src = '//' + disqus_shortname + '.disqus.com/' + disqus_script;
-      (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
-    }());
-</script>
-
-
-
-<div id="fb-root"></div>
-<script>(function(d, s, id) {
-  var js, fjs = d.getElementsByTagName(s)[0];
-  if (d.getElementById(id)) {return;}
-  js = d.createElement(s); js.id = id; js.async = true;
-  js.src = "//connect.facebook.net/en_US/all.js#appId=212934732101925&xfbml=1";
-  fjs.parentNode.insertBefore(js, fjs);
-}(document, 'script', 'facebook-jssdk'));</script>
-
-
+  <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script>window.jQuery || document.write('<script src="/javascripts/vendor/jquery-1.9.1.min.js"><\/script>')</script>
+<script src="/javascripts/octopress.js" type="text/javascript"></script>
+<script src="/javascripts/scripts.min.js"></script>
 
   <script type="text/javascript">
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-59729566-1']);
+    _gaq.push(['_trackPageview']);
+
     (function() {
-      var script = document.createElement('script'); script.type = 'text/javascript'; script.async = true;
-      script.src = 'https://apis.google.com/js/plusone.js';
-      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(script, s);
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
     })();
   </script>
 
 
 
-  <script type="text/javascript">
-    (function(){
-      var twitterWidgets = document.createElement('script');
-      twitterWidgets.type = 'text/javascript';
-      twitterWidgets.async = true;
-      twitterWidgets.src = '//platform.twitter.com/widgets.js';
-      document.getElementsByTagName('head')[0].appendChild(twitterWidgets);
-    })();
-  </script>
-
-
-<footer class="entry-meta">
-        
-        
-</footer>
-
-
+          
+  
 
 </body>
 </html>
