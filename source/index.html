@@ -1,10 +1,11 @@
 ---
 layout: default
-title: A Tech Blog by John Feng
-categories: [Jekyll, theme, themes, responsive, blog, modern, tech, hacks]
-keywords: Jekyll theme themes responsive blog modern tech hacks
+title: Guangwei Feng's Tech Blog
+description: "A tech blog for Guangwei John Feng"
+categories: [Guangwei Feng Android Tech Blog]
+keywords: GuangweiFeng JohnFeng Android Blog Tech 
 image:
-  feature: /images/abstract-1.jpg
+  feature: /images/abstract-5.jpg
 ---
 
 {% assign index = true %}
@@ -22,13 +23,10 @@ image:
       <a href="{{ root_url }}{ paginator.previous_page_path }}" class="btn">Previous</a>
     {% endif %}
   {% endif %}
-  <a href="{{ root_url }}/archives">Archives</a>
   {% if paginator.next_page %}
     <a href="{{ root_url }}{{ paginator.next_page_path }}" class="btn">Next</a>
   {% endif %}
-  <hr align="center">
-  <form class="search" action="http://google.com/search" method="get">
-    <input class="alignright" type="text" name="q" results="0" placeholder="Search this Site">
-    <input type="hidden" name="q" value="site:johnfeng.github.io">
-  </form>
+  <br>
+  <a href="{{ root_url }}/archives">Blog Archives</a>
+
 </div><!-- /.pagination -->

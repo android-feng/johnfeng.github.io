@@ -2,6 +2,8 @@
 layout: page
 title: Blog Archive
 footer: false
+image:
+  feature: /images/abstract-8.jpg
 ---
 
 <div id="blog-archives">
@@ -9,8 +11,8 @@ footer: false
 {% capture this_year %}{{ post.date | date: "%Y" }}{% endcapture %}
 {% unless year == this_year %}
   {% assign year = this_year %}
-  <hr size="3" >
   <h2>{{ year }}</h2>
+  <hr/>
 {% endunless %}
 <article>
   {% include archive_post.html %}

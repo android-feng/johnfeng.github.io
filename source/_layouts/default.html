@@ -1,14 +1,6 @@
 {% include doctype.html %}
 <head>
 {% include head.html %}
-  <style>
-    #circle
-    {
-      border-radius:50% 50% 50% 50%;  
-      width:120px;
-      height:120px;
-    }
-  </style>
 </head>
 
 <body id="post-index" {% if page.image.feature %}class="feature"{% endif %}>
@@ -24,7 +16,6 @@
     {% endif %}
     <div class="header-title">
       <div class="header-title-wrap">
-        <img src="/images/avatar.jpeg" id="circle">
         <h1>{{ site.title }}</h1>
         <h2>{{ site.subtitle }}</h2>
       </div><!-- /.header-title-wrap -->
