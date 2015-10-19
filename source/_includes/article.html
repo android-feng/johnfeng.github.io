@@ -26,14 +26,14 @@ the index page or a normal post page.
     {% endif %}
   </div><!-- /.entry-meta -->
   {% if post.external_url %}
-    <h1 class="entry-title">
+    <h2 class="entry-title">
       <a href="{{ post.external_url }}" rel="bookmark" title="{{ titlecased }}"><i class="fa fa-external-link"></i></a> 
       <a href="{{ root_url }}{{ post.url }}">{{ titlecased }}</a>
-    </h1>
+    </h2>
   {% else %}
-    <h1 class="entry-title">
+    <h2 class="entry-title">
       <a href="{{ root_url }}{{ post.url }}" rel="bookmark" title="{{ titlecased }}" itemprop="url">{{ titlecased }}</a>
-    </h1>
+    </h2>
   {% endif %}
 </header>
 
